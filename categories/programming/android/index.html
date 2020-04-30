@@ -23,7 +23,7 @@
 <p><strong>즉 테마에 따라 colorAccent를 다르게 적용할 수 있음을 표현하는 것입니다.</strong> 꼭 인터페이스와 구현체의 관계와 비슷합니다. colorAccent라는 속성(인터페이스)은 서로 다른 테마(구현체)에서 다른 컬러로 표현될 수 있는 것입니다.</p>
 <h2 id="머티리얼-디자인에-포함된-주요-테마-속성">머티리얼 디자인에 포함된 주요 테마 속성</h2>
 <p>테마는 내가 직접 정의해서 사용할 수도 있고 안드로이드 플랫폼에 정의되어 바로 사용할 수 있는 것들도 있습니다. 아래 이미지는 롤리팝과 함께 머티리얼 디자인이 소개되면서 많이 쓰인 이미지입니다.</p>
-<p><img src="/assets/img/android_theming/material_theme_attrs_.png" alt="Material theme attributes"></p>
+<p><img src="/assets/img/android_theming/material_theme_attrs.png" alt="Material theme attributes"></p>
 <p>위에 보이는 <code>colorPrimary</code>, <code>textColorPrimary</code>, <code>colorPrimaryDark</code>, <code>windowBackground</code>, <code>navigationBarColor</code>와 같은 속성들은 머티리얼 테마(Material Theme)에 미리 정의된 것으로 보시는 것처럼 시스템 UI에 미리 사용되고 있고 앱에서 얼마든지 이를 재정의(Override)해서 사용이 가능합니다. 즉 앱에서 사용하는 테마에서 colorPrimaryDark를 노란색으로 적용하면 위에 위에 그림에 있는 상태바(Status bar)의 색은 노란색으로 변경될 것입니다.</p>
 <p>그렇다면 이게 어떻게 가능할까요? 바로 안드로이드도 플랫폼에서 상태바의 색상에 특정 컬러를 하드코딩 한게 아니라 colorPrimaryDark라는 테마의 속성을 참조하도록 해두었기 때문입니다.</p>
 <p>아래는 머티리얼 테마를 상속받아서 앱에서 직접 사용할 테마를 AppTheme라는 이름으로 선언해서 사용하는 예입니다. 아래 예에서 android:windowBackground나 android:windowActivityTransitions와 같은 속성은 안드로이드 프레임워크에 있는 테마이고, colorPrimary, colorPrimaryDark, colorAccent는 머티리얼 테마에 선언된 속성입니다.</p>
@@ -236,5 +236,5 @@ androidManifest.xml</li>
                 $('.justified-gallery').justifiedGallery();
             }
         });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(无标题)","posts":"포스트","pages":"页面","categories":"카테고리","tags":"태그"});
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(Untitled)","posts":"포스트","pages":"Pages","categories":"카테고리","tags":"태그"});
         });</script></body></html>
