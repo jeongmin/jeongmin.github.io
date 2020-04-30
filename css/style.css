@@ -412,7 +412,7 @@ button,
 input,
 select,
 textarea {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif;
+  font-family: 'NanumSquareRound', 'Helvetica Neue', sans-serif;
 }
 code,
 pre {
@@ -1057,13 +1057,13 @@ a.has-text-grey-lightest:focus {
   font-weight: 700 !important;
 }
 .is-family-primary {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'NanumSquareRound', 'Helvetica Neue', sans-serif !important;
 }
 .is-family-secondary {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'NanumSquareRound', 'Helvetica Neue', sans-serif !important;
 }
 .is-family-sans-serif {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'NanumSquareRound', 'Helvetica Neue', sans-serif !important;
 }
 .is-family-monospace {
   font-family: monospace !important;
@@ -10737,6 +10737,11 @@ article.media .media-content .title {
   margin: 0;
   line-height: inherit;
 }
+article.article .title {
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+}
 article.article .article-meta,
 article.article .article-tags {
   color: #7a7a7a;
@@ -10747,13 +10752,20 @@ article.article .article-meta {
 }
 article.article .content {
   word-wrap: break-word;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
+  line-height: 1.9em;
+  letter-spacing: -0.3px;
+  color: #5d686f;
+  margin-top: 20px;
 }
 article.article .content h1 {
-  font-size: 1.75em;
+  font-size: 1.9em;
+  font-weight: 600;
+  margin-top: 50px;
 }
 article.article .content h2 {
   font-size: 1.5em;
+  margin-top: 35px;
 }
 article.article .content h3 {
   font-size: 1.25em;
