@@ -3,284 +3,218 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'UA-76673008-2');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">홈</a><a class="navbar-item" href="/archives">보관함</a><a class="navbar-item" href="/categories">카테고리</a><a class="navbar-item" href="/tags">태그</a><a class="navbar-item" href="/about">소개</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">카테고리</a></li><li><a href="/categories/programming/">programming</a></li><li class="is-active"><a href="#" aria-current="page">android</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2017-10-07T15:00:00.000Z" title="2017-10-07T15:00:00.000Z">2017-10-08</time><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/android/">android</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/10/08/android/android-enum-intdef/">안드로이드 ENUM과 Typedef 어노테이션(Annotation)</a></h1><div class="content"><p>이 글은 ENUM 사용 시 주의할 점과 어노테이션을 통해 이를 보완할 수 있는 방법에 대해 정리한 글입니다.</p>
-<p>주로 참고한 자료는 유튜브 perfmatter 시리즈 중 <a href="https://youtu.be/Hzs6OBcvNQE">The price of ENUMs (100 Days of Google Dev)</a> 영상과 <a href="https://developer.android.com/studio/write/annotations.html">Improve Code Inspection with Annotations</a> 문서입니다.</p>
-<h2 id="안드로이드-앱-실행-시-메모리-할당">안드로이드 앱 실행 시 메모리 할당</h2>
-<p>ENUM 사용 시 주의점을 알기 전에 먼저 안드로이드 앱 실행 시 메모리가 어떻게 할당되는지 간단히 짚고 넘어가겠습니다.</p>
-<p>앱을 실행시키면 안드로이드는 시스템 메모리 곁에 앱을 위한 메모리를 할당합니다. 이렇게 할당된 메모리는 앱의 코드와 실행중에 동적으로 할당하는 메모리를 위해 사용됩니다. 여기서 앱의 코드는 안드로이드 앱을 빌드할 때 생성되는 DEX 파일입니다.</p>
-<p>아래는 <em>The price of ENUMs</em> 영상에서 캡쳐한 이미지입니다.</p>
-<p><img src="http://anitoy.pe.kr/assets/img/enum_typedef/android_memory_alloc.png" alt="Android Memory Allocation"></p>
-<h2 id="ENUM-사용-시-주의점">ENUM 사용 시 주의점</h2>
+        gtag('config', 'UA-76673008-2');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">홈</a><a class="navbar-item" href="/archives">보관함</a><a class="navbar-item" href="/categories">카테고리</a><a class="navbar-item" href="/tags">태그</a><a class="navbar-item" href="/about">소개</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">카테고리</a></li><li><a href="/categories/programming/">programming</a></li><li class="is-active"><a href="#" aria-current="page">android</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-03-07T15:00:00.000Z" title="2020-03-07T15:00:00.000Z">2020-03-08</time><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/android/">android</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a></h1><div class="content"><p>멋쟁이들은 계절이나 분위기에 따라 다양한 색의 옷으로 스스로를 표현합니다. 아름다운 자연도 계절에 따라 완전 다른 모습으로 우리의 눈을 사로잡습니다.</p>
+<p>최근 Android, iOS에 많은 화제가 되고 있는 다크 모드(Dark Mode)도 비슷합니다. 모드에 따라 하나의 앱이 밝고, 어두운 두 가지 모습을 자유자재로 오갑니다.</p>
+<p>안드로이드에서는 테마(Theme)를 이용해서 이를 구현할 수 있습니다. 계절에 따라 모습이 바뀌는 자연을 생각하면 테마는 계절이라고 생각할 수도 있고, 기분에 따라 옷의 컬러를 선택하는 사람에겐 기분이 테마가 될 수 있습니다.</p>
+<p>안드로이드의 다크 모드라는 것도 결국은 시스템이 '다크 모드(Dark mode)'일 때 이에 맞는 미리 만들어둔 테마를 적용시켜주는 것에 불과합니다.</p>
+<p>아래 이미지는 안드로이드 공식 페이지에서 테마에 대해 설명하는 이미지입니다. 동일한 액티비티에 서로 다른 테마를 적용한 모습으로, 테마에 따라 액티비티가 완전히 다른 느낌으로 변하는 모습을 볼 수 있죠.</p>
+<p><img src="https://developer.android.com/training/material/images/material-themes_2x.png" alt="Two themes applied to the same activity: Theme.AppCompat (left) and Theme.AppCompat.Light (right)"></p>
+<p>그럼 이번 포스팅에서는 테마에 따라 다양한 모습으로 변신하는 앱을 어떻게 만들 수 있는지에 대해 이야기하도록 하겠습니다.</p>
+<h2 id="테마의-선언과-구성">테마의 선언과 구성</h2>
+<p>앞에서 테마에 대해 개념적으로 설명을 드렸지만 우리는 개발자이니 좀 개발자의 관점에서 테마를 살펴보도록 하겠습니다. 테마는 아래와 같이 res/values/style.xml에 선언합니다. 여기서 파일 명은 원하는 대로 작성하셔도 됩니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.MaterialComponents.DayNight.NoActionBar"</span>&gt;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorImagePlaceHolder"</span>&gt;</span>@color/GR80<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>일단 기본적으로 테마는 키, 값의 쌍으로 이루어진 맵과 같이 생각할 수 있습니다.</p>
+<p>더 위에 style 태그를 보면 마치 클래스 처럼 parent를 통해 다른 테마를 <strong>상속</strong> 받을 수도 있습니다. 위의 예에서는 AppTheme이라는 테마가 <code>Theme.MaterialComponents.DayNight.NoActionBar</code>라는 테마를 상속받아 선언되고 있습니다. 다른 테마를 상속 받으면 새로 정의한 테마는 parent 테마의 모든 속성을 동일하게 갖게되고 기존의 속성을 오버라이드할 수 있습니다.</p>
+<p><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.MaterialComponents.DayNight.NoActionBar&quot;&gt;</code></p>
+<p>이제 가장 중요한 내용입니다.</p>
 <blockquote>
-<p>ENUM은 앱의 코드(DEX) 크기와 런타임 메모리 사용량을 증가시킵니다.</p>
+<p>테마에 있는 속성들은 컬러와 같은 디자인 리소스에 의미있는 이름을 붙인 것 입니다. 예를 들어 위에 colorAccent은 안드로이드의 뷰가 가진 속성이 아닙니다. 그리고 colorAccent는 이름에서 보이듯이 이름에서 어떤 특정 색을 표현하지 않고 '강조를 나타내는 색’이라는 의미를 더 강조하고 있습니다.</p>
 </blockquote>
-<p>앱의 DEX 크기가 증가된다는건 APK 파일도 커지고 앱이 실행됐을 때 사용하는 메모리의 양도 그만큼 늘어난다는걸 의미합니다. 또한 ENUM은 Integer나 String에 비해 더 많은 메모리를 런타임에 사용합니다.</p>
-<h2 id="ENUM은-얼마나-DEX-크기를-더-증가-시킬까">ENUM은 얼마나 DEX 크기를 더 증가 시킬까?</h2>
-<p><code>The price of ENUMs (100 Days of Google Dev)</code> 영상을 보면 그 차이를 분명히 알 수 있습니다.</p>
-<p>먼저 상수를 아래와 같이 Integer로 선언한 경우, DEX의 크기는 124 bytes가 늘어납니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VALUE1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VALUE2 = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VALUE3 = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(value) &#123;</span><br><span class="line">		<span class="keyword">case</span> VALUE1:</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">case</span> VALUE2:</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">case</span> VALUE3:</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">3</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>반면에 이를 ENUM으로 선언하면 DEX의 크기는 1,632 bytes가 증가합니다. 무려 13배나 차이가 납니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">enum</span> Value &#123;</span><br><span class="line">	VALUE1,</span><br><span class="line">	VALUE2,</span><br><span class="line">	VALUE3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(Value value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(value) &#123;</span><br><span class="line">		<span class="keyword">case</span> VALUE1:</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">case</span> VALUE2:</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">case</span> VALUE3:</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">3</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>여기서 바로 ENUM을 사용할 때 왜 주의해야 하는지를 알 수 있습니다. ENUM 사용으로 인한 DEX의 크기가 커지면 앱과 시스템이 사용하는 메모리는 줄어들게 됩니다.</p>
-<p>ENUM을 사용함으로써 증가하는 메모리의 양은 어찌보면 그리 크지 않다 여길 수 있습니다. 하지만 ENUM을 무심코 사용하다보면 그 크기는 결코 무시할 수 없게 됩니다.</p>
-<h2 id="해결방법-첫-번째-Proguard-사용">해결방법 첫 번째, Proguard 사용</h2>
-<p>프로가드를 사용하면 빌드 시 enum을 Integer로 바꾸는 최적화를 수행해 줍니다.</p>
-<h2 id="해결방법-두-번째-Typedef-어노테이션-사용">해결방법 두 번째, Typedef 어노테이션 사용</h2>
-<p>위의 예제처럼 ENUM의 대안으로 간단히 Integer를 사용함으로써 위의 이슈를 피해갈 수 있습니다. 하지만 ENUM이 괜히 있는게 아닙니다. ENUM을 사용하면 컴파일 및 런타임에 타입 및 값을 체크할 수 있습니다.</p>
-<p>API의 인자나 반환 값에 제약을 줌으로써 API가 오동작을 일으킬 여지를 최대한 줄이는 것은 좋은 코드 작성하는 원칙중에 하나입니다. 하지만 단순히 Integer로 상수를 만들어 사용하는 것 만으로는 이런 제약을 줄 수 없습니다.</p>
-<p>하지만 Typedef 어노테이션을 사용하면 컴파일 시에 warning을 통해 이를 미리 확인할 수 있게됩니다.</p>
-<h2 id="Typedef-어노테이션이란">Typedef 어노테이션이란?</h2>
-<p>Typedef 어노테이션은 어노테이션을 통해 특정 값의 유효성을 컴파일 시 확인할 수 있는 기능입니다. 자세한 사용법은 <a href="https://developer.android.com/studio/write/annotations.html">Improve Code Inspection with Annotations</a> 이 곳에서 확인 할 수 있습니다.</p>
-<p>여기서는 간단한 예제를 가지고 사용법을 확인해보도록 하겠습니다.</p>
-<p>먼저 어노테이션을 사용하기 위해 build.gradle 파일에 서포트 라이브러리를 추가해줍니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123; compile &#39;com.android.support:support-annotations:24.2.0&#39; &#125;</span><br></pre></td></tr></table></figure>
-<p>그리고 아래와 같이 Typedef 어노테이션을 사용합니다. 아래의 예제는 실제 안드로이드 ActionBar 코드 중 일부입니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.support.annotation.IntDef;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionBar</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Define the list of accepted constants and declare the NavigationMode annotation</span></span><br><span class="line">    <span class="meta">@Retention</span>(RetentionPolicy.SOURCE)</span><br><span class="line">    <span class="meta">@IntDef</span>(&#123;NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS&#125;)</span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@interface</span> NavigationMode &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Declare the constants</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NAVIGATION_MODE_STANDARD = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NAVIGATION_MODE_LIST = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NAVIGATION_MODE_TABS = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decorate the target methods with the annotation</span></span><br><span class="line">    <span class="meta">@NavigationMode</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">getNavigationMode</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Attach the annotation</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setNavigationMode</span><span class="params">(@NavigationMode <span class="keyword">int</span> mode)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>NavigationMode라는 Typedef 어노테이션을 생성합니다. NavigationMode에는 <strong>@IntDef</strong>를 통해 <code>NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS</code> 세 가지 값만 들어올 수 있음을 명시하고 있고, 각 상수는 아래 public static final int로 선언이 되어 있습니다. **@Retention(RetentionPolicy.SOURCE)**는 컴파일러가 .clss에 <strong>@NavigationMode</strong>의 데이터를 저장하지 않도록 합니다.</p>
-<p>이제 <code>NavigationMode</code>는 함수의 반환값이나 인자, 객체의 필드에 사용될 수 있습니다. 코드에서 보면 getNavigationMode() 함수의 반환값과 setNavigationMode() 함수의 인자에 @NavigationMode 어노테이션이 붙어있습니다.</p>
-<p>이를 통해 getNavigationMode()의 반환값이나 setNavigationMode()의 mode 인자에 <code>NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS</code> 외의 값이 들어가면 warning이 발생합니다.</p>
-<p>이렇게 생성한 Typedef 어노테이션은 안드로이드 스튜디오의 코드 완성에도 적용되어 간편하게 사용할 수 있습니다.  <strong>@StringDef</strong>를 통해 문자열도 동일하게 사용이 가능합니다.</p>
-<h2 id="Typedef-어노테이션-사용-시-주의점">Typedef 어노테이션 사용 시 주의점</h2>
-<p>Typedef 어노테이션을 사용한다 해도 빌드는 정상적으로 수행됩니다. 따라서 반드시 IDE 자체에서 실시간으로 보여주는 warning을 확인하거나, 안드로이드 스튜디오의 <code>Analyze -&gt; Code Infection</code>을 통해 warning을 확인 하는 것이 중요합니다.</p>
-<h2 id="마무리">마무리</h2>
-<p><strong>이 글은 ENUM 사용 시 주의할 점을 정리한 글이지만 ENUM을 사용하지 말라는 글은 절대 아닙니다.</strong></p>
-<p>ENUM이 DEX의 크기를 증가시키는 문제는 있지만 ENUM을 사용하면 코드의 가독성과 타입의 값에 대한 유효성(Type safety)이 좀 더 보장됩니다.</p>
-<p>이는 굉장한 장점입니다. 따라서 가독성이나 안정성이 중요시 되는 코드에는 ENUM을 사용하는게 맞습니다.</p>
-<p>비슷한 예로 C언어의 매크로 함수가 있습니다. 매크로 함수는 함수처럼 사용할 수 있지만 컴파일 시에 직접 코드로 치환되어 실행파일에 삽입됩니다. 따라서 매크로 함수를 사용하면 함수 호출의 부하를 줄일 수 있습니다.</p>
-<p>하지만 매크로 함수도 잘 못 사용하면 오히려 성능을 저하시킵니다. 가령 코드의 너무 많은 곳에서 매크로 함수를 호출하게되면 호출 부에 모두 코드로 치환되기 때문에 코드 영역의 크기가 매우 커질 수 있습니다. 즉 경우에 따라 오히려 성능을 떨어뜨릴 수 있습니다.</p>
-<p>ENUM과 Typedef 어노테이션 역시 비슷합니다. 각각의 장단점을 보고 필요한 곳에 잘 사용하는 것이 중요합니다. 또한 Proguard를 사용하면 위의 최적화를 대부분 알아서 수행해 줍니다. 어찌보면 굳이 Typedef 어노테이션을 사용할 필요가 없을지도 모릅니다.</p>
-<p>이런 관점에서보면 안드로이드 플랫폼 코드에 Typedef 어노테이션을 권장하는 이유를 알 수 있습니다. 안드로이드 플랫폼 코드는 프로가드를 적용하지 않고, 전체 코드의 크기가 굉장히 크기 때문에 ENUM의 사용을 제한하지 않으면 플랫폼 코드가 대책없이 커질 수 있으니 딱 Typedef 어노테이션을 사용하기 좋은 곳이겠죠.</p>
-<h2 id="참고-자료">참고 자료</h2>
-<p><a href="https://youtu.be/Hzs6OBcvNQE">The price of ENUMs (100 Days of Google Dev)</a><br><br>
-Perfmatter 시리즈 영상 중 ENUM 사용 시 주의점에 대해 설명하는 영상입니다.</p>
-<p><a href="https://developer.android.com/studio/write/annotations.html">Improve Code Inspection with Annotations</a><br><br>
-구글 개발자 페이지 문서입니다. 어노테이션을 이용해서 빌드 시 코드의 잠재적인 이슈를 미리 확인하는 방법을 다룹니다.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2017-09-20T15:00:00.000Z" title="2017-09-20T15:00:00.000Z">2017-09-21</time><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/android/">android</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/09/21/android/android-speeding-up-build-speed/">안드로이드 그래들 빌드 속도 올리기</a></h1><div class="content"><p>이 글은 2017년 5월 구글I/O의 <a href="https://youtu.be/7ll-rkLCtyk">Speeding Up Your Android Gradle Builds (Google I/O '17</a> 세션 중 일부를 정리한 내용입니다.</p>
-<p><a href="http://www.youtube.com/watch?v=7ll-rkLCtyk"><img src="http://img.youtube.com/vi/7ll-rkLCtyk/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
-<p>발표 영상, 슬라이드는 맨 아래 <a href="#reference">참고 링크</a>에서 확인 할 수 있습니다. 발표자는 안드로이드 스튜디오 팀의 <em>James Lau</em> 입니다.</p>
-<p>영상을 보면, 산타트래커란 샘플 프로젝트에 하나씩 최적화를 적용하면서 어느정도 최적화가 되었는지 보여주는 방식으로 진행됩니다. 빌드속도는 당연히 프로젝트의 구성과 환경에 영향을 받습니다. 발표자가 테스트에 사용한 산타트래커는 아래와 같이 구성되었습니다.</p>
-<ul>
-<li>안드로이드 웨어를 포함한 9개의 모듈</li>
-<li>500개의 자바 파일</li>
-<li>1700개의 xml</li>
-<li>3500개의 PNG</li>
-<li>멀티덱스</li>
-<li>60MB 정도의 apk를 크기</li>
-<li>어노테이션프로세서는 사용치 않음</li>
-</ul>
-<p>벤치마크는 아래 세 가지 경우로 보여줍니다. incremental build는 구글 개발자 페이지에 증분 빌드로 번역하고 있어서 그대로 사용했습니다. <a href="https://developer.android.com/studio/run/index.html">참고 링크</a></p>
-<ul>
-<li>전체 빌드(Full build)
-<ul>
-<li>Clean, assemble debug</li>
-</ul>
-</li>
-<li>증분 빌드(Incremental build - Java change)
-<ul>
-<li>한 메소드 안에 한줄의 자바코드 수정</li>
-</ul>
-</li>
-<li>증분 빌드(Incremental build - resource changing)
-<ul>
-<li>스트링 리소스 한 개를 추가하거나 제거</li>
-</ul>
-</li>
-</ul>
-<h2 id="빠른-빌드를-위한-10가지-팁">빠른 빌드를 위한 10가지 팁</h2>
-<p>세션에서 소개된 팁은 총 10개로 아래 목차와 같습니다.</p>
+<p><strong>즉 테마에 따라 colorAccent를 다르게 적용할 수 있음을 표현하는 것입니다.</strong> 꼭 인터페이스와 구현체의 관계와 비슷합니다. colorAccent라는 속성(인터페이스)은 서로 다른 테마(구현체)에서 다른 컬러로 표현될 수 있는 것입니다.</p>
+<h2 id="머티리얼-디자인에-포함된-주요-테마-속성">머티리얼 디자인에 포함된 주요 테마 속성</h2>
+<p>테마는 내가 직접 정의해서 사용할 수도 있고 안드로이드 플랫폼에 정의되어 바로 사용할 수 있는 것들도 있습니다. 아래 이미지는 롤리팝과 함께 머티리얼 디자인이 소개되면서 많이 쓰인 이미지입니다.</p>
+<p><img src="/assets/img/android_theming/material_theme_attrs.png" alt="Material theme attributes"></p>
+<p>위에 보이는 <code>colorPrimary</code>, <code>textColorPrimary</code>, <code>colorPrimaryDark</code>, <code>windowBackground</code>, <code>navigationBarColor</code>와 같은 속성들은 머티리얼 테마(Material Theme)에 미리 정의된 것으로 보시는 것처럼 시스템 UI에 미리 사용되고 있고 앱에서 얼마든지 이를 재정의(Override)해서 사용이 가능합니다. 즉 앱에서 사용하는 테마에서 colorPrimaryDark를 노란색으로 적용하면 위에 위에 그림에 있는 상태바(Status bar)의 색은 노란색으로 변경될 것입니다.</p>
+<p>그렇다면 이게 어떻게 가능할까요? 바로 안드로이드도 플랫폼에서 상태바의 색상에 특정 컬러를 하드코딩 한게 아니라 colorPrimaryDark라는 테마의 속성을 참조하도록 해두었기 때문입니다.</p>
+<p>아래는 머티리얼 테마를 상속받아서 앱에서 직접 사용할 테마를 AppTheme라는 이름으로 선언해서 사용하는 예입니다. 아래 예에서 android:windowBackground나 android:windowActivityTransitions와 같은 속성은 안드로이드 프레임워크에 있는 테마이고, colorPrimary, colorPrimaryDark, colorAccent는 머티리얼 테마에 선언된 속성입니다.</p>
+<p>그리고 마지막에 있는 colorImagePlaceHolder는 제가 직접 만든 속성입니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.MaterialComponents.DayNight.NoActionBar"</span>&gt;</span></span><br><span class="line">        // Attributes from material theme</span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">        // Attributes from android framework</span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>#ffffff<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowActivityTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">        // Attributes that I've defined</span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorImagePlaceHolder"</span>&gt;</span>@color/GR80<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>colorImagePlaceHolder와 같이 기존에 없는 속성을 선언하고 싶으면 res/values/values.xml 파일에 아래와 같은 방식으로 선언하면됩니다. 보시면 좌측에 속성이 가질 리소스 포맷을 적고 name에 사용할 속성 명을 적어주면 됩니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">format</span>=<span class="string">"color"</span> <span class="attr">name</span>=<span class="string">"colorImagePlaceHolder"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">format</span>=<span class="string">"color"</span> <span class="attr">name</span>=<span class="string">"colorDivider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attr</span> <span class="attr">format</span>=<span class="string">"color"</span> <span class="attr">name</span>=<span class="string">"mildBackgroundColor"</span>/&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="테마에-적용된-값을-사용하기">테마에 적용된 값을 사용하기</h2>
+<p>자 이제 테마의 개념부터, 종류, 선언하는 방법까지 알아봤으니 어떻게 사용하는지를 알아봅시다. 테마를 사용하는 가장 기본적인 방법은 <code>?attr/[attributeName]</code> 을 사용하는겁니다. 구체적으로 아래와 같이 사용할 수 있습니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">androidx.appcompat.widget.Toolbar</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">style</span>=<span class="string">"@style/Toolbar"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:titleTextColor</span>=<span class="string">"?attr/titleTextColor"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:titleTextAppearance</span>=<span class="string">"@style/ToolbarTitle"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">tools:title</span>=<span class="string">"Toolbar"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>툴바의 텍스트 컬러를 지정하는 부분을 보시면 아래처럼 <code>?attr</code>을 사용하고 있죠.</p>
+<blockquote>
+<p>?attr/titleTextColor</p>
+</blockquote>
+<p><code>?attr</code>은 테마에서 attr 뒤에 있는 속성 이름으로 값을 찾아오라는 의미입니다. 예를 들어 위의 예에서는 현재 나에게 적용된 테마에서 titleTextColor라는 이름으로 정되된 컬러값을 가져오라는 뜻입니다.</p>
+<p>앱에 현재 LightTheme과 DarkTheme가 있다고 합시다. 현재 이 툴바가 LightTheme를 적용받고 있고 LightTheme에 titleTextColor가 흰색이라면 툴바의 텍스트는 흰색이 될 것이고, DarkTheme를 적용받고 있고 여기에 titleTextColor가 검정이라면 툴바의 텍스트는 검정이 됩니다.</p>
+<p>결국 테마를 통해 화면의 모습을 다이나믹하게 변경하는 것은 내가 변경하고자 하는 UI 요소의 컬러를 최대한 <code>?attr</code>을 이용해서 테마의 속성을 간접 참조(indirect reference)로 설정하고, 사용자의 선택이나, 환경에 따라 테마를 변경하는 것입니다. <strong>(이 포스팅 전체에서 가장 중요한 내용인거 같네요.)</strong></p>
+<h2 id="테마의-적용">테마의 적용</h2>
+<p>그렇다면 위의 예에서 저 툴바에 적용되는 테마는 어떻게 결정 될까요? <code>테마는 컨텍스트에 적용이 됩니다.</code> 자 그럼 안드로이드 플랫폼에서 컨텍스트를 갖는게 어떤게 있을까요? View, ViewGroup, Activity, Application 등이 있겠죠. 테마는 컨텍스트에 적용이 되기 때문에 여기에 모두 적용이 됩니다.</p>
+<p>또한 테마는 범위를 갖는데 상위레벨에 적용한 테마는 하위 레벨까지 모두 적용이 되고 하위레벨에 적용된 테마가 상위레벨에 적용된 테마에 우선해서 적용됩니다.</p>
 <ol>
-<li><a href="#use-lastest-android-gradle-plugin">최신 안드로이드 그래들 플러그인을 쓸 것</a>
-<ul>
-<li>Use lastest Android Gradle Plugin</li>
-</ul>
-</li>
-<li><a href="#avoid-legacy-multidex">레거시 멀티덱스를 피할 것</a>
-<ul>
-<li>Avoid legacy multidex</li>
-</ul>
-</li>
-<li><a href="#disable-multi-apk">멀티 APK를 사용하지 말 것</a>
-<ul>
-<li>Disable multi-APK</li>
-</ul>
-</li>
-<li><a href="#include-minimal-resources">최소한의 리소스만 포함 시킬 것</a>
-<ul>
-<li>Include minimal resources</li>
-</ul>
-</li>
-<li><a href="#disable-png-crunching">PNG 최적화 설정을 사용하지 말 것</a>
-<ul>
-<li>Disable PNG crunching</li>
-</ul>
-</li>
-<li><a href="#use-instant-run">인스턴트 런을 사용할 것</a>
-<ul>
-<li>User Instant Run</li>
-</ul>
-</li>
-<li><a href="#avoid-inadvertent-changes">의도치 않은 수정은 피할 것</a>
-<ul>
-<li>Avoid inadvertent changes</li>
-</ul>
-</li>
-<li><a href="#do-not-use-dynamic-version">다이나믹 버전은 사용하지 말 것</a>
-<ul>
-<li>Don’t use dynamic version</li>
-</ul>
-</li>
-<li><a href="#watch-the-memory">메모리를 확인할 것</a>
-<ul>
-<li>Watch the memory</li>
-</ul>
-</li>
-<li><a href="#use-gradle-cache">그래들 캐시를 사용할 것</a>
-<ul>
-<li>Use Gradle Cache</li>
-</ul>
-</li>
+<li>어플리케이션 레벨로 적용하기<br>
+androidManifest.xml</li>
 </ol>
-<h3 id="a-name-use-lastest-android-gradle-plugin-1-최신-안드로이드-그래들-플러그인을-쓸-것-a"><a name="use-lastest-android-gradle-plugin">1. 최신 안드로이드 그래들 플러그인을 쓸 것</a></h3>
-<p>안드로이드 스튜디오 팀에서는 빌드 속도와 버그수정을 위해 그래들 플러그인을 계속 업데이트 하고 있습니다. 그래들 3.0부터는 구글 메이븐 저장소를 통해 그래들이 배포됩니다. 따라서 메이븐 구글 저장소를 추가해주고, dependency에 gradle 3.0.0을 추가해줍니다. 발표 영상에는 alpha1인데 오늘(2017.09.20일) 확인해본 바로는 beta4까지 나왔네요.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">	repository &#123;</span><br><span class="line">		jcenter()</span><br><span class="line">		maven &#123; url <span class="string">'https://maven.google.com'</span> &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dependency &#123;</span><br><span class="line">		classpath <span class="string">'com.android.tools.build:gradle:3.0.0-alpha1'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>결과를 보니 단순히 그래들 버전을 3.x대로 올리는 것만으로 속도가 아래와 같이 엄청나게 향상됩니다. 아래 결과는 발표자 영상에 있는걸 그대로 옮긴거구요, 대강 어느정도 향상되는지 참고 하시면 될 것 같습니다.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-전체 빌드 | -15s | -25%<br>
-증분 빌드(자바) | -10s | -38%<br>
-증분 빌드(리소스) | -2.5s | -16%</p>
-<h3 id="a-name-avoid-legacy-multidex-2-레거시-멀티덱스를-피할-것-a"><a name="avoid-legacy-multidex">2. 레거시 멀티덱스를 피할 것</a></h3>
-<p>멀티덱스 사용 시 minSdkVersion &lt; 21인 경우 레거시 멀티덱스가 적용됩니다. 그리고 이 레거시 멀티덱스는 빌드 속도를 심각하게 다운 시킵니다. 안드로이드 스튜디오 2.3+에서부터는 런 버튼을 클릭해서 앱을 실행하면, 연결된 디바이스나 에물레이터의 API 버전을 감지해서 가능하면 네이티브 멀티덱스를 적용해준다고 합니다. 참고로 커맨드라인으로 빌드하는 경우엔 이렇게 자동으로 버전을 감지해서 최적화 해주는 기능은 동작하지 않습니다.</p>
-<p>만약 프로덕트가 api 레벨 21 미만의 단말도 지원해야 한다면 아래와 같이 <a href="https://developer.android.com/studio/build/build-variants.html">빌드 변형 구성</a>을 이용해 개발 용 빌드의 minSdkVersion을 21로 설정할 수 있습니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">productFlavors &#123;</span><br><span class="line">	development &#123;</span><br><span class="line">		minSdkVersion <span class="number">21</span></span><br><span class="line">		...	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>결과는 아래와 같습니다. 이것도 성능 향상이 꽤 크네요.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-전체 빌드 | -5.5s | -12%<br>
-증분 빌드(자바) | -8s | -53%<br>
-증분 빌드(리소스) | same | same</p>
-<h3 id="a-name-disable-multi-apk-3-멀티-APK를-사용하지-말-것-a"><a name="disable-multi-apk">3. 멀티 APK를 사용하지 말 것</a></h3>
-<p>멀티 APK는 ABI나 density에 따라 apk를 다르게 빌드하는 기능입니다. 한 프로젝트에 대해 여러 APK가 생성되지만, 각 빌드의 결과물로 나오는 APK 크기가 작아지는 장점이 있습니다. 하지만 개발환경에선 필요없는 기능이죠. 따라서 개발 용 빌드인 경우에는 멀티 APK 기능을 아래와 같이 꺼줍니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	<span class="keyword">if</span> (project.hasProperty(<span class="string">'devBuild'</span>)) &#123;</span><br><span class="line">		splits.abi.enable = <span class="literal">false</span></span><br><span class="line">		splits.density.enable = <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 그래들 빌드 스크립트를 보면 'devBuild’란 속성을 확인하는데 저 속성은 커맨드라인 빌드 시 아래와 같이 넘겨줍니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew santa-<span class="string">tracker:</span>assembleDevelopmentDebug -PdevBuild</span><br></pre></td></tr></table></figure>
-<p>이걸 안드로이드 스튜디오에 적용한다면 preference -&gt; Build, Execution, Deployment -&gt; Compiler -&gt; Command-line Option 에 -P<strong>devBuild</strong>을 적어주면 됩니다.</p>
-<p>결과는 아래와 같습니다. 리소스에 대한 증분 빌드 시에 많은 속도 향상이 있네요.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-전체 빌드 | -4.8s | -12%<br>
-증분 빌드(자바) | -0.5s | -6%<br>
-증분 빌드(리소스) | -3s | -26%</p>
-<h3 id="a-name-include-minimal-resources-4-최소한의-리소스만-포함시킬-것-a"><a name="include-minimal-resources">4. 최소한의 리소스만 포함시킬 것</a></h3>
-<p>앱이 다국어를 지원한다면 여러 스트링 리소스를 포함합니다. 다국어를 지원하지 않더라도 대부분의 앱은 하나 이상의 스크린 density를 지원하는 경우가 많습니다. 안드로이드의 빌드 시 기본 설정은 모든 버전의 리소스를 빌드에 포함시키도록 되어있습니다. 하지만 아래와 같이 특정 버전의 리소스들만 포함시키도록 할 수 있습니다. 아래는 개발용 빌드에 특정 리소스만 포함 시키도록 하는 그래들 설정 예시입니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">productFlavor &#123;</span><br><span class="line">	developement &#123;</span><br><span class="line">		minSdkVersion <span class="number">21</span></span><br><span class="line">		resConfigs (<span class="string">"en"</span>, <span class="string">"xxhdpi"</span>)</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>적용 결과입니다.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-전체 빌드 | -6s | -17%<br>
-증분 빌드(자바) | -1.5s | -24%<br>
-증분 빌드(리소스) | -2s | -21%</p>
-<h3 id="a-name-disable-png-crunching-5-개발-빌드에는-PNG-최적화를-끄자-a"><a name="disable-png-crunching">5. 개발 빌드에는 PNG 최적화를 끄자</a></h3>
-<p>안드로이드 빌드 툴은  PNG 크기 최적화를 기본으로 수행합니다. 최적화라면 PNG 파일들을 압축하는 거겠죠. 당연히 PNG 파일이 많으면 빌드 시 많은 시스템 자원을 사용하게 됩니다. 릴리즈 시에는 APK 크기를 줄여주므로 중요한 기능이지만 개발 시에는 별 필요 없는 기능입니다. 역시나 아래와 같이 그래들 빌드 스크립트를 이용해 설정을 살포시 꺼줍니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">productFlavor &#123;</span><br><span class="line">	developement &#123;</span><br><span class="line">		minSdkVersion <span class="number">21</span></span><br><span class="line">		resConfigs (<span class="string">"en"</span>, <span class="string">"xxhdpi"</span>)</span><br><span class="line">		aaptOptions.cruncherEnabled = <span class="literal">false</span></span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>아니면 아예 webP 포맷을 사용하는 것도 좋은 방법입니다. webP는 PNG 파일보다 최대 25% 작은 크기를 갖는 포맷입니다. 안드로이드 스튜디오 2.3+ 부터는 IDE에서 PNG를 webP로 변환하는 기능을 지원합니다. 불투명 이미지는 안드로이드 API 15+, 투명도를 갖는 이미지는 API 18+부터 지원합니다. 또한 애초에 최적화된 PNG를 사용하면 최적화가 수행되어도 실제 APK의 크기는 별 차이가 없습니다. 그냥 시간만 잡아 먹는 거죠.</p>
-<p>아래는 위의 PNG 최적화 기능을 끈 결과입니다.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-전체 빌드 | -9s | -33%<br>
-증분 빌드(자바) | same | same<br>
-증분 빌드(리소스) | same | same</p>
-<h3 id="a-name-use-instant-run-6-인스턴트-런을-사용할-것-a"><a name="use-instant-run">6. 인스턴트 런을 사용할 것</a></h3>
-<p>인스턴트 런은 안드로이드 스튜디오 2.0 때 런칭된 기능입니다. 발표자 말로는 런칭 이후 인스턴트 런의 신뢰성(reliability)를 위해 많은 노력을 기울였다고 합니다. 바꿔말하면 그동안에 인스턴트 런은 문제가 많았다는 뜻이겠죠. 저 역시도 인스턴트 런을 사용하지 않는데 이유는 수정한 코드가 실제로 빌드에 적용이 되지 않아 삽질을 한 기억이 많기 때문입니다. 수정한 코드가 빌드에 적용이 안된다면 빌드가 아무리 빨리 된들 무슨 소용이 있을까요.</p>
-<p>하지만 안드로이드 스튜디오 3.0에 적용된 인스턴트 런은 2.0과 매우 다르다 합니다. 한번 믿어보는것도 좋을것 같습니다. 참고로 플랫폼의 한계에 따라 적용했던 많은 핵들을 신뢰성을 위해 과감히 제거하고 대신 안드로이드 스튜디오 3.0부터의 인스턴트 런은 API 레벨 21 이상에서만 동작한다고 합니다. (minSdk가 21 이상이여야 한다는게 아니라 연결된 단말의 버전이 21 이상이면 된다는 얘기입니다!)</p>
-<p>안드로이스 스튜디오 3.0 이상에서는 인스턴트 런과 일반 빌드를 쉽게 구분하기 위해 런 버튼을 Run과 Apply Changes 두 개로 분리 했습니다.</p>
-<p>Run 버튼을 클릭하면 콜드 스왑을 시도하고 앱은 재실행 됩니다. 반면 Apply Changes 버튼을 클릭하면 hot or warm swap을 시도합니다.  <a href="https://developer.android.com/studio/run/index.html">Cold, hot, warm swap</a>에 대한 내용은 이 링크에서 자세히 알 수 있습니다.</p>
-<p>인스턴트 런을 실행하면 연결된 디바이스의 API, 스크린 density등을 분석해서 자동으로 필요한 최적화를 수행해 줍니다. 즉 앞서 얘기했던 특정 버전의 리소스만 포함하는 빌드를 생성한다거나 멀티 APK등에 대한 최적화 들을 알아서 해준다는 것 같습니다.</p>
-<p>아래는 인스턴트 런을 적용한 결과입니다.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-전체 빌드 | +7s | +37%<br>
-증분 빌드(자바) | -3s | -54%<br>
-증분 빌드(리소스) | -3s | -42%</p>
-<p>특이한게 인스턴트 런을 적용 했을 때, 풀빌드의 경우 오히려 빌드 시간이 증가했습니다. 이는 인스턴트 런이 sharding을 APK에 적용해야하기 때문이라 합니다. 이 sharding은 swap(cold, hot, warm)을 하기 위해 필요한 미리 수행되어야 하는 작업으로 발표자는 풀빌드에서 시간이 더 걸리지만 이후의 증분 빌드에서 시간을 줄일 수 있다고 이야기합니다. 간단히 위의 결과를 가지고  생각해보면 풀빌드 한번 후 증분 빌드를 2번만 하면 거의 동일하고 2번 이상부터는 매번 3초가량 시간을 벌 수 있겠네요.</p>
-<h3 id="a-name-avoid-inadvertent-changes-7-의도치-않은-수정은-피할-것-a"><a name="avoid-inadvertent-changes">7. 의도치 않은 수정은 피할 것</a></h3>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> buildDateTime = <span class="keyword">new</span> Date().format(<span class="string">'yyMMddHHmm'</span>).toInteger()</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">	defaultConfig &#123;</span><br><span class="line">		versionCode buildDateTime</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 코드는 매 빌드가 유일한 버전코드를 갖도록 시간을 가지고 버전 코드를 설정하고 있습니다. 별거 아닌것 같은 코드이지만 이 코드는 매번 빌드를 할때마다 AndroidManifest를 변경합니다. 자세히 얘기하면 versionCode같은 값들은 그래들 빌드 스크립트에 기술되어 있지만 실제 빌드가 되는 과정에서 AndroidManifest.xml에 합쳐(merge)집니다.<a href="https://developer.android.com/studio/publish/versioning.html#appversioning">참고</a>.</p>
-<p>위의 코드를 보면 매번 빌드 할때마다 versionCode가 변경되는데 이는 곧 매 빌드 마다 AndroidManifest의 <code>uses-sdk</code> 속성이 변경 되는 것이죠.<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html">참고</a>. 아무튼 위의 코드가 적용된 후 결과는 아래와 같습니다.</p>
-<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
-— | — |<br>
-증분 빌드(자바) | +3s | +130%<br>
-증분 빌드(리소스) | +3.6s | +90%</p>
-<p>이런 문제를 개선하기 위해서는 앞서 개발 빌드 시에 멀티 APK를 적용하지 않았던 방법을 이용하면 됩니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> buildDateTime = project.hasProperty(<span class="string">'devBuild'</span>)? 100: <span class="keyword">new</span> Date().format(<span class="string">'yyMMddHHmm'</span>).toInteger()</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">	...</span><br><span class="line">	defaultConfig &#123;</span><br><span class="line">		...</span><br><span class="line">		versionCode buildDateTime</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="a-name-do-not-use-dynamic-version-8-다이나믹-버전은-사용하지-말-것-a"><a name="do-not-use-dynamic-version">8. 다이나믹 버전은 사용하지 말 것</a></h3>
-<p>다이나믹 버전은 아래와 같이 그래들에 외부 라이브러리를 임포트 할 때, 뒤에 +를 붙여서 가장 최근 버전의 라이브러리를 가져올 수 있게하는 기능입니다.</p>
-<p>발표자의 설명에 의하면 이 기능이 라이브러리의 새 버전을 추가로 확인하게 만들기 때문에 의존성 결정(dependency resolution) 시간을 증가시킨다고 합니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		compile <span class="string">'com.android.support:appcompat-v7:+'</span>	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>또 하나의 문제는 이게 앱을 nondeterministic하게 만든다는 겁니다. 코드의 수정이 전혀 없더라도 라이브러리의 새 버전이 나오면 빌드가 달라진다는 겁니다. 이거는 앱의 형상관리랑도 연관이 있는 부분입니다.</p>
-<p>대부분의 프로젝트는 git같은 형상관리 툴을 이용해서 관리합니다. 형상관리 툴의 핵심기능이자 키포인트 중에 하나는, 특정 시점의 빌드를 내가 원할때 빌드해 낼 수 있고 이 빌드는 항상 동일해야 한다는 겁니다. 바이너리 수준에서 완전히 동일하진 않을 수도 있겠지만 적어도 라이브러리가 바뀌면 안되겠죠.</p>
-<p>오래 전 내보낸 빌드에 핫픽스가 필요해서 코드의 특정 부분만 고쳐 새로 빌드를 했는데 임포트하는 라이브러리중에 업데이트가 된게 있다면? 최악의 경우 업데이트 된 라이브러리가 하위호환성을 지켜주지 않는다면? 꽤 골치아픈 상황이 되겠죠.</p>
-<h3 id="a-name-watch-the-memory-9-메모리를-확인할-것-a"><a name="watch-the-memory">9. 메모리를 확인할 것</a></h3>
-<h4 id="그래들에-할당하는-메모리">그래들에 할당하는 메모리</h4>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#gradle.property 파일</span><br><span class="line">org.gradle.jvmargs=-Xmx1536m</span><br></pre></td></tr></table></figure>
-<h4 id="덱스-처리-시-사용하는-메모리">덱스 처리 시 사용하는 메모리</h4>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#build.gradle 파일</span><br><span class="line">dexOptions &#123;</span><br><span class="line">	javaMaxHeapSize = <span class="string">"4g"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>그래들에 할당하는 메모리의 적정량은 프로젝트 마다 다르니 메모리를 잘 조절하면서 최적의 값을 찾으라고 합니다. 한가지 주의할 점은 무작정 메모리를 많이 할당하면 오히려 성능이 떨어질 수도 있습니다. 본인 시스템의 메모리 용량에 따라 잘 맞춰서 설정해야합니다.</p>
-<p>두번째는 덱스 프로세스의 자바 힙 크기를 설정하는 방법입니다. 덱스 프로세스가 기존에는 out-process로 동작했으나 안드로이드 스튜디오 2.1 부터 기본값이 in-process로 변경되어 저 설정은 이제 의미가 없다고 합니다. 있으면 그냥 지워버리라네요. 근데 여기서 out-process랑 in-process가 뭔지 조금 애매합니다. 기존에는 별도의 프로세스로 처리하다가 2.1부터는 안드로이드 스튜디오 프로세스 내에서 처리한다는 걸로 이해했는데 맞는지 모르겠네요. 안드로이드 스튜디오에서 빌드 한번 돌리면 램을 2기가 넘게 써대던데 이것 때문일지도 모르겠습니다.</p>
-<h3 id="a-name-use-gradle-cache-10-그래들-캐시를-사용할-것-a"><a name="use-gradle-cache">10. 그래들 캐시를 사용할 것</a></h3>
-<p>그래들의 새 캐싱 메카니즘 설정이라는데 모든 작업 결과를 캐시할 수 있다고 합니다. 안드로이드 스튜디오 2.3에 소개됐던 빌드 캐시랑 다른 점은 빌드 캐시는 pre-dexed external libararies만 캐시하는데 요건 가장 최근 빌드 뿐만 아니라 이전 빌드에 대한 캐시도 있다고 합니다. 또한 브랜치를 오가며 빌드하는 경우에도 캐시가 되고 캐싱된걸 배포할수도 있다고 하는데… 뭔 말인지는 잘 모르겠는데 어쨌든 안드로이드 스튜디오 3.0에 제대로 들어갈거라 하니 안드로이드 스튜디오 3.0이 정식 릴리즈 되면 그때 지켜봐야겠습니다.</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Set this in gradle.properties</span><br><span class="line">org.gradle.caching=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span></span></span><br><span class="line"><span class="tag">    <span class="attr">...</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">        <span class="attr">...</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>액티비티에 적용하기<br>
+androidManifest.xml</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span></span></span><br><span class="line"><span class="tag">    <span class="attr">...</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">        <span class="attr">...</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">            <span class="attr">...</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:theme</span>=<span class="string">"@style/SplashTheme"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>뷰그룹 및 뷰에 적용하기</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">...</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:theme</span>=<span class="string">"@style/Theme.MaterialComponents.Light"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">...</span></span></span><br><span class="line"><span class="tag">            /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">...</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.MaterialComponents.Dark"</span></span></span><br><span class="line"><span class="tag">            /&gt;</span>         </span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>xml에서 각 테마는 <code>android:theme</code>를 통해 적용이 가능하고 적용하고자 하는 범위에 따라 androidManifest.xml의 application 태그나, activity 태그 또는 레이아웃 파일에서 각 뷰그룹 또는 뷰에 적용이 가능합니다.</p>
+<h2 id="코드에서-테마에-정의된-속성-값-읽어오기">코드에서 테마에 정의된 속성 값 읽어오기</h2>
+<p>앞서 테마는 컨테스트에 적용이 된다고 이야기했습니다. 그럼 테마에 엮여있는 특정 속성의 값을 코드에서 가져오려면 어떻게 할까요?<br>
+(xml이였다면 <code>?attr/[attributeName]</code>을 썼겠죠)</p>
+<p>아래는 컨텍스트에 엮여있는 컬러값을 가져오는 예제입니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@ColorInt</span><br><span class="line">fun Context.getThemeColor(@AttrRes themeAttrId: Int): Int &#123;</span><br><span class="line">    return obtainStyledAttributes(</span><br><span class="line">            intArrayOf(themeAttrId)</span><br><span class="line">    ).use &#123;</span><br><span class="line">        it.getColor(0, Color.TRANSPARENT)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>현재 액티비티의 테마에 있는 colorPrimary를 가져오려면 액티비티 내에서 <code>getThemeColor(R.attr.colorPrimary)</code>와 같이 할 수 있을 것이고 특정 뷰그룹에 적용된 테마에 대한 컬러를 가져오려면 <code>targetViewGroup.getContext().getThemeColor(R.attr.colorPrimary)</code>와 같이 사용할 수 있겠죠.</p>
+<h2 id="테마의-사용">테마의 사용</h2>
+<p>자 그럼 위에서 알아본 테마의 개념이 어떤식으로 사용될 수 있을까요? 아래의 UI를 예로 들어 봅시다. 이 앱의 처음 디자인은 좌측의 밝은 색 위주의 디자인이였는데 어떤 과정을 거쳐서 우측과 같이 어두운 테마를 적용할 수 있었을까요?</p>
+<p><img src="/assets/img/android_theming/light_dark.png" alt="Android Theming"></p>
+<p>이를 위해서는 아래와 같은 단계를 밟아가면 됩니다.</p>
+<ol>
+<li>테마에 따라 색상이 변하는 부분과 변치 않을 부분을 나눠봅니다.</li>
+<li>UI에서 컬러가 하드코딩 되어있는 부분을 찾고 테마의 어떤 속성을 사용할지 결정합니다. 이때는 이미 시스템에 정의된 테마의 속성을 사용할지, 새로운 속성을 만들지 결정합니다.</li>
+<li>새로운 테마를 만들고 이 테마에서 변화를 줄 속성을 오버라이드합니다.</li>
+<li>UI에서 변경이 필요한 부분의 컬러를 테마의 속성을 참조하도록 <code>?attr/</code>을 이용하여 변경합니다.</li>
+</ol>
+<h2 id="테마에-따라-색상이-변하는-부분과-변치-않을-부분을-나눠보기">테마에 따라 색상이 변하는 부분과 변치 않을 부분을 나눠보기</h2>
+<p>위의 예제에서 변하는 부분과 변치 않는 부분을 나눠봤습니다.</p>
+<p>변하는 것</p>
+<ul>
+<li>화면의 배경</li>
+<li>툴바의 배경</li>
+<li>쿨바의 텍스트</li>
+<li>리스트 내의 카드 배경</li>
+<li>리스트 내의 카드 텍스트</li>
+<li>바텀네비게이션 배경</li>
+<li>바컴네비게이션 아이콘</li>
+<li>탭레이아웃 배경</li>
+</ul>
+<p>변하지 않는 것</p>
+<ul>
+<li>탭레이아웃 인디케이터 및 선택된 탭의 텍스트</li>
+<li>리스트 내 카드의 재생시간 뱃지</li>
+</ul>
+<p>변하는 부분과 변치 않는 부분을 나눴으면 각각에 어떤 테마의 속성을 사용할 수 있을까요? 모두 새로 선언해도 되지만 이미 선언돼있는 다양한 속성들이 있으니 이것들을 먼저 확인해봅니다.</p>
+<p>아래 링크에는 머티리얼 디자인 시스템에 이미 선언돼있는 다양한 속성들에 대한 설명이 있습니다.</p>
+<p><a href="https://medium.com/androiddevelopers/android-styling-common-theme-attributes-8f7c50c9eaba">Android Styling: Common Theme Attributes</a></p>
+<p>이 글에서는 컬러에 대한 내용을 주로 다루고 있으니 몇 가지 컬러 관련 속성을 보겠습니다.</p>
+<ul>
+<li>?attr/colorPrimary : 앱의 메인 브랜딩 컬러</li>
+<li>?attr/colorSecondary : 앱의 세컨 브랜딩 컬러로 주로 메인 브랜딩 컬러를 보완하는 좀 더 밝은 색상으로 사용</li>
+<li>?attr/colorOn[Primary, Secondary, Surface etc] : 각 컬러에 대한 대비를 이루는 색입니다. 예를 들어 배경에 ?attr/colorPrimary를 쓰고, 여기위에 다른 UI 컴포넌트를 올릴 때 colorOnPrimary를 사용하면 이 컴포넌트를 좀 더 눈에 띄게 강조 할 수 있겠죠.</li>
+<li>?attr/colorSurface : 카드(cards), 시트(sheets), 메뉴(menues)와 같은 컴포넌트의 표면 색을 나타냅니다.</li>
+<li>?attr/colorBackground : 스크린의 백그라운드 색</li>
+<li>?attr/colorError : 에러를 표시할 때 사용할 색</li>
+</ul>
+<p>아래 이미지는 <a href="http://material.io">material.io</a> 페이지에 있는 <code>The baseline Material color theme</code>로, 위의 컬러를 보통 어떤식으로 선택하는지에 대한 예시를 보여주고 있습니다. 참고로 <a href="http://material.io">material.io</a> 페이지에 가면 대비가 되는 색을 선택하거나, 위에 있는 머티리얼 테마에 사용되는 속성값들을 어떤 식으로 결정하면 좋을지에 대한 가이드와 툴이 잘 나와있습니다.</p>
+<p><img src="/assets/img/android_theming/material_theme_attrs_of_colors.png" alt="The baseline Material color theme"></p>
+<p>다시 아래 목록으로 돌아와서 위에 있는 속성들을 참고하면 저는 아래와 같이 테마의 속성을 정의할 수 있을거 같습니다. 이걸 바탕으로 각 UI 컴포넌트에 하드코딩 되어있던 컬러를 <code>?attr</code>를 이용해서 바꿔줍니다.</p>
+<p><img src="/assets/img/android_theming/theme-colors.png" alt="Choosing theme attributes"></p>
+<p>이제 위의 속성들을 각 테마에 따라 정의합니다.</p>
+<p>밝은 테마</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"LightTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.MaterialComponents.DayNight.NoActionBar"</span>&gt;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorSurface"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"backgroundColor"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@color/gray_bg<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"titleTextColor"</span>&gt;</span>@android:color/black<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">        ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>어두운 테마</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"DarkTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.MaterialComponents.DayNight.NoActionBar"</span>&gt;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorSurface"</span>&gt;</span>@color/gray_900<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"backgroundColor"</span>&gt;</span>@android:color/black<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@android:color/black<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"titleTextColor"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">        ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>이제 감이 오시나요? 위의 속성들을 재정의 하는 테마를 추가하기만 하면 이제 얼마든지 분위기가 확 다른 앱을 만들 준비가 된 것이죠.</p>
+<p>그럼 이제 이런 테마를 어떻게 적용하면 될까요? 아까 위에 기술 했던대로 activity 또는 application 단위로 androidManifest의 android:theme 태그를 이용해 정의하면 됩니다. 이걸 동적으로 하고 싶다구요? 그럼 간단히 테마를 선택할 수 있는 다이얼로그를 하나 만들고 테마를 선택하면 이걸 Preference 같은 곳에 저장하고, 액티비티가 시작 시 setContentView 이전에 테마를 설정해주면 됩니다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        <span class="keyword">val</span> userSelectedPref = getThemeFromPref()</span><br><span class="line">        <span class="keyword">when</span>(userSelectedPref) &#123;</span><br><span class="line">            <span class="string">"light"</span> -&gt; setTheme(R.style.LightTheme)</span><br><span class="line">            <span class="string">"pink"</span> -&gt; setTheme(R.style.PinkTheme)</span><br><span class="line">            <span class="string">"dark"</span> -&gt; setTheme(R.style.DarkTheme)</span><br><span class="line">            <span class="keyword">else</span> -&gt; setTheme(R.style.LightTheme)</span><br><span class="line">        &#125;</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>테마는 뷰가 인플레이트 되기 전에 설정이 되고 인플레이트 후에는 변경해도 UI에 업데이트가 반영이 되지 않기때문에 setOntentView 이전에 해주어야합니다.</p>
+<h2 id="다크-모드">다크 모드</h2>
+<p>그럼 다크모드는 뭘까요? 다크모드는 안드로이드 9에서부터 지원되는 시스템 설정입니다. 즉 앱이 아니라 안드로이드 시스템에서 설정 가능한 모드입니다. 앱에서 다크모드를 지한한다는 것은, 사용자가 시스템의 다크모드를 적용하면 이에 따른 어두운 테마를 만들어 두었다가 이게 적용되도록 해주면 됩니다. 간단하죠?</p>
+<p>이 부분은 이 글의 내용을 이해했다면 간단히 적용이 가능하지만 이 글에서 다루면 너무 길어질 것 같아서 다음 포스팅에서 따로 다루도록 하겠습니다.</p>
 <h2 id="마무리">마무리</h2>
-<p>위의 최적화를 모두 마친 결과가 아래와 같습니다.</p>
+<p>저는 디자인과는 좀 거리가 있어보이는 개발자입니다. 노트북이 들어간 백팩과 체크무늬 셔츠가 가장 편안합니다. 하지만 그럼에도 제가 만든 앱은 어디서나 돋보였으면 좋겠고 보기에 좋았으면 좋겠습니다. 또한 저는 잘 다듬어진 디자인은 그 자체로 유저에게 큰 가치를 준다고 생각합니다. 이 글을 보신 분들도 테마를 이용해서 보다 다양한 느낌의 앱을 앱을 만드는데 도움이 되셨으면 합니다.</p>
+<h1>참고</h1>
+<p>테마에 관련된 글들은 주로 안드로이드 엔지니어인 Nick Butcher의 유튜브 영상과 미디엄 글을 많이 참고했습니다. 또한 material.io에 있는 페이지들도 개발자에게 디자인과 관련된 컴포넌트나 개념을 잡는데 도움이 많이 되었습니다.</p>
+<p>마지막으로 안드로이드의 테마를 이야기하면 항상 스타일(Style)에 대한 이야기를 보통 함께 합니다. 이 둘은 상당히 비슷하면서 다른데 개인적으로는 두개를 같이 다루면 오히려 개념을 잡는데 헷갈리기 때문에 스타일에 대한 이야기는 최대한 배제하였습니다. 하지만 테마를 이해했다면 스타일에 대한 부분도 꼭 짚고 넘어가면 좋을 것 같습니다.</p>
 <ul>
-<li>전체 빌드 : 59s -&gt; 19s로 3배 빨라짐</li>
-<li>증분 빌드(자바) : 24s -&gt; 2s로 12배 빨라짐</li>
-<li>증분 빌드(리소스): 15s -&gt; 4.5s로 3배 빨라짐</li>
+<li><a href="https://developer.android.com/guide/topics/ui/look-and-feel/darktheme">Dark theme</a></li>
+<li><a href="https://developer.android.com/guide/topics/ui/look-and-feel/themes">Styles and Themes</a></li>
+<li><a href="https://material.io/design/color/the-color-system.html#color-theme-creation">Material io</a></li>
+<li><a href="https://medium.com/androiddevelopers/android-styling-themes-vs-styles-ebe05f917578">Android Styling: Themes vs Styles</a></li>
+<li><a href="https://medium.com/androiddevelopers/android-styling-common-theme-attributes-8f7c50c9eaba">Android Styling: Common Theme Attributes</a></li>
+<li><a href="https://medium.com/androiddevelopers/android-styling-prefer-theme-attributes-412caa748774">Android Styling: Prefer Theme Attribute</a></li>
+<li><a href="https://medium.com/androiddevelopers/android-styling-themes-overlay-1ffd57745207">Android Styling: Themes Overlay</a></li>
 </ul>
-<p>팁들을 대강 살펴보면 개발 빌드에 필요 없는 항목들은 빌드를 하지 않는데 초점이 맞쳐져 있는걸 알 수 있습니다. <strong>즉 개발 중에는 위의 팁들을 이용해 빌드 속도가 많이 향상될 수 있지만 릴리즈 빌드 시에는 결국 비슷한 속도로 빌드가 진행되게 됩니다.</strong></p>
-<p><strong>또한 위의 팁들은 빌드 툴의 영향을 받는 것들이 대부분입니다.</strong> 즉 발표자의 발표 시점과 실제 적용 시에는 차이가 있을 수 있습니다. 따라서 위의 결과들은 앞으로 안드로이드 스튜디오나 빌드 툴이 변해가며 계속 변할 수 있는 것들이라는 점을 유념해야 합니다.</p>
-<p>어쨋거나 개발 과정에 빌드 속도는 생산성에 큰 영향을 미치는 요소입니다. 빌드 속도가 빠르면 코드 수정 후 결과를 빠르게 확인 할 수 있고 그만큼 집중력을 유지할 수 있겠죠. 개인적으로는 아주 재미있었던 세션이였습니다. 시간이 되시는 분들은 원래 영상을 꼭 직접 보시면 좋을 것 같습니다.</p>
-<h2 id="번외-직접-테스트">번외(직접 테스트)</h2>
-<p>참고로 제가 개발하는 회사 프로젝트에 간단히 적용할 수 있는 최적화를 몇개 해보았는데 <code>전체 빌드 기준</code> 1분41초 -&gt; 56초의 개선이 있었습니다.</p>
-<p>적용한 최적화 팁</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2018-06-27T15:00:00.000Z" title="2018-06-27T15:00:00.000Z">2018-06-28</time><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/android/">android</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></h1><div class="content"><p>안드로이드 앱을 사용해봤거나 개발해봤다면 누구나 한번씩은 ANR 다이얼로그나 버벅거림, 혹은 크래시로 앱이 비정상 종료되는 상황을 겪어봤을 겁니다. 이런 현상들은 사용자에게 안좋은 경험을 주고 심한 경우 앱을 지워버리게 만드는 요인이 되기도 합니다. 반대로 빠르고 부드러운 앱은 사용자에게 좋은 인상을 줍니다.</p>
+<p>그렇다면 빠르고 크래시 없는 앱을 개발하기 위해서는 어떻게 해야할까요?</p>
+<p>여러가지가 있겠지만 가장 중요한 것 중 하나는 안드로이드의 프로세스와 쓰레드를 잘 이해하고, 올바르게 다루는 것일 겁니다.</p>
+<p>이번 글에서는 안드로이드의 프로세스와 쓰레드의 개념에 대해 정리하고 이를 다룰 때 주의할 점에 대해 다루도록 하겠습니다.</p>
+<h2 id="1-안드로이드-앱의-실행과-프로세스">1. 안드로이드 앱의 실행과 프로세스</h2>
+<p>안드로이드는 리눅스 기반의 OS입니다. 리눅스 커널위에 라이브러리와 런타임이 있고 그 위에 어플리케이션 프레임워크가 존재합니다. 안드로이드 앱 개발자는 어플리케이션 프레임워크에서 제공하는 컴포넌트와 이를 사용하기 위한 API를 이용해서 안드로이드 앱을 개발합니다.</p>
+<p>안드로이드 앱은 앱 컴포넌트를 통해 실행됩니다. 앱 컴포넌트는 <strong>액티비티, 서비스, 컨텐츠 프로바이더, 브로드캐스트 리시버</strong> 이렇게 네 가지입니다.  앱 컴포넌트 중 하나를 실행 시켰는데 이미 실행 중인 컴포넌트가 있으면 안드로이드 시스템은 해당 컴포넌트를 기존 프로세스 내에서 실행 시키고, 없는 경우 새 리눅스 프로세스를 생성하고 여기서 컴포넌트를 실행 시킵니다.</p>
+<p><img src="/assets/img/android-thread/android-components.png" alt="App Components"></p>
+<h3 id="1-1-앱의-실행-경로">1.1. 앱의 실행 경로</h3>
+<p>가장 기본적인 실행 경로는 안드로이드 런쳐, 즉 홈 화면이나 앱 메뉴에서 앱 아이콘을 클릭해서 실행 시키는 방법이 있습니다. 이 경우 앱은 AndroidManifest.xml에 정의한 런쳐 액티비티를 실행합니다. 이 방식은 앱 컴포넌트 중 액티비티를 통해 앱이 실행되는 경우입니다.</p>
+<p>두 번째로 앱에서 알람을 등록했다고 합시다. 지정한 시간이 되면 알람을 받는 앱의 브로드캐스트 리시버가 호출이 됩니다. 이 경우는 브로트캐스트 리시버를 통해 앱이 실행되는 케이스입니다. 같은 방식으로 서비스, 컨텐츠 프로바이더를 통해 동일하게 앱이 실행되는 시나리오가 있을 수 있습니다.</p>
+<p><img src="/assets/img/android-thread/launch-process-from-appcomponent.png" alt="App Launches from Components"></p>
+<h3 id="1-2-프로세스와-메인-쓰레드">1.2. 프로세스와 메인 쓰레드</h3>
+<p>위에 설명한 실행 경로를 통해 앱이 실행되면 하나의 리눅스 프로세스가 생성되고 프로세스 안에는 하나의 쓰레드가 기본으로 생성됩니다. 이 쓰레드가 바로 메인 쓰레드입니다. 메인 쓰레드는 아주 중요하기 때문에 어떤 일을 하고 어떻게 동작하는지 잘 이해해야 좋은 앱을 만들 수 있습니다.</p>
+<p>먼저 앱의 네 가지 컴포넌트는 메인 쓰레드에서 실행됩니다. 따라서 앱 컴포넌트 중 하나인 액티비티의 라이프사이클 관련 콜백이나, 브로드캐스트 리시버의 onReceive()등도 모두 메인 쓰레드에서 실행됩니다.</p>
+<p>두 번째로 UI 위젯을 통한 사용자 이벤트와 드로잉 이벤트가 메인 쓰레드에서 실행됩니다. 즉 안드로이드 UI toolkit에 있는 android.widget, android.view의 사용자 이벤트 처리나 드로잉 관련 메소드가 여기 해당됩니다.</p>
+<p>조금 이해가 가지 않는 다면, onClick, onKeyDown, onDraw 같은 콜백들을 생각하면 됩니다.</p>
+<p>이렇게 사용자 이벤트와 드로잉 이벤트가 메인 쓰레드에서 처리되기 때문에 메인 쓰레드를 UI 쓰레드라고도 합니다. 하지만 엄밀히 말하면 둘은 서로 같은게 아닙니다. 메인 쓰레드가 UI 쓰레드를 포함 하는 개념으로 보시는게 좋습니다.</p>
+<h3 id="1-3-부드러운-UI-개발을-위해-알아야-하는-것">1.3. 부드러운 UI 개발을 위해 알아야 하는 것</h3>
+<p>앱개발을 좀 해봤다면 메인쓰레드 내에서 16ms 이상 걸리는 작업을 하면 안된다는 얘기를 많이 들어보셨을 겁니다. 우리가 보는 화면의 움직임은 결국 프레임의 연속입니다. 조금씩 변하는 프레임이 연속으로 빠르게 이어지면 사람의 뇌는 이걸 움직임으로 인식합니다.</p>
+<p>이 프레임이 너무 낮거나 불규칙하게 이어지면 사용자는 UI가 부드럽지 않다고 느끼게 됩니다. 안드로이드는 초당 60 프레임, 즉 60fps을 유지하도록 권장합니다. 60fps가 사람이 인지할 수 있는 선에서 가장 부드러운 수치이기 때문입니다. 1초는 1000ms 이기 때문에 60fps를 달성하려면 1000/60, 즉 프레임이 16ms당 한번씩 새로 그려질 수 있어야 60fps가 유지됩니다. 이에 대한 이야기는 아래 유튜브 영상에서 보실 수 있습니다.</p>
+<p><a href="https://youtu.be/CaMTIgxCSqU">PerfMatter Why 60fps</a><br>
+<img src="https://i3.ytimg.com/vi/CaMTIgxCSqU/maxresdefault.jpg" alt="PerfMatter Why 60fps"></p>
+<p>여기서 이제 가장 중요한 개념이 등장합니다. 앞서 메인 쓰레드는 UI 업데이트 즉 드로잉 작업도 처리한다고 언급하였습니다. 그래서 메인 쓰레드를 UI 쓰레드라고 부르기도 한다고 했죠. 즉 이 메인 쓰레드에서 16ms 이상 걸리는 작업을 하면 메인 쓰레드는 16ms 간격으로 프레임을 업데이트 할 수 없게 됩니다. 즉 프레임 드랍이 일어납니다.</p>
+<p>우리가 리사이클러뷰에서 스크롤을 하거나 화면에 애니메이션이 그려지고 있는 도중에 이런 프레임 드랍이 생기면 화면이 뚝뚝 끊기겠죠? 이러한 화면 끊김을 안드로이드에서는 <strong>Jank</strong> 라고도 부릅니다.</p>
+<blockquote>
+<p>결국 부드러운 UI 개발을 위해 가장 중요한 것은 메인쓰레드에서는 16ms 이상 걸리는 작업은 하지 않는 것이라고도 볼 수 있습니다.</p>
+</blockquote>
+<h3 id="1-4-워커-쓰레드-백그라운드-쓰레드">1.4. 워커 쓰레드(백그라운드 쓰레드)</h3>
+<p>앞에서 설명한 대로 메인쓰레드는 사용자 이벤트와 드로잉 이벤트를 처리하기 위해 사용되기 때문에 메인 쓰레드에서 시간이 오래걸리는 작업을 하는것은 금물입니다. 좀 더 엄밀히 말하면 16ms을 넘기지 않는게 좋습니다.</p>
+<p>그럼 시간이 오래 걸리는 작업들은 어떻게 처리해야 할까요? 답은 간단합니다. 다른 쓰레드를 만들어서 메인 쓰레드가 아닌 곳에서 작업을 처리하면 됩니다. 이렇게 시간이 오래 걸리는 작업을 처리하기 위해 생성한 쓰레드를 워커 쓰레드 또는 백그라운드 쓰레드라고 부릅니다.</p>
+<p>자바에서는 쓰레드를 생성하기 위해 Runnable과 Thread, Executors 클래스를 제공합니다. 이것들을 이용해서 시간이 오래 걸리는 작업을 처리해도 되고 안드로이드에서 편의를 위해 제공하는 AsyncTask, AsyncTaskLoader, ThreadHandler, ThreadPoolExecutor 등을 사용할 수도 있습니다.</p>
+<h3 id="1-5-워커-쓰레드의-기본적인-사용-패턴">1.5. 워커 쓰레드의 기본적인 사용 패턴</h3>
+<p>기본적으로 16ms 이상 걸릴 수 있는 무거운 일들은 메인 쓰레드에서 처리하면 안됩니다. 따라서 이러한 작업들은 보통 위에서 언급한 다양한 클래스를 이용해 워커 쓰레드를 생성하고 여기서 처리합니다. 또한 메인 쓰레드는 쓰레드 세이프 하지 않습니다. 따라서 메인 쓰레드가 아닌 워커 쓰레드에서 UI를 조작하면 정상적으로 반영이 되지 않을 수 있고 비정상적인 동작을 초래할 수 있습니다.</p>
+<p>그런데 워커 쓰레드에서 작업을 하고 이를 UI에 업데이트 하려면 어떻게 해야할까요? 워커 쓰레드에서 시간이 오래걸리는 작업을 하고 그 결과를 UI에 반영해서 사용자에게 결과를 보여주는 것은 앱 개발에서 가장 많이 보이는 패턴중에 하나입니다. 서버에 데이터를 요청하고 이를 화면에 보여주거나 이미지를 가공해서 이를 사용자에게 보여주는 경우 등, 사실 대부분의 경우 워커 쓰레드는 UI 업데이트를 동반하는 경우가 많습니다.</p>
+<p>이를 위해 워커 쓰레드와 메인 쓰레드 간에 통신하는 가장 기본적인 방법은 핸들러(Handler)를 이용하는 방법입니다.</p>
+<p>두 번째로, 안드로이드는 이를 좀 더 간편하게 할 수 있도록 AsyncTask라는 유틸 클래스를 제공합니다. AsysncTask는 워커 쓰레드에서 처리할 일을 doInBackground()에 작성하고 진행 사항이나 결과를 UI에 반영 하는 코드는 onProgressUpdate(), onPostExecute()에 작성하여 메인 쓰레드에서 이를 간편히 실행 시킬 수 있습니다.</p>
+<p>이 외에도 액티비티의 runOnUiThread(), 뷰의 post(), postDelayed()를 이용할 수도 있습니다.</p>
+<p><img src="/assets/img/android-thread/worker-thread.png" alt="Worker thread"></p>
+<h2 id="2-메인-쓰레드와-워커-쓰레드를-잘못-다루었을-때-생길-수-있는-일들">2. 메인 쓰레드와 워커 쓰레드를 잘못 다루었을 때 생길 수 있는 일들</h2>
+<h3 id="2-1-ANR-Application-Not-Responding">2.1. ANR(Application Not Responding)</h3>
+<p>메인 쓰레드는 이름처럼 아주 중요합니다. 앞서 말했던 것처럼 사용자 이벤트와 드로잉 이벤트를 처리하기 때문이죠. 때문에 메인 쓰레드에서 시간이 오래 걸리는 작업을 하면 그만큼 메인 쓰레드는 사용자 이벤트와 드로잉 이벤트를 처리할 수 없게 됩니다.</p>
+<p>즉 메인 쓰레드 내에서 시간이 오래 걸리는 작업을 하게 되면 사용자가 앱의 버튼을 클릭하거나 키보드 입력도 할 수 없고, 앱의 UI도 업데이트가 되지 않아 멈춘 것처럼 보이게 됩니다. 이것이 바로 ANR입니다.</p>
+<p>그럼 ANR을 한번 직접 만들어볼까요? 아주 간단합니다. onClick()과 같은 사용자 인풋 이벤트는 메인 쓰레드에서 실행된다고 언급하였습니다. 그럼 여기서 5초 이상 걸리는 작업을 하도록 하면 바로 ANR을 발생 시킬수 있겠죠?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class MainActivity : AppCompatActivity() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">onCreate</span><span class="params">(savedInstanceState: Bundle?)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">        button.setOnClickListener &#123;</span><br><span class="line">            Thread.sleep(<span class="number">10000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>안드로이드 시스템은 안드로이드 버전에 따라 다르지만 약 5초 이상 UI 쓰레드가 차단되면 ANR 대화 상자를 띄움으로써 사용자가 앱을 강제로 종료할 수 있게합니다.</p>
+<p><img src="https://developer.android.com/topic/performance/images/anr-example-framed.png" alt="ANR"></p>
+<h3 id="2-2-워커-쓰레드와-UI-처리">2.2 워커 쓰레드와 UI 처리</h3>
+<p>앱 개발을 하다보면 워커 쓰레드의 작업 결과를 메인 쓰레드에서 UI에 반영하는 경우가 많은데 이 때 자주 하는 실수가 있습니다.</p>
+<p>하나는 워커 쓰레드에서 작업을 끝내고 이를 UI에 반영할 때 해당하는 View가 View hierachy에서 제거 되었거나 객체 자체가 삭제 되었을 수 있습니다. 안드로이드에선 네트워크 호출은 워커 쓰레드에서 호출하도록 하고 있는데 서버로 API 호출을 한 후 이 응답값을 이용해서 UI를 수정하는 경우 흔히 발생 할 수 있는 경우입니다.</p>
+<p>좀 더 구체적인 예를 들면 액티비티 위에 프레그먼트가 있고 여기서 네트워크 콜을 합니다. 이후 네트워크 응답이 오기 전에 사용자가 백키를 눌러서 프레그먼트를 프레그먼트 스택에서 제거합니다. 이렇게 되면 프레그먼트는 액티비티의 View hierachy에서 제거 됩니다. 이제 네트워크 응답이 오고 액티비티의 View hierachy에서 제거된 프레그먼트의 UI를 수정합니다. 생각해보면 특별한 경우가 아니고 앱 개발 시 굉장히 자주 있는 시나리오입니다.</p>
+<p>두 번째는 워커 쓰레드에서 액티비티의 레퍼런스를 갖고 있는 경우 입니다. 이렇게 되면 해당 액티비티는 워커 쓰레드가 종료될 때까지 가비지 컬렉터에 의해 제거 될 수 없습니다. 워커 쓰레드가 종료되기 전에 configuration change 이벤트가 발생하거나 하면 동일한 액티비티가 여러개 생길 수도 있는 상황이 발생합니다.</p>
+<p>워커 쓰레드에서 액티비티의 레퍼런스를 직접 갖고 있지 않은 경우에도 문제가 생길 수 있습니다. 액티비티에 내부 클래스로 AsyncTask를 선언하고 사용하는 경우입니다. 내부 클래스는 외부 클래스에 대한 암시적 참조를 갖기 때문에 위의 상황처럼 AsyncTask가 종료 될 때가지 액티비티는 가비지 컬렉터에 의해 제거되지 않습니다.</p>
+<p>여기서 암시적 참조라는 말이 조금 어렵게 느껴질 수 있는데, 내부 클래스는 외부 클래스의 멤버 변수를 참조 할 수 있습니다. 어떻게 이게 가능할까요? 직접 내부 클래스에 외부 클래스의 레퍼런스를 참조하는 코드를 작성하지 않더라도 자바는 내부 클래스에 대한 참조를 생성하기 때문입니다. 이것을 바로 암시적 참조라고 합니다.</p>
+<p>아래 예제 코드는 암시적 참조에 의한 메모리 릭의 예를 보여줍니다. 아래 코드에서, doInBackground()에서 어떤 작업을 하고 있는 동안은 MyActivity는 메모리에 계속 남아있게 됩니다. 또한 화면 방향 전환이나 단말의 언어설정 변경 등에 의해 액티비티가 재시작이 되면 동일한 액티비티가 여러 개 생성될 수도 있으며, 액티비티가 종료된 후에 onPostExecute()에서 유효하지 않은 액티비티내의 객체나 UI 요소에 대한 상태를 변경하면 예기치 못한 동작이 발생할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TextView mText;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mText = findViewById(R.id.text);</span><br><span class="line">        <span class="keyword">new</span> MyAsyncTask().execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyAsyncTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            mText.setText(<span class="string">"MyAsyncTask.onPreExecute()"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> String <span class="title">doInBackground</span><span class="params">(Void... voids)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">50000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"MyAsyncTask.doInBackground() is finished"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">            mText.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>마지막으로 안드로이드 개발을 시작한지 얼마 안된 사람들이 쉽게 착각하는 것 중 하나는 액티비티와 쓰레드의 생명주기가 동일하다고 착각하는 것입니다. 하지만 액티비티의 생명주기와 쓰레드의 생명주기는 관계가 없습니다. 쓰레드가 특정 액티비티에서 생성이 되고 해당 액티비티가 종료되어도 이 쓰레드는 이와 상관없이 실행됩니다.</p>
+<p>이를 제대로 이해하지 못하면 첫 번째로 언급한 이슈가 발생하기 쉽습니다. 이런 실수를 하게되면 결국 앱은 비정상 종료를 하게 됩니다.</p>
+<p><img src="https://developer.android.com/topic/performance/images/crash-example-framed.png" alt="Crash"></p>
+<h2 id="3-마무리">3. 마무리</h2>
+<p>이번 포스팅에서는 안드로이드의 프로세스와 쓰레드에 대해 개념적인 내용들을 정리해 보았습니다.</p>
+<p>이를 정리하자면 아래와 같습니다.</p>
+<ol>
+<li>메인 쓰레드는 사용자 이벤트, 드로잉 이벤트 등을 처리하는 매우 중요한 쓰레드이며 여기서 시간이 오래 걸리는 일을 하면 앱이 끊기거나 먹통이 될 수 있다.</li>
+<li>1과 같은 이유로 많은 시간이 걸리는 작업은 새로 쓰레드를 만들어서 처리해주어야 하며 이를 워커 쓰레드라 부른다.</li>
+<li>사람이 느낄 수 있는 가장 부드러운 수치는 60fps 정도 이기 때문에 안드로이드에서도 앱 개발 시 60fps를 유지하도록 권장한다. 이를 위해 메인 쓰레드에서는 16ms 이상 걸리는 작업을 하지 않는다.</li>
+<li>워커 쓰레드에 액티비티나 View의 레퍼런스를 갖는 것은 메모리 릭과 앱의 비정상 종료를 일으킬 수 있기 때문에 매우 위험하다.</li>
+</ol>
+<p>개인적으로 안드로이드 앱 개발 시 가장 중요하다고 생각하는 부분이기도 합니다. 다음에는 좀 더 구체적으로 쓰레드에 대해 자세히 알아보고 상황에 따라 어떤 방식으로 쓰레드를 사용해야 하는지 다뤄보도록 하겠습니다.</p>
+<h2 id="참고자료">참고자료</h2>
 <ul>
-<li>그래들 버전업(2.2.2 -&gt; 3.0.0-beta6)</li>
-<li>레거시 멀티 덱스 우회(개발 빌드 시 minSdk 16 -&gt; 19)</li>
-<li>PNG Crunch 모드 끄기</li>
-<li>필요한 리소스만 빌드(xhdpi만 빌드)</li>
+<li><a href="https://developer.android.com/topic/performance/vitals/anr">ANRs</a></li>
+<li><a href="https://developer.android.com/topic/performance/vitals/crash">Crashes</a></li>
+<li><a href="https://developer.android.com/guide/platform/">Platform architecture</a></li>
+<li><a href="https://developer.android.com/guide/components/fundamentals">App components</a></li>
+<li><a href="(https://developer.android.com/guide/components/processes-and-threads)">Process and thread</a></li>
+<li><a href="https://youtu.be/0Z5MZ0jL2BM">Perfmatter - Understanding Android Threading</a></li>
+<li><a href="https://developer.android.com/topic/performance/vitals/render">Slow rendering</a></li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>최적화 전</th>
-<th>최적화 후</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>101초</td>
-<td>56초</td>
-</tr>
-</tbody>
-</table>
-<h2 id="참고-링크-a-name-reference-a">참고 링크<a name="reference"></a></h2>
-<p><a href="https://youtu.be/7ll-rkLCtyk">Speeding Up Your Android Gradle Builds (Google I/O '17</a><br><br>
-구글 I/O의 ‘Speeding Up Your Android Gradle Builds’ 세션 영상입니다.</p>
-<p><a href="https://speakerdeck.com/jmslau/speeding-up-android-gradle-builds">Slide for the speech(Spddeing Up Your Android Gradle Build)</a><br><br>
-발표자의 발표자료입니다.</p>
-<p><a href="https://developer.android.com/studio/build/optimize-your-build.html">Optimize Your Build Speed</a><br><br>
-안드로이드 개발자 사이트의 <code>Optimize Your Build Speed</code> 문서입니다. 발표 영상에 나오는 대부분의 내용들을 볼 수 있습니다.</p>
-<p><a href="https://developer.android.com/studio/run/index.html">Build and Run Your App</a><br><br>
-안드로이드 빌드 및 실행에 대한 전반적인 설명이 있는 페이지입니다.</p>
-<p><a href="https://developer.android.com/studio/run/index.html">Cold, hot, warm swap</a><br><br>
-콜드, 핫, 웜 스왑에 대한 설명입니다.</p>
-<p><a href="https://developer.android.com/studio/publish/versioning.html#appversioning">Version Your App</a><br><br>
-안드로이드 버전 설정에 대한 내용입니다.</p>
-<p><a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html">AndroidManifest uses-sdk property</a><br><br>
-그래들에 명시한 sdk 관련 설정들이 빌드 과정에서 AndroidManifest에 병합되어 처리된다는 걸 알 수 있습니다.</p>
-<p><a href="https://developer.android.com/studio/build/gradle-plugin-3-0-0.html">About Android Plugin for Gradle 3.0.0</a><br><br>
-그래들 3.0.0 버전에 대한 설명 페이지입니다.</p>
-</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/programming/android/">이전</a></div><div class="pagination-next"><a href="/categories/programming/android/page/3/">다음</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/programming/android/">1</a></li><li><a class="pagination-link is-current" href="/categories/programming/android/page/2/">2</a></li><li><a class="pagination-link" href="/categories/programming/android/page/3/">3</a></li><li><a class="pagination-link" href="/categories/programming/android/page/4/">4</a></li></ul></nav></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/assets/img/profile.png" alt="이정민"></figure><p class="title is-size-4 is-block line-height-inherit">이정민</p><p class="is-size-6 is-block">코딩소년</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>대한민국</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">12</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">38</p></a></div></div></nav><div class="level"><a class="level-item button is-info is-outlined is-rounded" href="https://jmlee.me" target="_blank" rel="noopener">홈페이지</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/jeongmin.lee.1485"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/anitoy84"><i class="fab fa-twitter"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/programming/"><span class="level-start"><span class="level-item">programming</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/programming/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/programming/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/tool/"><span class="level-start"><span class="level-item">tool</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/tool/emacs/"><span class="level-start"><span class="level-item">emacs</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-29T15:00:00.000Z">2020-04-30</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/web/">web</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-03-07T15:00:00.000Z">2020-03-08</time></p><p class="title is-6"><a class="link-muted" href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2018-06-27T15:00:00.000Z">2018-06-28</time></p><p class="title is-6"><a class="link-muted" href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2017-11-14T15:00:00.000Z">2017-11-15</time></p><p class="title is-6"><a class="link-muted" href="/2017/11/15/emacs/emacs-org-mode-introduction/">이맥스(Emacs) Org 모드 - 1. 시작하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/tool/">tool</a> / <a class="link-muted" href="/categories/tool/emacs/">emacs</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2017-11-14T15:00:00.000Z">2017-11-15</time></p><p class="title is-6"><a class="link-muted" href="/2017/11/15/emacs/emacs-org-mode-intro/">이맥스(Emacs) Org 모드</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/tool/">tool</a> / <a class="link-muted" href="/categories/tool/emacs/">emacs</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a><p class="size-small"><span>&copy; 2020 이정민</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">총 <span id="busuanzi_value_site_uv">0</span>명 방문</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/programming/android/">이전</a></div><div class="pagination-next"><a href="/categories/programming/android/page/3/">다음</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/programming/android/">1</a></li><li><a class="pagination-link is-current" href="/categories/programming/android/page/2/">2</a></li><li><a class="pagination-link" href="/categories/programming/android/page/3/">3</a></li><li><a class="pagination-link" href="/categories/programming/android/page/4/">4</a></li><li><a class="pagination-link" href="/categories/programming/android/page/5/">5</a></li></ul></nav></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/assets/img/profile.png" alt="이정민"></figure><p class="title is-size-4 is-block line-height-inherit">이정민</p><p class="is-size-6 is-block">코딩소년</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>대한민국</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">43</p></a></div></div></nav><div class="level"><a class="level-item button is-info is-outlined is-rounded" href="https://jmlee.me" target="_blank" rel="noopener">홈페이지</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/jeongmin.lee.1485"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/anitoy84"><i class="fab fa-twitter"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/programming/"><span class="level-start"><span class="level-item">programming</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/programming/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/programming/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/tool/"><span class="level-start"><span class="level-item">tool</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/tool/emacs/"><span class="level-start"><span class="level-item">emacs</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-05-03T15:00:00.000Z">2020-05-04</time></p><p class="title is-6"><a class="link-muted" href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-30T15:00:00.000Z">2020-05-01</time></p><p class="title is-6"><a class="link-muted" href="/2020/05/01/android/testing/testing-overview/">안드로이드 테스팅 기본 개념</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-29T15:00:00.000Z">2020-04-30</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/web/">web</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-03-07T15:00:00.000Z">2020-03-08</time></p><p class="title is-6"><a class="link-muted" href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2018-06-27T15:00:00.000Z">2018-06-28</time></p><p class="title is-6"><a class="link-muted" href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a><p class="size-small"><span>&copy; 2020 이정민</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">총 <span id="busuanzi_value_site_uv">0</span>명 방문</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
             site: {
                 url: 'https://jeongmin.github.io',
                 external_link: {"enable":true,"exclude":[]}
