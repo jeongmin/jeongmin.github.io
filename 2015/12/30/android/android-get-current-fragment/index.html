@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>뷰페이저(ViewPager) | 코딩 소년의 블로그</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ViewPager는 좌우 스와이핑 제스처를 통해 뷰를 전환하는 레이아웃관리자로 볼 수 있다. 뷰페이저의 페이지는 전환될 레이아웃을 말하기 때문에 당연히 뷰도 될 수 있고 뷰그룹도 될 수 있다. 보통 가장많이 쓰이는건 프래그먼트와 함께 많이 쓰이게 된다. 특징뷰페이저는 항상 현재 위치의 좌우 아이템을 미리 로드한다. 즉 현재 3번 페이지를 보여주고 있다면 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="뷰페이저(ViewPager)">
+<meta property="og:url" content="https://jeongmin.github.io/2015/12/30/android/android-get-current-fragment/index.html">
+<meta property="og:site_name" content="코딩 소년의 블로그">
+<meta property="og:description" content="ViewPager는 좌우 스와이핑 제스처를 통해 뷰를 전환하는 레이아웃관리자로 볼 수 있다. 뷰페이저의 페이지는 전환될 레이아웃을 말하기 때문에 당연히 뷰도 될 수 있고 뷰그룹도 될 수 있다. 보통 가장많이 쓰이는건 프래그먼트와 함께 많이 쓰이게 된다. 특징뷰페이저는 항상 현재 위치의 좌우 아이템을 미리 로드한다. 즉 현재 3번 페이지를 보여주고 있다면 이">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2015-12-29T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-10T00:05:14.922Z">
+<meta property="article:author" content="이정민">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="viewpager">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="코딩 소년의 블로그" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">코딩 소년의 블로그</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">가고가고 가다보면 알게된다. 하고하고 하다보면 깨닫게 된다.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="검색"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jeongmin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-android/android-get-current-fragment" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/30/android/android-get-current-fragment/" class="article-date">
+  <time class="dt-published" datetime="2015-12-29T15:00:00.000Z" itemprop="datePublished">2015-12-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>►<a class="article-category-link" href="/categories/programming/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      뷰페이저(ViewPager)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ViewPager는 좌우 스와이핑 제스처를 통해 뷰를 전환하는 레이아웃관리자로 볼 수 있다. 뷰페이저의 페이지는 전환될 레이아웃을 말하기 때문에 당연히 뷰도 될 수 있고 뷰그룹도 될 수 있다. 보통 가장많이 쓰이는건 프래그먼트와 함께 많이 쓰이게 된다.</p>
+<h2 id="특징"><a href="#특징" class="headerlink" title="특징"></a>특징</h2><p>뷰페이저는 항상 현재 위치의 좌우 아이템을 미리 로드한다. 즉 현재 3번 페이지를 보여주고 있다면 이미 2, 4번 페이지에 대한 getItem이 호출된다. 0번에 있다면 우측의 1번 페이지까지 해서 2개가 로드된다. 그리고 현재 위치를 기준으로 좌우에 있는 페이지까지만 유지하고 그 밖에 있는 것들은 버린다.</p>
+<h2 id="뷰페이저의-현재-아이템-가져오기"><a href="#뷰페이저의-현재-아이템-가져오기" class="headerlink" title="뷰페이저의 현재 아이템 가져오기"></a>뷰페이저의 현재 아이템 가져오기</h2><p>뷰페이저는 페이지들의 전환을 쉽게 해준다. 당연히 뷰페이저를 통해 UX를 구성할때는 현재 페이지를 가져와서 원하는 작업을 하고 싶은 경우가 많다. 그래서 당연히 뷰페이저나 뷰페이저어댑터를 통해 현재 페이지를 가져올 수 있는 API가 있을 것 같다. 그…그런데…없다..그런거..-_-; 만들어야한다.</p>
+<p><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/8785221/retrieve-a-fragment-from-a-viewpager">참고자료 stackOverFlow..</a></p>
+<p>어떻게 할까 한 10초 고민하다가 바로 android viewpager get current fragment로 구글링을 해보니 바로 어떤 똘똘한 아저씨가 친절하게 해결책을 올려주셨다. 요새는 검색하면 어지간한 문제는 다 해결이 되는데 그만큼 내 머리를 쓸일은 적어지는 것 같다. 쩝..</p>
+<p>아이디어는 간단하다. </p>
+<ol>
+<li>프래그먼트가 생성되면 리스트에 담는다</li>
+<li>프래그먼트가 소멸되면 리스트에서 버린다</li>
+<li>필요할때마다 리스트에서 꺼낸다</li>
+</ol>
+<p> 주의점은 아까 특징에서 언급했듯이 뷰페이저는 현재 위치를 기준으로 좌우의 페이지까지만 가지고 있는다. 즉 현재 위치나 내 좌우 페이지가 아닌 위치의 페이지를 가져오려고 하면 오류가 발생한다.</p>
+<p>이정도 개념을 머리에 두고 아래 코드를 보면 바로 이해가 갈 것 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyPagerAdapter</span> <span class="keyword">extends</span> <span class="title class_">FragmentStatePagerAdapter</span> &#123;</span><br><span class="line">    SparseArray&lt;Fragment&gt; registeredFragments = <span class="keyword">new</span> <span class="title class_">SparseArray</span>&lt;Fragment&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyPagerAdapter</span><span class="params">(FragmentManager fm)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(fm);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getCount</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Fragment <span class="title function_">getItem</span><span class="params">(<span class="type">int</span> position)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> MyFragment.newInstance(...); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">instantiateItem</span><span class="params">(ViewGroup container, <span class="type">int</span> position)</span> &#123;</span><br><span class="line">        <span class="type">Fragment</span> <span class="variable">fragment</span> <span class="operator">=</span> (Fragment) <span class="built_in">super</span>.instantiateItem(container, position);</span><br><span class="line">        registeredFragments.put(position, fragment);</span><br><span class="line">        <span class="keyword">return</span> fragment;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroyItem</span><span class="params">(ViewGroup container, <span class="type">int</span> position, Object object)</span> &#123;</span><br><span class="line">        registeredFragments.remove(position);</span><br><span class="line">        <span class="built_in">super</span>.destroyItem(container, position, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Fragment <span class="title function_">getRegisteredFragment</span><span class="params">(<span class="type">int</span> position)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> registeredFragments.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 코드는 아까 위에서 링크를 걸어뒀던 스택오버플로우에 있는 코드이다. 코드를 보면 아래와 같다.</p>
+<ol>
+<li>프래그먼트가 생성되면 리스트에 담는다<ul>
+<li>instantiateItem()</li>
+</ul>
+<p> 	</p>
+</li>
+<li>프래그먼트가 소멸되면 리스트에서 버린다<ul>
+<li>destroyItem()</li>
+</ul>
+</li>
+<li>필요할때마다 리스트에서 꺼낸다<ul>
+<li>getRegisteredFragment()</li>
+</ul>
+</li>
+</ol>
+<p>실제 사용할때는 아래와 같이 사용하게 될 것 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">	<span class="type">int</span> mCurrentPosition;</span><br><span class="line">	ViewPager mViewPager;</span><br><span class="line">	MyPagerAdapter mAdapter;</span><br><span class="line">	</span><br><span class="line">	......</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initViewPager</span><span class="params">()</span> &#123;</span><br><span class="line">		mViewPager = ...;</span><br><span class="line">		mAdapter = <span class="keyword">new</span> <span class="title class_">MyPagerAdapter</span>(......);</span><br><span class="line">		</span><br><span class="line">		mViewPager.setAdapter(mAdapter);</span><br><span class="line">		mViewPager.setOnPageChangeListener(<span class="keyword">new</span> <span class="title class_">ViewPager</span>.OnPageChangeListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onPageScrolled</span><span class="params">(<span class="type">int</span> position, <span class="type">float</span> positionOffset, <span class="type">int</span> positionOffsetPixels)</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onPageSelected</span><span class="params">(<span class="type">int</span> position)</span> &#123;</span><br><span class="line">                mCurrentPosition = position;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onPageScrollStateChanged</span><span class="params">(<span class="type">int</span> state)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">doSomethingWithCurrentFragment</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Fragment</span> <span class="variable">fragment</span> <span class="operator">=</span> mAdapter.getRegisteredFragment(mCurrentPosition);</span><br><span class="line">        <span class="keyword">if</span> (fragment == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    		</span><br><span class="line">        <span class="comment">// do something with current fragment..</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>먼저 뷰페이저의 현재 위치를 알기 위해 onPageChangeListener를 뷰페이저에 달아준다. 이 리스너의 onPageSelected는 뷰페이저의 페이지가 바뀔때마다 호출된다. 이걸 통해 현재 뷰패이저의 위치를 가지고 있다가 필요할 때 뷰페이저어댑터를 통해 현재 프래그먼트를 가져온다. 끝!!!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jeongmin.github.io/2015/12/30/android/android-get-current-fragment/" data-id="clorv8ln60006qyucg12u2m0s" data-title="뷰페이저(ViewPager)" class="article-share-link"><span class="fa fa-share">공유</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/19/android/android-tools/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          안드로이드 개발 시 유용한 툴 소개(ChromeADB, Vysor)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/">kotlin</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/android/">android</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/emacs/">emacs</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/annotation/" rel="tag">annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynctask/" rel="tag">asynctask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build-speed/" rel="tag">build speed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/card/" rel="tag">card</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromeadb/" rel="tag">chromeadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-mode/" rel="tag">dark mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-theme/" rel="tag">dark theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elpa/" rel="tag">elpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/" rel="tag">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enum/" rel="tag">enum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font/" rel="tag">font</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-family/" rel="tag">font-family</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foundation/" rel="tag">foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/melpa/" rel="tag">melpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monoscape/" rel="tag">monoscape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ogtag/" rel="tag">ogtag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/" rel="tag">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/" rel="tag">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans-serif/" rel="tag">sans-serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serif/" rel="tag">serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/style/" rel="tag">style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typedef/" rel="tag">typedef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vysor/" rel="tag">vysor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weblink/" rel="tag">weblink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/build-speed/" style="font-size: 10px;">build speed</a> <a href="/tags/card/" style="font-size: 10px;">card</a> <a href="/tags/chat-head/" style="font-size: 10px;">chat head</a> <a href="/tags/chromeadb/" style="font-size: 10px;">chromeadb</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dark-mode/" style="font-size: 10px;">dark mode</a> <a href="/tags/dark-theme/" style="font-size: 10px;">dark theme</a> <a href="/tags/elpa/" style="font-size: 10px;">elpa</a> <a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a> <a href="/tags/enum/" style="font-size: 10px;">enum</a> <a href="/tags/floating-widget/" style="font-size: 10px;">floating widget</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/font-family/" style="font-size: 10px;">font-family</a> <a href="/tags/foundation/" style="font-size: 13.33px;">foundation</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/melpa/" style="font-size: 10px;">melpa</a> <a href="/tags/monoscape/" style="font-size: 10px;">monoscape</a> <a href="/tags/ogtag/" style="font-size: 10px;">ogtag</a> <a href="/tags/org-mode/" style="font-size: 13.33px;">org mode</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/process/" style="font-size: 10px;">process</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/sans-serif/" style="font-size: 10px;">sans-serif</a> <a href="/tags/serif/" style="font-size: 10px;">serif</a> <a href="/tags/style/" style="font-size: 10px;">style</a> <a href="/tags/system-window/" style="font-size: 10px;">system window</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/thread/" style="font-size: 10px;">thread</a> <a href="/tags/tool/" style="font-size: 16.67px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/typedef/" style="font-size: 10px;">typedef</a> <a href="/tags/viewmodel/" style="font-size: 10px;">viewmodel</a> <a href="/tags/viewpager/" style="font-size: 10px;">viewpager</a> <a href="/tags/vysor/" style="font-size: 10px;">vysor</a> <a href="/tags/weblink/" style="font-size: 10px;">weblink</a> <a href="/tags/widget/" style="font-size: 10px;">widget</a> <a href="/tags/window/" style="font-size: 10px;">window</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">11월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">5월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">4월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">3월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12월 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 이정민<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

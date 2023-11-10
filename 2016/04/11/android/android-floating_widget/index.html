@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>홈스크린에 뷰 띄우기 | 코딩 소년의 블로그</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="안드로이드를 쓰다보면 홈화면에 뷰를 띄우는걸 종종 볼 수 있습니다. 대표적으로 네이버앱의 퀵메뉴나 페이스북 메신저의 챗헤드가 있죠. 퀵메뉴는 네이버앱의 각 메뉴로 바로갈 수 있는 런처 역할을, 챗헤드는 앱으로 진입하지 않고 홈화면에서 바로 대화를 이어갈 수 있도록 해줍니다. 이처럼 홈화면은 사용자가 홈버튼을 누르거나 단말을 켰을때 가장 먼저 보는 기본 화면">
+<meta property="og:type" content="article">
+<meta property="og:title" content="홈스크린에 뷰 띄우기">
+<meta property="og:url" content="https://jeongmin.github.io/2016/04/11/android/android-floating_widget/index.html">
+<meta property="og:site_name" content="코딩 소년의 블로그">
+<meta property="og:description" content="안드로이드를 쓰다보면 홈화면에 뷰를 띄우는걸 종종 볼 수 있습니다. 대표적으로 네이버앱의 퀵메뉴나 페이스북 메신저의 챗헤드가 있죠. 퀵메뉴는 네이버앱의 각 메뉴로 바로갈 수 있는 런처 역할을, 챗헤드는 앱으로 진입하지 않고 홈화면에서 바로 대화를 이어갈 수 있도록 해줍니다. 이처럼 홈화면은 사용자가 홈버튼을 누르거나 단말을 켰을때 가장 먼저 보는 기본 화면">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/floating_widget/quickmenu.png">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/floating_widget/ex_window_1.png">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/floating_widget/ex_window_2.png">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/floating_widget/ex_window_3.png">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/floating_widget/ex_window_4.png">
+<meta property="article:published_time" content="2016-04-10T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-10T00:05:14.921Z">
+<meta property="article:author" content="이정민">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="floating widget">
+<meta property="article:tag" content="chat head">
+<meta property="article:tag" content="widget">
+<meta property="article:tag" content="system window">
+<meta property="article:tag" content="window">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jeongmin.github.io/assets/img/floating_widget/quickmenu.png">
+  
+    <link rel="alternate" href="/atom.xml" title="코딩 소년의 블로그" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">코딩 소년의 블로그</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">가고가고 가다보면 알게된다. 하고하고 하다보면 깨닫게 된다.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="검색"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jeongmin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-android/android-floating_widget" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/04/11/android/android-floating_widget/" class="article-date">
+  <time class="dt-published" datetime="2016-04-10T15:00:00.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>►<a class="article-category-link" href="/categories/programming/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      홈스크린에 뷰 띄우기
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>안드로이드를 쓰다보면 홈화면에 뷰를 띄우는걸 종종 볼 수 있습니다. 대표적으로 네이버앱의 퀵메뉴나 페이스북 메신저의 챗헤드가 있죠. 퀵메뉴는 네이버앱의 각 메뉴로 바로갈 수 있는 런처 역할을, 챗헤드는 앱으로 진입하지 않고 홈화면에서 바로 대화를 이어갈 수 있도록 해줍니다. 이처럼 홈화면은 사용자가 홈버튼을 누르거나 단말을 켰을때 가장 먼저 보는 기본 화면이기에 접근성이 높아 이를 잘 이용하는 것은 매우 중요합니다.</p>
+<p><img src="/assets/img/floating_widget/quickmenu.png" alt="quickmenu"></p>
+<p>오늘은 이렇게 홈스크린에 직접 뷰를 띄우는 방법에 대해 공유하려고 합니다. 이 방식은 __윈도우(Window)__를 직접 생성하고 여기에 뷰를 넣는 방식입니다. 안드로이드에서는 홈 화면을 이용할 수 있도록 위젯을 제공하지만 기본으로 제공하는 위젯은 크기와 위치가 제한됩니다. 하지만 이 방법은 위젯과는 달리 위치와 크기를 자유롭게 조절할 수 있기 때문에 활용도가 매우 높습니다.</p>
+<h1 id="윈도우란"><a href="#윈도우란" class="headerlink" title="윈도우란"></a>윈도우란</h1><p>아까 잠시 언급했듯이 이 방법은 직접 윈도우를 생성하고 뷰를 넣는 방식입니다. 그래서 자세한 방법을 설명하기 전에 윈도우에 대해 간단히 알고 넘어가야합니다. </p>
+<p>윈도우는 화면에 UI를 그리기 위한 Surface를 갖습니다. 즉 화면에 뭔가 그려지고 있다는 것은 윈도우가 있는 것입니다. 또한 윈도우는 사용자와의 인터렉션을 위한 키, 터치 이벤트 등을 처리할 수 있는 컴포넌트입니다.</p>
+<p>기본적으로 액티비티를 생성하면 액티비티는 윈도우를 갖습니다. 또한 아래 그림과 같이 토스트, 스테이터스 바, 다이얼로그등도 개별적인 윈도우를 가집니다.</p>
+<table>
+<thead>
+<tr>
+<th>토스트, 스테이터스바</th>
+<th>다이얼로그</th>
+<th>액티비티</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/assets/img/floating_widget/ex_window_1.png" alt="ex1"></td>
+<td><img src="/assets/img/floating_widget/ex_window_2.png" alt="ex2"></td>
+<td><img src="/assets/img/floating_widget/ex_window_3.png" alt="ex3"></td>
+</tr>
+</tbody></table>
+<h3 id="윈도우-타입과-이벤트-처리"><a href="#윈도우-타입과-이벤트-처리" class="headerlink" title="윈도우 타입과 이벤트 처리"></a>윈도우 타입과 이벤트 처리</h3><p>윈도우의 목적과 종류에 따라 윈도우는 서로 다른 타입을 가집니다. 예를들어 액티비티에 주로 사용되는 타입(TYPE_BASE_APPLICATION)의 윈도우는 키, 터치 이벤트를 받지만 토스트에 사용되는 타입(TYPE_TOAST)의 윈도우는 키, 터치 이벤트를 받지 못합니다. 이러한 이벤트는 윈도우의 타입에 따라 다르고 윈도우 생성 시 플래그를 통해 어느정도 제어가 가능합니다.</p>
+<h3 id="우선순위"><a href="#우선순위" class="headerlink" title="우선순위"></a>우선순위</h3><p>윈도우의 타입에 따라 우선순위가 달라집니다. 우선순위는 화면에 그려지는 순서를 결정하는데 우선순위가 높을수록 나중에 그려져서 우선순위가 낮은 윈도우를 덮을 수 있습니다. 가령 토스트의 윈도우 타입인 TYPE_TOAST는 액티비티가 사용하는 TYPE_BASE_APPLICATION보다 우선순위가 높기때문에 액티비티에서 토스트를 띄우면 토스트가 액티비티 위에 그려지게 됩니다. 우선순위는 안드로이드 버전에 따라 조금씩 다릅니다.</p>
+<h1 id="구현하기"><a href="#구현하기" class="headerlink" title="구현하기"></a>구현하기</h1><p>홈스크린에 뷰를 넣는 방법은 아래와 같습니다.</p>
+<ol>
+<li>원하는 뷰를 생성한다.</li>
+<li>적절한 타입과 속성을 갖는 윈도우 레이아웃 파라미터(WindowManager.LayoutParam)을 생성한다. </li>
+<li>윈도우 매니저의 addView(View, ViewGroup.LayoutParams params)을 이용하여 윈도우를 생성한다.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 뷰 생성</span></span><br><span class="line"><span class="type">ImageView</span> <span class="variable">floatingView</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ImageView</span>(<span class="built_in">this</span>);</span><br><span class="line">floatingView.setImageResource(R.drawable.ic_pholar);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 윈도우 레이아웃 파라미터 생성 및 설정</span></span><br><span class="line">mWindowLp = <span class="keyword">new</span> <span class="title class_">WindowManager</span>.LayoutParams(WindowManager.LayoutParams.TYPE_PHONE);</span><br><span class="line">mWindowLp.width  = WindowManager.LayoutParams.WRAP_CONTENT;</span><br><span class="line">mWindowLp.height = WindowManager.LayoutParams.WRAP_CONTENT;</span><br><span class="line">mWindowLp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 윈도우 생성</span></span><br><span class="line">mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">mWindowManager.addView(floatingView, mWindowLp);</span><br></pre></td></tr></table></figure>
+
+<p>홈화면과 일반 액티비티는 윈도우 타입이 TYPE_BASE_APPLICATION 입니다. 반면 위 코드에서 사용한 TYPE_PHONE은 TYPE_BASE_APPLICATION이기 때문에 홈화면이나 액티비티 보다 우선순위가 높아 홈 또는 액티비티 위에 그려집니다. 또한 TYPE_PHONE는 status_bar위로 올라갈 수는 없으며 터치 이벤트를 받을 수 있습니다. </p>
+<p>TYPE_PHONE은 아래 권한이 필요합니다. </p>
+<p><code>android.permission.SYSTEM_ALERT_WINDOW</code></p>
+<p> WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE는 현재 윈도우보다 하위 윈도우가 터치 이벤트를 받을 수 있도록 하는 플래그 입니다. 이걸 세팅하지 않으면 생성한 윈도우보다 낮은 순위를 갖는 홈이나 액티비티가 터치 이벤트를 받을 수 없습니다. </p>
+<p> 마지막에 보면 윈도우 매니저를 통해 윈도우를 생성하고 있습니다. 윈도우는 안드로이드의 윈도우매니저를 통해서 접근이 가능합니다. addView()를 통해 윈도우를 추가하였지만 삭제할때는 removeView()를 하면됩니다. 윈도우의 크기나 위치가 변경 되었다면 updateViewLayout()를 통해 변경사항을 적용해줍니다.</p>
+<blockquote>
+<p>윈도우의 라이프사이클이 생성한 곳에 따라 달라집니다. 액티비티에서 생성하면 액티비티가 종료될때 사라지므로 서비스에서 생성하도록 합니다. 또한 서비스가 종료될때는 윈도우를 제거하도록 처리해주는 것도 중요합니다.</p>
+</blockquote>
+<p>아래 이미지는 위의 코드로 생성한 홈 위젯입니다.</p>
+<p><img src="/assets/img/floating_widget/ex_window_4.png" alt="ex4"></p>
+<h3 id="드래깅-구현하기"><a href="#드래깅-구현하기" class="headerlink" title="드래깅 구현하기"></a>드래깅 구현하기</h3><p>여기에 퀵메뉴나 챗헤드 처럼 자유롭게 움직일 수 있도록 하고 싶다면 아래와 같이 터치 이벤트를 처리해줍니다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">floatingView.setOnTouchListener(<span class="keyword">new</span> <span class="title class_">OnTouchListener</span>() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">   		<span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onTouch</span><span class="params">(View v, MotionEvent ev)</span> &#123;</span><br><span class="line">    	<span class="keyword">switch</span> (ev.getAction()) &#123;</span><br><span class="line">        		<span class="keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line">             	mStartingX = ev.getRawX();</span><br><span class="line">               	mStartingY = ev.getRawY();</span><br><span class="line"></span><br><span class="line">               	mWidgetStartingX = mWindowLp.x;</span><br><span class="line">               	mWidgetStartingY = mWindowLp.y;</span><br><span class="line">               	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">           	<span class="keyword">case</span> MotionEvent.ACTION_MOVE:</span><br><span class="line">             	<span class="type">float</span> <span class="variable">deltaX</span> <span class="operator">=</span> mStartingX - ev.getRawX();</span><br><span class="line">               	<span class="type">float</span> <span class="variable">deltaY</span> <span class="operator">=</span> mStartingY - ev.getRawY();</span><br><span class="line">               	mWindowLp.x = (<span class="type">int</span>) (mWidgetStartingX - deltaX);</span><br><span class="line">               	mWindowLp.y = (<span class="type">int</span>) (mWidgetStartingY - deltaY);</span><br><span class="line">               	mWindowManager.updateViewLayout(floatingView, mWindowLp);</span><br><span class="line">               	<span class="keyword">return</span> <span class="literal">true</span>;     </span><br><span class="line">        		&#125;</span><br><span class="line">        		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>이벤트 처리시에 ev.getRawX(), ev.getRawY()를 사용했는데 이렇게 하면 스크린에서의 터치 위치를 가져올 수 있습니다. 이 뷰는 스크린내에서 움직여야 하기때문에 getRawX, getRawY를 사용합니다.</p>
+<h3 id="생성-및-제거-애니메이션-처리하기"><a href="#생성-및-제거-애니메이션-처리하기" class="headerlink" title="생성 및 제거 애니메이션 처리하기"></a>생성 및 제거 애니메이션 처리하기</h3><p>윈도우가 생성되고 제거될때의 애니메이션은 시스템에서 제공하는 애니메이션만 적용이 가능합니다. 적용하는 방법은 아래와 같이 WindowManager.LayoutParam을 이용합니다.</p>
+<p><code>mWindowLp.windowAnimations = android.R.style.Animation_Toast;</code></p>
+<p>생성 및 제거 시 애니메이션만 위와 같은 제약이 있고 뷰나 레이아웃 자체에 주는 애니메이션은 자유롭게 적용이 가능합니다.</p>
+<h1 id="그-외-재미있는-것들"><a href="#그-외-재미있는-것들" class="headerlink" title="그 외 재미있는 것들"></a>그 외 재미있는 것들</h1><h3 id="스테이터스바-높이-구하기"><a href="#스테이터스바-높이-구하기" class="headerlink" title="스테이터스바 높이 구하기"></a>스테이터스바 높이 구하기</h3><p>안드로이드 개발자 페이지에 가면 다른 튜토리얼이나 가이드는 굉장히 잘 되어있는데 이상하게 윈도우에 대한 설명은 매우 적습니다. 그래서 윈도우에 대해 제대로 이해하기가 어려웠는데요. 윈도우에 대해 앞서 설명한 정도의 배경만 알아도 많은 도움이 되는 것 같습니다. 가령 개발을 하다보면 스테이터스 바의 높이를 구하고 싶을때가 있는데요. 스택 오버플로우에서 찾아보면 아래와 같은 코드가 나옵니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rect rectangle= <span class="keyword">new</span> <span class="title class_">Rect</span>();</span><br><span class="line">Window window= getWindow();</span><br><span class="line">window.getDecorView().getWindowVisibleDisplayFrame(rectangle);</span><br><span class="line"><span class="type">int</span> statusBarHeight= rectangle.top;</span><br></pre></td></tr></table></figure>
+
+<p>처음에는 이 코드를 이해를 못하고 그냥 가져다 썼는데요. 위에 정리한 내용을 보고 다시 보면..먼저 현재 액티비티의 윈도우를 가져오고 윈도우의 Rect를 가져옵니다. 일반적인 윈도우는 스테이터스 바 아래 위치하기 때문에 액티비티 윈도우의 top이 바로 스테이터스바의 높이가 됩니다. </p>
+<h3 id="키보드가-올라왔는지-체크하기"><a href="#키보드가-올라왔는지-체크하기" class="headerlink" title="키보드가 올라왔는지 체크하기"></a>키보드가 올라왔는지 체크하기</h3><p>또 아래 코드는 키보드가 현재 올라와 있는지를 체크하는 코드입니다. 안드로이드는 키보드가 올라와 있는지 내려가 있는지 알 수 있는 API를 제공해주지 않기 때문에 여러가지 꼼수를 써서 이를 체크해야하는데요. 가장 많이 사용되는 것이 아래의 코드입니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">contentView.getViewTreeObserver().addOnGlobalLayoutListener(<span class="keyword">new</span> 	<span class="title class_">ViewTreeObserver</span>.OnGlobalLayoutListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGlobalLayout</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">   			<span class="type">Rect</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rect</span>();</span><br><span class="line">   			contentView.getWindowVisibleDisplayFrame(r);</span><br><span class="line">   			<span class="type">int</span> <span class="variable">screenHeight</span> <span class="operator">=</span> contentView.getRootView().getHeight();</span><br><span class="line"></span><br><span class="line">   			<span class="comment">// r.bottom is the position above soft keypad or device button.</span></span><br><span class="line">   			<span class="comment">// if keypad is shown, the r.bottom is smaller than that before.</span></span><br><span class="line">   			<span class="type">int</span> <span class="variable">keypadHeight</span> <span class="operator">=</span> screenHeight - r.bottom;</span><br><span class="line"></span><br><span class="line">   			Log.d(TAG, <span class="string">&quot;keypadHeight = &quot;</span> + keypadHeight);</span><br><span class="line"></span><br><span class="line">   			<span class="keyword">if</span> (keypadHeight &gt; screenHeight * <span class="number">0.15</span>) &#123; <span class="comment">// 0.15 ratio is perhaps enough to determine keypad height.</span></span><br><span class="line">        		<span class="comment">// keyboard is opened</span></span><br><span class="line">   			&#125;</span><br><span class="line">   			<span class="keyword">else</span> &#123;</span><br><span class="line">       			<span class="comment">// keyboard is closed</span></span><br><span class="line">  			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>이것도 앞서 윈도우에 대해 정리한걸 바탕으로 보면 아주 간단합니다. 현재 액티비티 윈도우의 높이를 구하고, 이 높이와 스크린의 높이를 대강 비교해서 액티비티의 높이가 키보드가 올라왔다고 판단할 수 있을만큼 작아졌다면 키보드가 올라왔다고 판단하는 것입니다.(키보드가 올라오면 액티비티의 윈도우는 그만큼 줄어듭니다)</p>
+<h1 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h1><p>사실 예전에 네이버 퀵메뉴를 만들때는 온전히 이해하지 못하고 적용을 했었는데 핑퐁을 하면서 정리하다보니 이제서야 오히려 더 이해를 깊게 하게 된것 같습니다. 정리하는 내내 재미있었네요. 윈도우 타입과 속성을 잘 조합하면 재미있는 것들을 많이 해볼 수 있을 것 같습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jeongmin.github.io/2016/04/11/android/android-floating_widget/" data-id="clorv8ln70007qyuchx86hsnm" data-title="홈스크린에 뷰 띄우기" class="article-share-link"><span class="fa fa-share">공유</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/21/android/android-speeding-up-build-speed/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          안드로이드 그래들 빌드 속도 올리기
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/30/web/web-ogtag/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">웹링크 미리보기 화면 보여주기(OGTag)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/">kotlin</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/android/">android</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/emacs/">emacs</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/annotation/" rel="tag">annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynctask/" rel="tag">asynctask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build-speed/" rel="tag">build speed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/card/" rel="tag">card</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromeadb/" rel="tag">chromeadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-mode/" rel="tag">dark mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-theme/" rel="tag">dark theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elpa/" rel="tag">elpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/" rel="tag">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enum/" rel="tag">enum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font/" rel="tag">font</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-family/" rel="tag">font-family</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foundation/" rel="tag">foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/melpa/" rel="tag">melpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monoscape/" rel="tag">monoscape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ogtag/" rel="tag">ogtag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/" rel="tag">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/" rel="tag">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans-serif/" rel="tag">sans-serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serif/" rel="tag">serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/style/" rel="tag">style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typedef/" rel="tag">typedef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vysor/" rel="tag">vysor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weblink/" rel="tag">weblink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/build-speed/" style="font-size: 10px;">build speed</a> <a href="/tags/card/" style="font-size: 10px;">card</a> <a href="/tags/chat-head/" style="font-size: 10px;">chat head</a> <a href="/tags/chromeadb/" style="font-size: 10px;">chromeadb</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dark-mode/" style="font-size: 10px;">dark mode</a> <a href="/tags/dark-theme/" style="font-size: 10px;">dark theme</a> <a href="/tags/elpa/" style="font-size: 10px;">elpa</a> <a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a> <a href="/tags/enum/" style="font-size: 10px;">enum</a> <a href="/tags/floating-widget/" style="font-size: 10px;">floating widget</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/font-family/" style="font-size: 10px;">font-family</a> <a href="/tags/foundation/" style="font-size: 13.33px;">foundation</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/melpa/" style="font-size: 10px;">melpa</a> <a href="/tags/monoscape/" style="font-size: 10px;">monoscape</a> <a href="/tags/ogtag/" style="font-size: 10px;">ogtag</a> <a href="/tags/org-mode/" style="font-size: 13.33px;">org mode</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/process/" style="font-size: 10px;">process</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/sans-serif/" style="font-size: 10px;">sans-serif</a> <a href="/tags/serif/" style="font-size: 10px;">serif</a> <a href="/tags/style/" style="font-size: 10px;">style</a> <a href="/tags/system-window/" style="font-size: 10px;">system window</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/thread/" style="font-size: 10px;">thread</a> <a href="/tags/tool/" style="font-size: 16.67px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/typedef/" style="font-size: 10px;">typedef</a> <a href="/tags/viewmodel/" style="font-size: 10px;">viewmodel</a> <a href="/tags/viewpager/" style="font-size: 10px;">viewpager</a> <a href="/tags/vysor/" style="font-size: 10px;">vysor</a> <a href="/tags/weblink/" style="font-size: 10px;">weblink</a> <a href="/tags/widget/" style="font-size: 10px;">widget</a> <a href="/tags/window/" style="font-size: 10px;">window</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">11월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">5월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">4월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">3월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12월 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 이정민<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

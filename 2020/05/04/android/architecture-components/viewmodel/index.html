@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>안드로이드(Android) 뷰모델(ViewModel) | 코딩 소년의 블로그</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="들어가며뷰모델은 안드로이드 AAC(Android Architecture Components)중 하나로 라이브 모델과 함께 굉장히 중요한 역할을 차지합니다. AAC는 구글에서 안드로이드 앱을 좀 더 쉽고 견고하게 개발할 수 있도록 개발자 커뮤니티의 피드백을 받아 만들어지고 있는 라이브러리입니다.  소프트웨어는 마치 사람처럼 성장합니다. 안드로이드가 1.0이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="안드로이드(Android) 뷰모델(ViewModel)">
+<meta property="og:url" content="https://jeongmin.github.io/2020/05/04/android/architecture-components/viewmodel/index.html">
+<meta property="og:site_name" content="코딩 소년의 블로그">
+<meta property="og:description" content="들어가며뷰모델은 안드로이드 AAC(Android Architecture Components)중 하나로 라이브 모델과 함께 굉장히 중요한 역할을 차지합니다. AAC는 구글에서 안드로이드 앱을 좀 더 쉽고 견고하게 개발할 수 있도록 개발자 커뮤니티의 피드백을 받아 만들어지고 있는 라이브러리입니다.  소프트웨어는 마치 사람처럼 성장합니다. 안드로이드가 1.0이">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/android-aac-viewmodel/activity_lifecycle.png">
+<meta property="og:image" content="https://jeongmin.github.io/assets/img/android-aac-viewmodel/viewmodel-lifecycle.png">
+<meta property="article:published_time" content="2020-05-03T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-10T00:05:14.923Z">
+<meta property="article:author" content="이정민">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="viewmodel">
+<meta property="article:tag" content="testing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jeongmin.github.io/assets/img/android-aac-viewmodel/activity_lifecycle.png">
+  
+    <link rel="alternate" href="/atom.xml" title="코딩 소년의 블로그" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">코딩 소년의 블로그</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">가고가고 가다보면 알게된다. 하고하고 하다보면 깨닫게 된다.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="검색"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jeongmin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-android/architecture-components/viewmodel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/04/android/architecture-components/viewmodel/" class="article-date">
+  <time class="dt-published" datetime="2020-05-03T15:00:00.000Z" itemprop="datePublished">2020-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>►<a class="article-category-link" href="/categories/programming/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      안드로이드(Android) 뷰모델(ViewModel)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h1><p>뷰모델은 안드로이드 AAC(Android Architecture Components)중 하나로 라이브 모델과 함께 굉장히 중요한 역할을 차지합니다. AAC는 구글에서 안드로이드 앱을 좀 더 쉽고 견고하게 개발할 수 있도록 개발자 커뮤니티의 피드백을 받아 만들어지고 있는 라이브러리입니다. </p>
+<p>소프트웨어는 마치 사람처럼 성장합니다. 안드로이드가 1.0이 2008년에 발표되었으니 벌써 12년이 되었습니다. 당연히 안드로이드 API도 초기 설계는 부족한 부분이 많이 있었습니다. 이에 따라 어떤 부분은 개발하기도 어렵고 버그가 발생하기 쉬운 구조적인 문제도 아주 많았죠.</p>
+<p>하지만 구글이 대단하고 잘하고 있는건 이런 부족한 부분을 끊임없이 발견하고 피드백을 받아 개선시켜주고 있다는 점입니다. AAC가 등장한 배경도, 그 AAC의 하나인 뷰모델이 등장하게 된 배경도 결국은 이런 맥락입니다.</p>
+<p>자, 그럼 뷰모델이 해결하고자 하는 문제는 무엇이고, 뷰모델은 이 문제를 어떻게 해결해주고 있을까요? 이번 글에서는 이 두 가지 질문에 대해 알아보도록 하겠습니다.<br><code>(결론을 먼저 말하자면 뷰모델은 액티비티의 재생성 시 UI와 관련된 데이터를 유지하기 위해 사용합니다.)</code></p>
+<h1 id="뷰모델이-해결하고-싶은-문제"><a href="#뷰모델이-해결하고-싶은-문제" class="headerlink" title="뷰모델이 해결하고 싶은 문제"></a>뷰모델이 해결하고 싶은 문제</h1><p>안드로이드 앱 개발을 한다고 하면, 가장 많이 부딪히는 개념중에 하나가 액티비티의 생명주기입니다. 안드로이드 앱의 거의 모든 UI 요소들은 액티비티에 속하게됩니다. 그리고 이 액티비티는 생명주기를 가집니다.</p>
+<p>여기서 생명주기라 함은 크게 액티비티의 생성(onCreate)부터 소멸(onDestroy)까지를 말하고 좀 더 디테일하게 보면 유저에게 최초로 보여지는 시점(onStart - onStop), 포커스를 갖게되는 시점(onResume - onPause) 등을 포함합니다.</p>
+<p><img src="/assets/img/android-aac-viewmodel/activity_lifecycle.png" alt="액티비티의 생명주기"></p>
+<h2 id="문제-액티비티는-시스템에-의해-재생성-re-created-될-수-있습니다"><a href="#문제-액티비티는-시스템에-의해-재생성-re-created-될-수-있습니다" class="headerlink" title="문제. 액티비티는 시스템에 의해 재생성(re-created)될 수 있습니다."></a>문제. 액티비티는 시스템에 의해 재생성(re-created)될 수 있습니다.</h2><p>이런 상황은 단말의 몇몇 설정 변경 시 발생합니다. 가장 흔한 예는 단말의 방향 전환(가로모드, 세로모드), 언어 설정 변경을 생각해 볼 수 있습니다. 이런 시스템 설정 변경은 앱 밖에서 발생하기 때문에 이로 인한 발생되는 액티비티의 재생성은 우리가 제어할 수 없습니다.</p>
+<blockquote>
+<p>그리고 이렇게 액티비티가 재생성이 되면 액티비티가 가지고 있던 데이터는 사라집니다.</p>
+</blockquote>
+<p><code>위와 같은 이유로 액티비티가 재생성 되었을 때, 좋은 유저 경험을 주기 위해서는 마치 아무일도 없었던 것 처럼 UI와 관련된 데이터를 어딘가에 저장해 두었다가 이를 이용해서 다시 화면을 그려줘야합니다.</code></p>
+<h2 id="기존의-해결책-onSaveInstanceState-와-onRestoreInstanceState"><a href="#기존의-해결책-onSaveInstanceState-와-onRestoreInstanceState" class="headerlink" title="기존의 해결책. onSaveInstanceState()와 onRestoreInstanceState()"></a>기존의 해결책. onSaveInstanceState()와 onRestoreInstanceState()</h2><p>액티비티의 onSaveInstanceState() 콜백을 이용하면 이런 예외적인 상황에서 저장해두고 싶은 데이터를 번들(Bundle)에 저장할 수 있습니다. 그리고 이렇게 저장해둔 데이터는 액티비티가 재생성될 때 onCreate(savedInstanceState: Bundle?)나 onRestoreInstanceState() 콜백을 통해 다시 전달받을 수 있습니다.</p>
+<p>하지만 이 방법은 번들을 사용하기 때문에 저장하고자 하는 데이터의 형태도 제한이 되고, 많은 양의 데이터를 저장하기에는 제한이 있습니다. <a target="_blank" rel="noopener" href="https://developer.android.com/guide/components/activities/parcelables-and-bundles">번들의 사용에 대해 가이드 하고 있는 공식 문서</a>에서는 50Kb 미만으로 유지하기를 가이드 하고 있습니다.</p>
+<p>또한 이 방법에서 onSaveInstanceState()는 메인 쓰레드에서 동작해야하기 때문에 여기서 데이터를 저장하는데 시간을 많이 사용하게 되면 그만큼 UI에 버벅거림이 생기게 됩니다.</p>
+<h1 id="뷰모델은-이-문제를-어떻게-해결-할-수-있을까"><a href="#뷰모델은-이-문제를-어떻게-해결-할-수-있을까" class="headerlink" title="뷰모델은 이 문제를 어떻게 해결 할 수 있을까?"></a>뷰모델은 이 문제를 어떻게 해결 할 수 있을까?</h1><p>뷰모델은 아래와 같이 액티비티가 재생성이 되는 시나리오에서는 액티비티의 onDestroy가 호출되더라도 소멸되지 않습니다. 뷰모델은 액티비티내에서 finish()를 직접 호출하거나 사용자가 액티비티를 닫을 때(백키를 누르거나 히스토리에서 제거해서) 소멸됩니다.</p>
+<p>뷰모델이 액티비티의 재생성시에도 살아 남으니 해결책은 아주 간단합니다. 액티비티가 재생성 되었을 때에도 유지하고 싶은 데이터는 뷰모델에 저장하면 됩니다.</p>
+<p><img src="/assets/img/android-aac-viewmodel/viewmodel-lifecycle.png" alt="뷰모델의 생명주기"></p>
+<h2 id="뷰모델-사용-방법"><a href="#뷰모델-사용-방법" class="headerlink" title="뷰모델 사용 방법"></a>뷰모델 사용 방법</h2><p>간단히 화면에 게임의 점수를 표시해 준다고 생각해봅시다. 이 점수는 유저에 의해 업데이트가 되고, 가로모드를 지원하기 때문에 화면 방향이 전환되어도 유저에 의해 업데이트된 점수는 유지되어야 합니다.</p>
+<p>이런 요구사항이 있을 때 뷰모델에 저장해야하는 값은 <code>점수</code>가 되어야 합니다. 아래와 같이 score를 저장하는 변수를 뷰모델에 선언해줍니다.</p>
+<figure class="highlight kotlin"><figcaption><span>뷰모델 생성</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyViewModel</span> : <span class="type">ViewModel</span>() &#123;</span><br><span class="line">    <span class="keyword">var</span> scroe: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 만든 뷰모델은 생성자를 통해 만들지 않고 <code>ViewModelProvider</code>라는 팩토리 객체를 이용해서 만들어줘야합니다. 일단 뷰모델의 인스턴스를 얻었다면 그 이후 사용법은 간단합니다. 일반적인 클래스 객체를 사용하듯이 데이터를 읽고 쓰면 됩니다.</p>
+<figure class="highlight kotlin"><figcaption><span>뷰모델의 사용</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">   <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">   setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Get ViewModel instance</span></span><br><span class="line">   mViewModel = ViewModelProviders.of(<span class="keyword">this</span>).<span class="keyword">get</span>(MyViewModel.<span class="keyword">class</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// Update ui</span></span><br><span class="line">   updateUi(mViewModel.scoreTeamA);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">updateScore</span><span class="params">(score: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Read and write data from the ViewModel</span></span><br><span class="line">   mViewModel.score = mViewModel.score + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// Update UI</span></span><br><span class="line">   textViewScore.text = mViewModel.score.toString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>참고로 안드로이드 개발자 페이지에서는 뷰모델과 라이브데이터(LiveData)를 함께 사용하는 예제를 보여주고 있습니다. 그 이유는 뷰모델과 라이브데이터를 함께 사용할 때 그 효용성이 극대화 되기 때문입니다. </p>
+<p>지금은 이해를 돕기위해 라이브데이터에 대한 이야기는 하지 않겠습니다. 하지만 나중에 반드시 라이브데이터에 대해서도 공부해 보기를 권해드립니다.</p>
+<h1 id="뷰모델에-대해-조금-더-알아보자"><a href="#뷰모델에-대해-조금-더-알아보자" class="headerlink" title="뷰모델에 대해 조금 더 알아보자"></a>뷰모델에 대해 조금 더 알아보자</h1><p>앞에서 뷰모델이 어떤 문제를, 어떻게 해결 할 수 있는지 알아보았습니다. 이를 바탕으로 뷰모델을 언제, 어떻게 써야할지 조금 더 구체적으로 알아보도록 하겠습니다.</p>
+<h2 id="뷰모델에는-어떤-데이터를-저장해야-할까"><a href="#뷰모델에는-어떤-데이터를-저장해야-할까" class="headerlink" title="뷰모델에는 어떤 데이터를 저장해야 할까?"></a>뷰모델에는 어떤 데이터를 저장해야 할까?</h2><p>액티비티는 굉장히 다양한 데이터를 가지고 있을 수 있습니다. 그중에 뷰모델에 저장해야할 데이터는 어떤 데이터일까요? <code>정답은 UI와 연관된 데이터입니다.</code> 앞서 뷰모델이 어떤 문제를 해결하고자 하는지를 이해했다면 당연한 이야기겠죠?</p>
+<h2 id="뷰모델을-사용할-때-주의점"><a href="#뷰모델을-사용할-때-주의점" class="headerlink" title="뷰모델을 사용할 때 주의점"></a>뷰모델을 사용할 때 주의점</h2><blockquote>
+<p>뷰모델에는 반드시 액티비티나 프래그먼트(Fragment), 컨텍스트(Context)에 대한 참조를 저장하면 안됩니다. 뷰(Views)도 컨텍스트를 가지기 때문에 뷰에 대한 참조 역시 저장하면 안됩니다.</p>
+</blockquote>
+<p>이에 대한 이유는 뷰모델의 생명주기를 생각해보면 알 수 있습니다. 뷰모델이 액티비티에 대한 참조를 갖고 있다고 생각해봅시다. 이 때 단말의 방향이 변경되어 액티비티가 재생성이 되면 어떻게 될까요? </p>
+<p>현재 액티비티는 종료되고 새로운 액티비티가 생성되지만 뷰모델은 액티비티가 재생성 되어도 살아있기 때문에 종료된 액티비티의 참조를 갖고 있게됩니다. 결국 해당 액티비티는 뷰모델이 종료될 때까지 계속 메모리에 남게 됩니다. 즉 메모리 릭(Memory leak)이 발생합니다.</p>
+<p>다만 여기에 한 가지 예외가 있는데, 어플리케이션의 컨텍스트는 뷰모델에서 가져도 됩니다. 어플리케이션은 액티비티가 아닌 어플리케이션의 생명주기를 따르기 때문입니다. 더해서, 뷰모델에서 시스템 서비스를 사용하기 위해 어플리케이션 컨텍스트가 필요한 경우 AndroidViewModel을 이용하면 됩니다. AndroidViewModel은 이런 경우를 위해 제공되는 뷰모델로 Application에 대한 참조를 가집니다.</p>
+<blockquote>
+<p>뷰모델은 액티비티가 재생성될 때 UI와 관련된 데이터를 저장하기 위해 사용합니다. </p>
+</blockquote>
+<p>또한 뷰모델은 액티비티의 재생성 시 UI 데이터를 저장하는 데 사용합니다. 데이터가 영구히 저장되어야 한다면 프리퍼런스(Preference)나 데이터베이스에 저장해야합니다.</p>
+<h2 id="뷰모델을-사용할-때-얻을-수-있는-추가적인-장점"><a href="#뷰모델을-사용할-때-얻을-수-있는-추가적인-장점" class="headerlink" title="뷰모델을 사용할 때 얻을 수 있는 추가적인 장점"></a>뷰모델을 사용할 때 얻을 수 있는 추가적인 장점</h2><p>뷰모델을 사용하면 UI와 관련된 데이터를 액티비티나 프래그먼트로부터 분리할 수 있습니다. 일반적으로 UI 개발 시 데이터와, 뷰, 로직을 분리하는 것이 코드의 복잡도를 줄이고 개발을 편하게 해준다는 것은 UI 개발에서 MVC, MVP, MVVM과 같이 다양한 패턴이 존재하는 것을 보아도 알 수 있습니다. 또한 이렇게 데이터와 UI를 분리하면 코드를 테스트 하기도 좋아집니다.</p>
+<p> 그리고 뷰모델을 올바르게 사용한다면 코드에 대한 가독성도 높아 질 수 있습니다. 예를 들어 어떤 액티비티의 코드를 분석하는데 여기서 뷰모델을 쓰고 있다면 바로 <code>이 액티비티의 UI 관련 데이터는 이 뷰모델 코드를 보면 되겠구나</code>하고 알 수 있습니다.</p>
+<h1 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h1><p>이번 글에서는 뷰모델의 개념에 대해 알아보았습니다. 뷰모델이 왜 만들어졌고 어떻게 사용하면 되는지만 알고 바로 뷰모델을 사용해도 되지만 뷰모델과 관련된 개념들은 재밌는 부분이 많습니다.</p>
+<p>액티비티의 생명주기, 데이터를 저장하는 다양한 방법들, 라이브데이터, 프래그먼트, 디자인 패턴에서의 뷰모델과, 안드로이드 AAC 뷰모델과의 차이 등이 있는데 이런 개념들을 시간을 두고 하나씩 완전히 익혀두면 굉장히 큰 도움이 될 수 있습니다.</p>
+<blockquote>
+<p>참고로 뷰모델에서 데이터를 저장하는 것은 내부적으로 프래그먼트의 setRetainInstance라는 메커니즘을 사용합니다.</p>
+</blockquote>
+<p>마지막으로 어떤 도구도 상황에 맞게 사용하는 것이 중요합니다. 뷰모델에는 다양한 장점이 있지만 사용해야하는 곳과 주의할 점이 분명합니다. 이런 점들을 잘 알고 필요할 때 사용하는 것이 중요합니다. 이 글이 뷰모델을 사용하는데 조금이라도 도움이 되면 좋겠습니다.</p>
+<h1 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/topic/libraries/architecture/viewmodel">ViewModel Overview</a><ul>
+<li>안드로이드 공식 페이지의 뷰모델 사용 가이드</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/guide/components/activities/activity-lifecycle">Understand the Activity Lifecycle</a><ul>
+<li>안드로이드 공식 페이지의 액티비티 생명주기 가이드</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/guide/components/activities/parcelables-and-bundles">Parcelables and Bundles</a><ul>
+<li>안드로이드 공식 페이지의 Parcelables과 번들에 대한 설명</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e">ViewModels : A Simple Example</a><ul>
+<li>구글 Advocator인 Lyla가 쓴 뷰모델의 사용 시 주의할 점과 다른 방식들과의 비교</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090">ViewModels: Persistence, onSaveInstanceState(), Restoring UI State and Loaders</a><ul>
+<li>구글 Advocator인 Lyla가 쓴 뷰모델에 대한 전반적인 설명</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jeongmin.github.io/2020/05/04/android/architecture-components/viewmodel/" data-id="clorv8lng003uqyuc3wdzhcrv" data-title="안드로이드(Android) 뷰모델(ViewModel)" class="article-share-link"><span class="fa fa-share">공유</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          코틀린에서의 위임
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/30/web/css-font/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">CSS 글꼴(Font) 이야기</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/">kotlin</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/android/">android</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/emacs/">emacs</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/annotation/" rel="tag">annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynctask/" rel="tag">asynctask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build-speed/" rel="tag">build speed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/card/" rel="tag">card</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromeadb/" rel="tag">chromeadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-mode/" rel="tag">dark mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-theme/" rel="tag">dark theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elpa/" rel="tag">elpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/" rel="tag">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enum/" rel="tag">enum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font/" rel="tag">font</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-family/" rel="tag">font-family</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foundation/" rel="tag">foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/melpa/" rel="tag">melpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monoscape/" rel="tag">monoscape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ogtag/" rel="tag">ogtag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/" rel="tag">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/" rel="tag">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans-serif/" rel="tag">sans-serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serif/" rel="tag">serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/style/" rel="tag">style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typedef/" rel="tag">typedef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vysor/" rel="tag">vysor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weblink/" rel="tag">weblink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/build-speed/" style="font-size: 10px;">build speed</a> <a href="/tags/card/" style="font-size: 10px;">card</a> <a href="/tags/chat-head/" style="font-size: 10px;">chat head</a> <a href="/tags/chromeadb/" style="font-size: 10px;">chromeadb</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dark-mode/" style="font-size: 10px;">dark mode</a> <a href="/tags/dark-theme/" style="font-size: 10px;">dark theme</a> <a href="/tags/elpa/" style="font-size: 10px;">elpa</a> <a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a> <a href="/tags/enum/" style="font-size: 10px;">enum</a> <a href="/tags/floating-widget/" style="font-size: 10px;">floating widget</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/font-family/" style="font-size: 10px;">font-family</a> <a href="/tags/foundation/" style="font-size: 13.33px;">foundation</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/melpa/" style="font-size: 10px;">melpa</a> <a href="/tags/monoscape/" style="font-size: 10px;">monoscape</a> <a href="/tags/ogtag/" style="font-size: 10px;">ogtag</a> <a href="/tags/org-mode/" style="font-size: 13.33px;">org mode</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/process/" style="font-size: 10px;">process</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/sans-serif/" style="font-size: 10px;">sans-serif</a> <a href="/tags/serif/" style="font-size: 10px;">serif</a> <a href="/tags/style/" style="font-size: 10px;">style</a> <a href="/tags/system-window/" style="font-size: 10px;">system window</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/thread/" style="font-size: 10px;">thread</a> <a href="/tags/tool/" style="font-size: 16.67px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/typedef/" style="font-size: 10px;">typedef</a> <a href="/tags/viewmodel/" style="font-size: 10px;">viewmodel</a> <a href="/tags/viewpager/" style="font-size: 10px;">viewpager</a> <a href="/tags/vysor/" style="font-size: 10px;">vysor</a> <a href="/tags/weblink/" style="font-size: 10px;">weblink</a> <a href="/tags/widget/" style="font-size: 10px;">widget</a> <a href="/tags/window/" style="font-size: 10px;">window</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">11월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">5월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">4월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">3월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12월 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 이정민<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
