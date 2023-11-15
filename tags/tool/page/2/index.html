@@ -1,238 +1,158 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>태그: tool | 코딩 소년의 블로그</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="코딩 소년의 블로그">
-<meta property="og:url" content="https://jeongmin.github.io/tags/tool/page/2/index.html">
-<meta property="og:site_name" content="코딩 소년의 블로그">
-<meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다.">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="이정민">
-<meta property="article:tag" content="프로그래밍">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="코딩 소년의 블로그" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>태그: tool - 코딩 소년의 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="코딩 소년의 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="코딩 소년의 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:type" content="blog"><meta property="og:title" content="코딩 소년의 블로그"><meta property="og:url" content="https://jeongmin.github.io/"><meta property="og:site_name" content="코딩 소년의 블로그"><meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://jeongmin.github.io/img/og_image.png"><meta property="article:author" content="이정민"><meta property="article:tag" content="프로그래밍"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://jeongmin.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jeongmin.github.io"},"headline":"코딩 소년의 블로그","image":["https://jeongmin.github.io/img/og_image.png"],"author":{"@type":"Person","name":"이정민"},"publisher":{"@type":"Organization","name":"코딩 소년의 블로그","logo":{"@type":"ImageObject","url":"https://jeongmin.github.io/img/logo.svg"}},"description":"프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-  
-  
-<meta name="generator" content="Hexo 7.0.0"></head>
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">태그</a></li><li class="is-active"><a href="#" aria-current="page">tool</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-11-08T15:00:00.000Z" title="2017. 11. 9. 오전 12:00:00">2017-11-09</time>&nbsp;게시 됨</span><span class="level-item"><time dateTime="2023-11-10T00:05:14.924Z" title="2023. 11. 10. 오전 9:05:14">2023-11-10</time>&nbsp;업데이트 됨</span><span class="level-item"><a class="link-muted" href="/categories/tool/">tool</a><span> / </span><a class="link-muted" href="/categories/tool/emacs/">emacs</a></span><span class="level-item">17분안에 읽기 (약 2505 단어)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/11/09/emacs/emacs-package/">이맥스(Emacs) 패키지 관리</a></p><div class="content"><h1 id="이맥스-설정"><a href="#이맥스-설정" class="headerlink" title="이맥스 설정"></a>이맥스 설정</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>이맥스가 실행되면 이맥스는 초기화 파일로부터 Lisp 프로그램들을 로드합니다. 초기화 파일은 아래 세 가지 중에 하나를 선택해서 사용하면 됩니다.<br><code>~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el</code></p>
+<h2 id="패키지"><a href="#패키지" class="headerlink" title="패키지"></a>패키지</h2><p>이맥스 24 이후부터 패키지 설치는 거의 ELPA를 사용합니다. 기존에 직접 패키지를 다운받아서 설치하던 방식에서 패키지 매니저를 통해 패키지들을 간편하게 설치 할 수 있게 된거죠.</p>
+<p>여기서 ELPA는 이맥스 패키지들이 올라가있는 저장소입니다. 따로 설정을 해주지 않아도 이맥스 버전 24부터는 기본으로 ELPA 패키지 저장소가 설정되어있습니다.</p>
+<p>패키지 저장소는 ELPA외에 다른 것들도 있는데 보통 MELPA를 많이 사용합니다. 저장소를 추가로 세팅하는 방법은 아래와 같습니다. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(require &#x27;package)</span><br><span class="line">(add-to-list &#x27;package-archives &#x27;(&quot;melpa&quot; . &quot;https://melpa.org/packages/&quot;))</span><br></pre></td></tr></table></figure>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">코딩 소년의 블로그</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">가고가고 가다보면 알게된다. 하고하고 하다보면 깨닫게 된다.</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="검색"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jeongmin.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
+<h3 id="패키지-설치"><a href="#패키지-설치" class="headerlink" title="패키지 설치"></a>패키지 설치</h3><p><code>M-x list-package</code> 명령어를 입력하면 아래와 같이 패키지 목록을 볼 수 있습니다. 여기에 있는 패키지 목록이 바로 ELPA에 등록된 패키지입니다. 만약 MELPA와 같은 저장소를 위와 같은 방법으로 추가했다면 해당 저장소에 있는 패키지도 함께 보여집니다. </p>
+<p><img src="/assets/img/emacs/emacs-packages.png" alt="list of packages"></p>
+<h3 id="패키지-로딩"><a href="#패키지-로딩" class="headerlink" title="패키지 로딩"></a>패키지 로딩</h3><p><code>load-path</code> 변수에는 이맥스가 설치된 패키지를 로드할 때 패키지를 검색하는 디렉토리 목록이 저장됩니다. <code>M-x describe-variable</code> 명령어를 통해 <code>load-path</code> 변수의 값을 볼 수 있습니다.</p>
+<p>사용하려고 하는 패키지가 <code>load-path</code>에 포함되어 있지 않으면 로딩을 실패합니다.</p>
+<h3 id="패키지-커스터마이징"><a href="#패키지-커스터마이징" class="headerlink" title="패키지 커스터마이징"></a>패키지 커스터마이징</h3><p>패키지를 설치 했으면 이제 내 손맛에 맞게 커스터마이징을 합니다. 커스터마이징이라 하면 단축키, 자동 로딩 등이 있겠죠. 자동 로딩은 설치한 패키지가 이맥스가 시작 될 때 자동으로 로딩되도록 해주는 것입니다. 설치한 패키지가 필요할 때 마다 매번 패키지를 로드하는건 너무 불편하겠죠? :)</p>
+<h2 id="유용한-함수"><a href="#유용한-함수" class="headerlink" title="유용한 함수"></a>유용한 함수</h2><table>
+<thead>
+<tr>
+<th>함수</th>
+<th>단축키</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>describe-function</td>
+<td>-</td>
+<td>elisp 함수의 설명을 보여줌</td>
+</tr>
+<tr>
+<td>describe-key</td>
+<td>-</td>
+<td>현재 맵핑된 단축키에 대한 설명을 보여줌</td>
+</tr>
+<tr>
+<td>describe-mode</td>
+<td>-</td>
+<td>현재 모드의 키바인딩 목록을 볼 수 있음</td>
+</tr>
+<tr>
+<td>describe-variable</td>
+<td>-</td>
+<td>elisp 변수에 대한 설명을 보여줌</td>
+</tr>
+</tbody></table>
+<h2 id="단축키"><a href="#단축키" class="headerlink" title="단축키"></a>단축키</h2><p>이맥스 커맨드는 Lisp 함수입니다. 보통 소문자와 하이픈으로된 이름을 가집니다. 이맥스는 이런 커맨드를 다양한 단축키로 제공합니다. 단축키가 잘 정의되어 있고 이를 잘 사용하면 엄청난 생산성을 가질 수 있습니다. 그리고 이는 곧 사람들이 이맥스를 사용하는 가장 큰 이유가됩니다.</p>
+<p>따라서 단축키를 익히고 커스터마이징 하는건 이맥스 사용자에게 가장 중요한 일중에 하나입니다.</p>
+<h3 id="키맵-Keymaps"><a href="#키맵-Keymaps" class="headerlink" title="키맵(Keymaps)"></a>키맵(Keymaps)</h3><p>이맥스의 단축키는 키맵을 통해 제공됩니다. 키맵은 전역 키맵(Global keymap) XXX 키맵으로 구성됩니다. 전역 키맵은 이맥스의 기본 모드(Fundamental mode)의 키맵을 정의합니다. </p>
+<p>이맥스의 단축키는 키(keys)와 문자(characters)로 구성됩니다. 여기서 키는 컨트롤(Ctrl), 메타(Alt or Meta), 펑션키(<HOME>, <INSERT>, …)를 말하고 문자는 알파벳과 특수문자들을 생각하면 됩니다.</p>
+<p>또한 이맥스에는 메이저 모드와 마이너 모드가 있는데요. 각 모드는 자신만의 키맵을 정의해서 사용할 수 있습니다. </p>
+<h3 id="키맵-커스터마이징"><a href="#키맵-커스터마이징" class="headerlink" title="키맵 커스터마이징"></a>키맵 커스터마이징</h3><h4 id="글로벌-키맵-Global-Keymap"><a href="#글로벌-키맵-Global-Keymap" class="headerlink" title="글로벌 키맵(Global Keymap)"></a>글로벌 키맵(Global Keymap)</h4><p><code>M-x global-set-key</code>를 이용해 글로벌 키맵의 키를 재정의 할 수 있습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(global-set-key [f9] &#x27;gud-break)</span><br></pre></td></tr></table></figure>
 
-      <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/09/emacs/emacs-package/" class="archive-article-date">
-  <time class="dt-published" datetime="2017-11-08T15:00:00.000Z" itemprop="datePublished">11월 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/09/emacs/emacs-package/">이맥스(Emacs) 패키지 관리</a>
-    </h1>
-  
+<h4 id="로컬-키맵-Local-Keymaps"><a href="#로컬-키맵-Local-Keymaps" class="headerlink" title="로컬 키맵(Local Keymaps)"></a>로컬 키맵(Local Keymaps)</h4><h4 id="미니버퍼-맵"><a href="#미니버퍼-맵" class="headerlink" title="미니버퍼 맵"></a>미니버퍼 맵</h4><h2 id="마크다운-모드"><a href="#마크다운-모드" class="headerlink" title="마크다운 모드"></a>마크다운 모드</h2><p>링크 : <a target="_blank" rel="noopener" href="https://jblevins.org/projects/markdown-mode/">https://jblevins.org/projects/markdown-mode/</a><br>메뉴얼 : <a target="_blank" rel="noopener" href="https://leanpub.com/markdown-mode">https://leanpub.com/markdown-mode</a></p>
+<p>외부 모듈로 Markdown.pl, MultiMarkdown, Pandoc 중 하나를 설치해야한다.</p>
+<h3 id="프리뷰-모드"><a href="#프리뷰-모드" class="headerlink" title="프리뷰 모드"></a>프리뷰 모드</h3><p>마크다운 문서를 웹브라우저를 통해 바로 보려면 markdown-preview 모드를 사용하면 된다. 다만 마크다운 문서는 기본적으로 html로 변환을 거쳐야 하기 때문에 이 작업을 해줄 프로그램이 필요하다. 마크다운 모드에서는 Markdown.pl, MultiMarkdown, Pandoc 중 하나를 사용한다고 한다.</p>
+<p>Debian 계열의 리눅스에서는 MultiMarkdown을 아래와 같이 설치 할 수 있다.</p>
+<blockquote>
+<p>sudo apt-get install libtext-multimarkdown-perl</p>
+</blockquote>
+<h2 id="모드"><a href="#모드" class="headerlink" title="모드"></a>모드</h2><p>이맥스는 다양한 편집 모드를 가집니다. 모드는 메이저 모드와 마이너 모드로 나눠집니다. </p>
+<h3 id="메이저-모드-Major-mode"><a href="#메이저-모드-Major-mode" class="headerlink" title="메이저 모드(Major mode)"></a>메이저 모드(Major mode)</h3><p>메이저 모드는 C 소스파일과 같이 특정한 파일 타입을 편집할 때나 쉘 버퍼와 같은 특정 타입의 버퍼에 대해 동작합니다. 메이저 모드는 한번에 하나의 모드만 동작할 수 있습니다. </p>
+<p>모든 버퍼는 하나의 메이저 모드를 가집니다. 현재 메이저 모드는 아래 그림과 같이 이맥스 창 하단에서 확인 할 수 있습니다.</p>
+<p><img src="/assets/img/emacs/mode.png" alt="mode line"></p>
+<p>가장 기본적인 최소한의 메이저 모드는 펀드멘털 모드로 불립니다. 이 모드는 특정 모드에 한정된 재정의나 변수 설정을 갖지 않기 때문에 가장 기본적인 이맥스의 상태로 동작합니다.</p>
+<p>대부분의 메이저 모드는 세개의 메이저 그룹으로 나눌 수 있습니다. 첫 번째 그룹은 플레인 텍스트나 마크업 텍스트를 가집니다. 여기에는 텍스트 모드, HTML 모드, SGML 모드, TeX 모드, 아웃라인 모드가 있습니다. 두 번째 그룹은 프로그래밍 언어들을 포함합니다. Lisp, C, Fortran 등등의 모드를 갖습니다. 세 번째 그룹은 파일의 형식과 관련이 없는 모드들을 갖습니다. Dired, Message, Shell 모드 등입니다.</p>
+<p>메이저 모드는 보통 이맥스에 의해 파일이나 버퍼가 생성될 때 자동으로 설정됩니다. 모드를 바꾸고 싶을때는 <code>M-x</code> 뒤에 <code>-mode</code>를 붙여서 변경할 수 있습니다. (ex&gt; &#96;M-x lisp-mode). 모든 버퍼는 하나의 메이저 모드를 갖기 때문에 메이저모드를 다른걸로 바꿀 수는 있어도 끌 수는 없습니다.</p>
+<p>각 버퍼의 로컬 변수인 <code>major-mode</code>는 메이저 모드의 커맨드를 이름으로 갖습니다. 예를 들어 <code>M-x lisp-mode</code>를 통해 Lisp 메이저 모드를 선택했다면 <code>major-mode</code> 변수에는 <code>list-mode</code>가 자동으로 설정됩니다.</p>
+<p><code>major-mode</code>의 기본 값은 정해진 메이저 모드가 없는 버퍼에 대해 설정되는 모드입니다. 보퐁 이 기본 값은 <code>fundamental-mode</code>입니다. 이 기본 값을 변경하고 싶으면 아래와 같이 하면 됩니다. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(setq-default major-mode `text-mode)</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<p>만약 <code>major-mode</code>의 기본값이 nil이면 메이저 모드는 이전 버퍼의 모드를 따라갑니다.</p>
+<p>특정 메이저 모드는 보통 모드에 맞게 특정 키, 사용자 옵션, 변수 등을 변경합니다. 예를 들면 보통 프로그래밍 언어 모드에서는 <TAB>을 해당 언어의 가이드에 맞추어 들여쓰기 해주도록 합니다. 그리고 버퍼 로컬 변수인 <code>comment-start</code>를 수정하기도 합니다. 이 변수는 언어에 따른 주석의 형태를 정의합니다.</p>
+<blockquote>
+<p>*현재 설정된 메이저 모드에 대한 문서를 보려면 <code>M-x describe-mode</code>를 사용합니다. 모드에 대한 자세한 설명과 키 바인딩을 모두 확인할 수 있습니다.</p>
+</blockquote>
+<p>기본 모드를 제외한 모든 메이저 모드는 모드가 활성화 될 때마다 실행되는 커스터마이징이 가능한 List 함수의 목록을 모드 훅(mode hook)으로 정의합니다. </p>
+<p>아래는 c++-mode의 훅입니다. 훅의 이름은 <code>모드명-hook</code>입니다. 또한 모든 텍스트 기반의 메이저 모드는 <code>text-mode-hook</code>을, 많은 수의 프로그래밍 언어 모드는 <code>prog-mode-hook</code>을 각각의 메이저 모드가 갖는 훅을 실행 시키기 전에 실행합니다.</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">add-hook</span> &#x27;c++-mode-hook</span><br><span class="line">	  &#x27;(lambda ()</span><br><span class="line">	     (c-set-style <span class="string">&quot;linux&quot;</span>)))</span><br></pre></td></tr></table></figure>
 
+<p>메이저 모드의 훅은 마이너 모드의 훅들을 활성화 시키기 위해 자주 사용됩니다. 아래의 코드는 <code>text-mode</code>에 진입할 때 <code>flyspell-mode</code> 마이너 모드를 활성화 시키고 있습니다.</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">add-hook</span> &#x27;text-mode-hook &#x27;flyspell-mode)</span><br></pre></td></tr></table></figure>
 
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/tags/tool/">&laquo; 이전</a><a class="page-number" href="/tags/tool/">1</a><span class="page-number current">2</span>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">카테고리</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/">kotlin</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/android/">android</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/emacs/">emacs</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">태그</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/annotation/" rel="tag">annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynctask/" rel="tag">asynctask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build-speed/" rel="tag">build speed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/card/" rel="tag">card</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromeadb/" rel="tag">chromeadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-mode/" rel="tag">dark mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-theme/" rel="tag">dark theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delegation/" rel="tag">delegation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elpa/" rel="tag">elpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/" rel="tag">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enum/" rel="tag">enum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font/" rel="tag">font</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-family/" rel="tag">font-family</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foundation/" rel="tag">foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/melpa/" rel="tag">melpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monoscape/" rel="tag">monoscape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ogtag/" rel="tag">ogtag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/" rel="tag">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/" rel="tag">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans-serif/" rel="tag">sans-serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serif/" rel="tag">serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/style/" rel="tag">style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typedef/" rel="tag">typedef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vysor/" rel="tag">vysor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weblink/" rel="tag">weblink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">태그 클라우드</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/build-speed/" style="font-size: 10px;">build speed</a> <a href="/tags/card/" style="font-size: 10px;">card</a> <a href="/tags/chat-head/" style="font-size: 10px;">chat head</a> <a href="/tags/chromeadb/" style="font-size: 10px;">chromeadb</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dark-mode/" style="font-size: 10px;">dark mode</a> <a href="/tags/dark-theme/" style="font-size: 10px;">dark theme</a> <a href="/tags/delegation/" style="font-size: 10px;">delegation</a> <a href="/tags/elpa/" style="font-size: 10px;">elpa</a> <a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a> <a href="/tags/enum/" style="font-size: 10px;">enum</a> <a href="/tags/floating-widget/" style="font-size: 10px;">floating widget</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/font-family/" style="font-size: 10px;">font-family</a> <a href="/tags/foundation/" style="font-size: 13.33px;">foundation</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/melpa/" style="font-size: 10px;">melpa</a> <a href="/tags/monoscape/" style="font-size: 10px;">monoscape</a> <a href="/tags/ogtag/" style="font-size: 10px;">ogtag</a> <a href="/tags/org-mode/" style="font-size: 13.33px;">org mode</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/process/" style="font-size: 10px;">process</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/sans-serif/" style="font-size: 10px;">sans-serif</a> <a href="/tags/serif/" style="font-size: 10px;">serif</a> <a href="/tags/style/" style="font-size: 10px;">style</a> <a href="/tags/system-window/" style="font-size: 10px;">system window</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/thread/" style="font-size: 10px;">thread</a> <a href="/tags/tool/" style="font-size: 16.67px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/typedef/" style="font-size: 10px;">typedef</a> <a href="/tags/viewmodel/" style="font-size: 10px;">viewmodel</a> <a href="/tags/viewpager/" style="font-size: 10px;">viewpager</a> <a href="/tags/vysor/" style="font-size: 10px;">vysor</a> <a href="/tags/weblink/" style="font-size: 10px;">weblink</a> <a href="/tags/widget/" style="font-size: 10px;">widget</a> <a href="/tags/window/" style="font-size: 10px;">window</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">아카이브</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">11월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">5월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">4월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">3월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12월 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">최근 포스트</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 이정민<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+<h3 id="마이너-모드-Minor-mode"><a href="#마이너-모드-Minor-mode" class="headerlink" title="마이너 모드(Minor mode)"></a>마이너 모드(Minor mode)</h3><p>마이너 모드는 내가 원할때 켜고 끌 수 있습니다. 또한 특정한 타입의 파일이나 버퍼에 구분없이 동작 할 수 있습니다. 마이너 모드는 다른 메이저 모드나 마이너 모드에 대해 독립적입니다.</p>
+<p>버퍼 로컬 마이너 모드는 활성화 된 버퍼에서만 동작합니다. 반면 글로벌 마이너 모드는 모든 버퍼에서 동작합니다.</p>
+<h2 id="자동완성"><a href="#자동완성" class="headerlink" title="자동완성"></a>자동완성</h2><p>설치 : <a target="_blank" rel="noopener" href="https://github.com/auto-complete/auto-complete">https://github.com/auto-complete/auto-complete</a><br>메뉴얼 : <a target="_blank" rel="noopener" href="https://github.com/auto-complete/auto-complete/blob/master/doc/manual.md">https://github.com/auto-complete/auto-complete/blob/master/doc/manual.md</a></p>
+<h2 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h2><p><a target="_blank" rel="noopener" href="https://www.emacswiki.org/emacs?SiteMap">EmacsWiki</a><br><br>이맥스 영문 위키 페이지입니다. 이맥스 사용자에겐 여기가 보물 창고!</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/tags/tool/">이전</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/tags/tool/page/3/">다음</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/tags/tool/">1</a></li><li><a class="pagination-link is-current" href="/tags/tool/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">43</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">링크</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/programming/"><span class="level-start"><span class="level-item">programming</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/programming/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/programming/kotlin/"><span class="level-start"><span class="level-item">kotlin</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/programming/kotlin/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/programming/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/tool/"><span class="level-start"><span class="level-item">tool</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/tool/emacs/"><span class="level-start"><span class="level-item">emacs</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-09T15:00:00.000Z">2023-11-10</time></p><p class="title"><a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/kotlin/">kotlin</a> / <a href="/categories/programming/kotlin/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-05-03T15:00:00.000Z">2020-05-04</time></p><p class="title"><a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-04-29T15:00:00.000Z">2020-04-30</time></p><p class="title"><a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/web/">web</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-03-07T15:00:00.000Z">2020-03-08</time></p><p class="title"><a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-06-27T15:00:00.000Z">2018-06-28</time></p><p class="title"><a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">아카이브</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/"><span class="level-start"><span class="level-item">2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/"><span class="level-start"><span class="level-item">2017</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/"><span class="level-start"><span class="level-item">2016</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/"><span class="level-start"><span class="level-item">2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">태그</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/android/"><span class="tag">android</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/annotation/"><span class="tag">annotation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/asynctask/"><span class="tag">asynctask</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/build-speed/"><span class="tag">build speed</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/card/"><span class="tag">card</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chat-head/"><span class="tag">chat head</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chromeadb/"><span class="tag">chromeadb</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-mode/"><span class="tag">dark mode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-theme/"><span class="tag">dark theme</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/delegation/"><span class="tag">delegation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/elpa/"><span class="tag">elpa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/emacs/"><span class="tag">emacs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/enum/"><span class="tag">enum</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/floating-widget/"><span class="tag">floating widget</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font/"><span class="tag">font</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font-family/"><span class="tag">font-family</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/foundation/"><span class="tag">foundation</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gradle/"><span class="tag">gradle</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/kotlin/"><span class="tag">kotlin</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/melpa/"><span class="tag">melpa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/monoscape/"><span class="tag">monoscape</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ogtag/"><span class="tag">ogtag</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/org-mode/"><span class="tag">org mode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/package/"><span class="tag">package</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/process/"><span class="tag">process</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/programming/"><span class="tag">programming</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sans-serif/"><span class="tag">sans-serif</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/serif/"><span class="tag">serif</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/style/"><span class="tag">style</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/system-window/"><span class="tag">system window</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/testing/"><span class="tag">testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/theme/"><span class="tag">theme</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/thread/"><span class="tag">thread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tool/"><span class="tag">tool</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tools/"><span class="tag">tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typedef/"><span class="tag">typedef</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewmodel/"><span class="tag">viewmodel</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewpager/"><span class="tag">viewpager</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vysor/"><span class="tag">vysor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/weblink/"><span class="tag">weblink</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/widget/"><span class="tag">widget</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/window/"><span class="tag">window</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">업데이트 소식 받기</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="구독"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="구독"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2023 이정민</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>

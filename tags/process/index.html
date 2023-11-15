@@ -1,233 +1,145 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>태그: process | 코딩 소년의 블로그</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="코딩 소년의 블로그">
-<meta property="og:url" content="https://jeongmin.github.io/tags/process/index.html">
-<meta property="og:site_name" content="코딩 소년의 블로그">
-<meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다.">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="이정민">
-<meta property="article:tag" content="프로그래밍">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="코딩 소년의 블로그" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>태그: process - 코딩 소년의 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="코딩 소년의 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="코딩 소년의 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:type" content="blog"><meta property="og:title" content="코딩 소년의 블로그"><meta property="og:url" content="https://jeongmin.github.io/"><meta property="og:site_name" content="코딩 소년의 블로그"><meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://jeongmin.github.io/img/og_image.png"><meta property="article:author" content="이정민"><meta property="article:tag" content="프로그래밍"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://jeongmin.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jeongmin.github.io"},"headline":"코딩 소년의 블로그","image":["https://jeongmin.github.io/img/og_image.png"],"author":{"@type":"Person","name":"이정민"},"publisher":{"@type":"Organization","name":"코딩 소년의 블로그","logo":{"@type":"ImageObject","url":"https://jeongmin.github.io/img/logo.svg"}},"description":"프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-  
-  
-<meta name="generator" content="Hexo 7.0.0"></head>
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">태그</a></li><li class="is-active"><a href="#" aria-current="page">process</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-06-27T15:00:00.000Z" title="2018. 6. 28. 오전 12:00:00">2018-06-28</time>&nbsp;게시 됨</span><span class="level-item"><time dateTime="2023-11-10T00:05:14.922Z" title="2023. 11. 10. 오전 9:05:14">2023-11-10</time>&nbsp;업데이트 됨</span><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/android/">android</a></span><span class="level-item">31분안에 읽기 (약 4594 단어)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></p><div class="content"><p>안드로이드 앱을 사용해봤거나 개발해봤다면 누구나 한번씩은 ANR 다이얼로그나 버벅거림, 혹은 크래시로 앱이 비정상 종료되는 상황을 겪어봤을 겁니다. 이런 현상들은 사용자에게 안좋은 경험을 주고 심한 경우 앱을 지워버리게 만드는 요인이 되기도 합니다. 반대로 빠르고 부드러운 앱은 사용자에게 좋은 인상을 줍니다.</p>
+<p>그렇다면 빠르고 크래시 없는 앱을 개발하기 위해서는 어떻게 해야할까요?</p>
+<p>여러가지가 있겠지만 가장 중요한 것 중 하나는 안드로이드의 프로세스와 쓰레드를 잘 이해하고, 올바르게 다루는 것일 겁니다.</p>
+<p>이번 글에서는 안드로이드의 프로세스와 쓰레드의 개념에 대해 정리하고 이를 다룰 때 주의할 점에 대해 다루도록 하겠습니다. </p>
+<h2 id="1-안드로이드-앱의-실행과-프로세스"><a href="#1-안드로이드-앱의-실행과-프로세스" class="headerlink" title="1. 안드로이드 앱의 실행과 프로세스"></a>1. 안드로이드 앱의 실행과 프로세스</h2><p>안드로이드는 리눅스 기반의 OS입니다. 리눅스 커널위에 라이브러리와 런타임이 있고 그 위에 어플리케이션 프레임워크가 존재합니다. 안드로이드 앱 개발자는 어플리케이션 프레임워크에서 제공하는 컴포넌트와 이를 사용하기 위한 API를 이용해서 안드로이드 앱을 개발합니다.</p>
+<p>안드로이드 앱은 앱 컴포넌트를 통해 실행됩니다. 앱 컴포넌트는 <strong>액티비티, 서비스, 컨텐츠 프로바이더, 브로드캐스트 리시버</strong> 이렇게 네 가지입니다.  앱 컴포넌트 중 하나를 실행 시켰는데 이미 실행 중인 컴포넌트가 있으면 안드로이드 시스템은 해당 컴포넌트를 기존 프로세스 내에서 실행 시키고, 없는 경우 새 리눅스 프로세스를 생성하고 여기서 컴포넌트를 실행 시킵니다.</p>
+<p><img src="/assets/img/android-thread/android-components.png" alt="App Components"></p>
+<h3 id="1-1-앱의-실행-경로"><a href="#1-1-앱의-실행-경로" class="headerlink" title="1.1. 앱의 실행 경로"></a>1.1. 앱의 실행 경로</h3><p>가장 기본적인 실행 경로는 안드로이드 런쳐, 즉 홈 화면이나 앱 메뉴에서 앱 아이콘을 클릭해서 실행 시키는 방법이 있습니다. 이 경우 앱은 AndroidManifest.xml에 정의한 런쳐 액티비티를 실행합니다. 이 방식은 앱 컴포넌트 중 액티비티를 통해 앱이 실행되는 경우입니다. </p>
+<p>두 번째로 앱에서 알람을 등록했다고 합시다. 지정한 시간이 되면 알람을 받는 앱의 브로드캐스트 리시버가 호출이 됩니다. 이 경우는 브로트캐스트 리시버를 통해 앱이 실행되는 케이스입니다. 같은 방식으로 서비스, 컨텐츠 프로바이더를 통해 동일하게 앱이 실행되는 시나리오가 있을 수 있습니다.</p>
+<p><img src="/assets/img/android-thread/launch-process-from-appcomponent.png" alt="App Launches from Components"></p>
+<h3 id="1-2-프로세스와-메인-쓰레드"><a href="#1-2-프로세스와-메인-쓰레드" class="headerlink" title="1.2. 프로세스와 메인 쓰레드"></a>1.2. 프로세스와 메인 쓰레드</h3><p>위에 설명한 실행 경로를 통해 앱이 실행되면 하나의 리눅스 프로세스가 생성되고 프로세스 안에는 하나의 쓰레드가 기본으로 생성됩니다. 이 쓰레드가 바로 메인 쓰레드입니다. 메인 쓰레드는 아주 중요하기 때문에 어떤 일을 하고 어떻게 동작하는지 잘 이해해야 좋은 앱을 만들 수 있습니다.</p>
+<p>먼저 앱의 네 가지 컴포넌트는 메인 쓰레드에서 실행됩니다. 따라서 앱 컴포넌트 중 하나인 액티비티의 라이프사이클 관련 콜백이나, 브로드캐스트 리시버의 onReceive()등도 모두 메인 쓰레드에서 실행됩니다.</p>
+<p>두 번째로 UI 위젯을 통한 사용자 이벤트와 드로잉 이벤트가 메인 쓰레드에서 실행됩니다. 즉 안드로이드 UI toolkit에 있는 android.widget, android.view의 사용자 이벤트 처리나 드로잉 관련 메소드가 여기 해당됩니다.</p>
+<p>조금 이해가 가지 않는 다면, onClick, onKeyDown, onDraw 같은 콜백들을 생각하면 됩니다.</p>
+<p>이렇게 사용자 이벤트와 드로잉 이벤트가 메인 쓰레드에서 처리되기 때문에 메인 쓰레드를 UI 쓰레드라고도 합니다. 하지만 엄밀히 말하면 둘은 서로 같은게 아닙니다. 메인 쓰레드가 UI 쓰레드를 포함 하는 개념으로 보시는게 좋습니다. </p>
+<h3 id="1-3-부드러운-UI-개발을-위해-알아야-하는-것"><a href="#1-3-부드러운-UI-개발을-위해-알아야-하는-것" class="headerlink" title="1.3. 부드러운 UI 개발을 위해 알아야 하는 것"></a>1.3. 부드러운 UI 개발을 위해 알아야 하는 것</h3><p>앱개발을 좀 해봤다면 메인쓰레드 내에서 16ms 이상 걸리는 작업을 하면 안된다는 얘기를 많이 들어보셨을 겁니다. 우리가 보는 화면의 움직임은 결국 프레임의 연속입니다. 조금씩 변하는 프레임이 연속으로 빠르게 이어지면 사람의 뇌는 이걸 움직임으로 인식합니다. </p>
+<p>이 프레임이 너무 낮거나 불규칙하게 이어지면 사용자는 UI가 부드럽지 않다고 느끼게 됩니다. 안드로이드는 초당 60 프레임, 즉 60fps을 유지하도록 권장합니다. 60fps가 사람이 인지할 수 있는 선에서 가장 부드러운 수치이기 때문입니다. 1초는 1000ms 이기 때문에 60fps를 달성하려면 1000&#x2F;60, 즉 프레임이 16ms당 한번씩 새로 그려질 수 있어야 60fps가 유지됩니다. 이에 대한 이야기는 아래 유튜브 영상에서 보실 수 있습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/CaMTIgxCSqU">PerfMatter Why 60fps</a><br><img src="https://i3.ytimg.com/vi/CaMTIgxCSqU/maxresdefault.jpg" alt="PerfMatter Why 60fps"></p>
+<p>여기서 이제 가장 중요한 개념이 등장합니다. 앞서 메인 쓰레드는 UI 업데이트 즉 드로잉 작업도 처리한다고 언급하였습니다. 그래서 메인 쓰레드를 UI 쓰레드라고 부르기도 한다고 했죠. 즉 이 메인 쓰레드에서 16ms 이상 걸리는 작업을 하면 메인 쓰레드는 16ms 간격으로 프레임을 업데이트 할 수 없게 됩니다. 즉 프레임 드랍이 일어납니다. </p>
+<p>우리가 리사이클러뷰에서 스크롤을 하거나 화면에 애니메이션이 그려지고 있는 도중에 이런 프레임 드랍이 생기면 화면이 뚝뚝 끊기겠죠? 이러한 화면 끊김을 안드로이드에서는 <strong>Jank</strong> 라고도 부릅니다.</p>
+<blockquote>
+<p>결국 부드러운 UI 개발을 위해 가장 중요한 것은 메인쓰레드에서는 16ms 이상 걸리는 작업은 하지 않는 것이라고도 볼 수 있습니다.</p>
+</blockquote>
+<h3 id="1-4-워커-쓰레드-백그라운드-쓰레드"><a href="#1-4-워커-쓰레드-백그라운드-쓰레드" class="headerlink" title="1.4. 워커 쓰레드(백그라운드 쓰레드)"></a>1.4. 워커 쓰레드(백그라운드 쓰레드)</h3><p>앞에서 설명한 대로 메인쓰레드는 사용자 이벤트와 드로잉 이벤트를 처리하기 위해 사용되기 때문에 메인 쓰레드에서 시간이 오래걸리는 작업을 하는것은 금물입니다. 좀 더 엄밀히 말하면 16ms을 넘기지 않는게 좋습니다.</p>
+<p>그럼 시간이 오래 걸리는 작업들은 어떻게 처리해야 할까요? 답은 간단합니다. 다른 쓰레드를 만들어서 메인 쓰레드가 아닌 곳에서 작업을 처리하면 됩니다. 이렇게 시간이 오래 걸리는 작업을 처리하기 위해 생성한 쓰레드를 워커 쓰레드 또는 백그라운드 쓰레드라고 부릅니다. </p>
+<p>자바에서는 쓰레드를 생성하기 위해 Runnable과 Thread, Executors 클래스를 제공합니다. 이것들을 이용해서 시간이 오래 걸리는 작업을 처리해도 되고 안드로이드에서 편의를 위해 제공하는 AsyncTask, AsyncTaskLoader, ThreadHandler, ThreadPoolExecutor 등을 사용할 수도 있습니다.</p>
+<h3 id="1-5-워커-쓰레드의-기본적인-사용-패턴"><a href="#1-5-워커-쓰레드의-기본적인-사용-패턴" class="headerlink" title="1.5. 워커 쓰레드의 기본적인 사용 패턴"></a>1.5. 워커 쓰레드의 기본적인 사용 패턴</h3><p>기본적으로 16ms 이상 걸릴 수 있는 무거운 일들은 메인 쓰레드에서 처리하면 안됩니다. 따라서 이러한 작업들은 보통 위에서 언급한 다양한 클래스를 이용해 워커 쓰레드를 생성하고 여기서 처리합니다. 또한 메인 쓰레드는 쓰레드 세이프 하지 않습니다. 따라서 메인 쓰레드가 아닌 워커 쓰레드에서 UI를 조작하면 정상적으로 반영이 되지 않을 수 있고 비정상적인 동작을 초래할 수 있습니다.</p>
+<p>그런데 워커 쓰레드에서 작업을 하고 이를 UI에 업데이트 하려면 어떻게 해야할까요? 워커 쓰레드에서 시간이 오래걸리는 작업을 하고 그 결과를 UI에 반영해서 사용자에게 결과를 보여주는 것은 앱 개발에서 가장 많이 보이는 패턴중에 하나입니다. 서버에 데이터를 요청하고 이를 화면에 보여주거나 이미지를 가공해서 이를 사용자에게 보여주는 경우 등, 사실 대부분의 경우 워커 쓰레드는 UI 업데이트를 동반하는 경우가 많습니다.</p>
+<p>이를 위해 워커 쓰레드와 메인 쓰레드 간에 통신하는 가장 기본적인 방법은 핸들러(Handler)를 이용하는 방법입니다. </p>
+<p>두 번째로, 안드로이드는 이를 좀 더 간편하게 할 수 있도록 AsyncTask라는 유틸 클래스를 제공합니다. AsysncTask는 워커 쓰레드에서 처리할 일을 doInBackground()에 작성하고 진행 사항이나 결과를 UI에 반영 하는 코드는 onProgressUpdate(), onPostExecute()에 작성하여 메인 쓰레드에서 이를 간편히 실행 시킬 수 있습니다.</p>
+<p>이 외에도 액티비티의 runOnUiThread(), 뷰의 post(), postDelayed()를 이용할 수도 있습니다.</p>
+<p><img src="/assets/img/android-thread/worker-thread.png" alt="Worker thread"></p>
+<h2 id="2-메인-쓰레드와-워커-쓰레드를-잘못-다루었을-때-생길-수-있는-일들"><a href="#2-메인-쓰레드와-워커-쓰레드를-잘못-다루었을-때-생길-수-있는-일들" class="headerlink" title="2. 메인 쓰레드와 워커 쓰레드를 잘못 다루었을 때 생길 수 있는 일들"></a>2. 메인 쓰레드와 워커 쓰레드를 잘못 다루었을 때 생길 수 있는 일들</h2><h3 id="2-1-ANR-Application-Not-Responding"><a href="#2-1-ANR-Application-Not-Responding" class="headerlink" title="2.1. ANR(Application Not Responding)"></a>2.1. ANR(Application Not Responding)</h3><p>메인 쓰레드는 이름처럼 아주 중요합니다. 앞서 말했던 것처럼 사용자 이벤트와 드로잉 이벤트를 처리하기 때문이죠. 때문에 메인 쓰레드에서 시간이 오래 걸리는 작업을 하면 그만큼 메인 쓰레드는 사용자 이벤트와 드로잉 이벤트를 처리할 수 없게 됩니다.</p>
+<p>즉 메인 쓰레드 내에서 시간이 오래 걸리는 작업을 하게 되면 사용자가 앱의 버튼을 클릭하거나 키보드 입력도 할 수 없고, 앱의 UI도 업데이트가 되지 않아 멈춘 것처럼 보이게 됩니다. 이것이 바로 ANR입니다.</p>
+<p>그럼 ANR을 한번 직접 만들어볼까요? 아주 간단합니다. onClick()과 같은 사용자 인풋 이벤트는 메인 쓰레드에서 실행된다고 언급하였습니다. 그럼 여기서 5초 이상 걸리는 작업을 하도록 하면 바로 ANR을 발생 시킬수 있겠죠?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : AppCompatActivity() &#123;</span><br><span class="line"></span><br><span class="line">    override fun <span class="title function_">onCreate</span><span class="params">(savedInstanceState: Bundle?)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">        button.setOnClickListener &#123;</span><br><span class="line">            Thread.sleep(<span class="number">10000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">코딩 소년의 블로그</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">가고가고 가다보면 알게된다. 하고하고 하다보면 깨닫게 된다.</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="검색"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jeongmin.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
+<p>안드로이드 시스템은 안드로이드 버전에 따라 다르지만 약 5초 이상 UI 쓰레드가 차단되면 ANR 대화 상자를 띄움으로써 사용자가 앱을 강제로 종료할 수 있게합니다.</p>
+<p><img src="https://developer.android.com/topic/performance/images/anr-example-framed.png" alt="ANR"></p>
+<h3 id="2-2-워커-쓰레드와-UI-처리"><a href="#2-2-워커-쓰레드와-UI-처리" class="headerlink" title="2.2 워커 쓰레드와 UI 처리"></a>2.2 워커 쓰레드와 UI 처리</h3><p>앱 개발을 하다보면 워커 쓰레드의 작업 결과를 메인 쓰레드에서 UI에 반영하는 경우가 많은데 이 때 자주 하는 실수가 있습니다.</p>
+<p>하나는 워커 쓰레드에서 작업을 끝내고 이를 UI에 반영할 때 해당하는 View가 View hierachy에서 제거 되었거나 객체 자체가 삭제 되었을 수 있습니다. 안드로이드에선 네트워크 호출은 워커 쓰레드에서 호출하도록 하고 있는데 서버로 API 호출을 한 후 이 응답값을 이용해서 UI를 수정하는 경우 흔히 발생 할 수 있는 경우입니다. </p>
+<p>좀 더 구체적인 예를 들면 액티비티 위에 프레그먼트가 있고 여기서 네트워크 콜을 합니다. 이후 네트워크 응답이 오기 전에 사용자가 백키를 눌러서 프레그먼트를 프레그먼트 스택에서 제거합니다. 이렇게 되면 프레그먼트는 액티비티의 View hierachy에서 제거 됩니다. 이제 네트워크 응답이 오고 액티비티의 View hierachy에서 제거된 프레그먼트의 UI를 수정합니다. 생각해보면 특별한 경우가 아니고 앱 개발 시 굉장히 자주 있는 시나리오입니다.</p>
+<p>두 번째는 워커 쓰레드에서 액티비티의 레퍼런스를 갖고 있는 경우 입니다. 이렇게 되면 해당 액티비티는 워커 쓰레드가 종료될 때까지 가비지 컬렉터에 의해 제거 될 수 없습니다. 워커 쓰레드가 종료되기 전에 configuration change 이벤트가 발생하거나 하면 동일한 액티비티가 여러개 생길 수도 있는 상황이 발생합니다.</p>
+<p>워커 쓰레드에서 액티비티의 레퍼런스를 직접 갖고 있지 않은 경우에도 문제가 생길 수 있습니다. 액티비티에 내부 클래스로 AsyncTask를 선언하고 사용하는 경우입니다. 내부 클래스는 외부 클래스에 대한 암시적 참조를 갖기 때문에 위의 상황처럼 AsyncTask가 종료 될 때가지 액티비티는 가비지 컬렉터에 의해 제거되지 않습니다. </p>
+<p>여기서 암시적 참조라는 말이 조금 어렵게 느껴질 수 있는데, 내부 클래스는 외부 클래스의 멤버 변수를 참조 할 수 있습니다. 어떻게 이게 가능할까요? 직접 내부 클래스에 외부 클래스의 레퍼런스를 참조하는 코드를 작성하지 않더라도 자바는 내부 클래스에 대한 참조를 생성하기 때문입니다. 이것을 바로 암시적 참조라고 합니다. </p>
+<p>아래 예제 코드는 암시적 참조에 의한 메모리 릭의 예를 보여줍니다. 아래 코드에서, doInBackground()에서 어떤 작업을 하고 있는 동안은 MyActivity는 메모리에 계속 남아있게 됩니다. 또한 화면 방향 전환이나 단말의 언어설정 변경 등에 의해 액티비티가 재시작이 되면 동일한 액티비티가 여러 개 생성될 수도 있으며, 액티비티가 종료된 후에 onPostExecute()에서 유효하지 않은 액티비티내의 객체나 UI 요소에 대한 상태를 변경하면 예기치 못한 동작이 발생할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TextView mText;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(<span class="meta">@Nullable</span> Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mText = findViewById(R.id.text);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">MyAsyncTask</span>().execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">MyAsyncTask</span> <span class="keyword">extends</span> <span class="title class_">AsyncTask</span>&lt;Void, Void, String&gt; &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPreExecute</span><span class="params">()</span> &#123;</span><br><span class="line">            mText.setText(<span class="string">&quot;MyAsyncTask.onPreExecute()&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> String <span class="title function_">doInBackground</span><span class="params">(Void... voids)</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">50000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;MyAsyncTask.doInBackground() is finished&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPostExecute</span><span class="params">(String s)</span> &#123;</span><br><span class="line">            mText.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/06/28/android/android-process-thread/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-06-27T15:00:00.000Z" itemprop="datePublished">6월 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">카테고리</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/">kotlin</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/android/">android</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/emacs/">emacs</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">태그</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/annotation/" rel="tag">annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynctask/" rel="tag">asynctask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build-speed/" rel="tag">build speed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/card/" rel="tag">card</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromeadb/" rel="tag">chromeadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-mode/" rel="tag">dark mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-theme/" rel="tag">dark theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delegation/" rel="tag">delegation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elpa/" rel="tag">elpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/" rel="tag">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enum/" rel="tag">enum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font/" rel="tag">font</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-family/" rel="tag">font-family</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foundation/" rel="tag">foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/melpa/" rel="tag">melpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monoscape/" rel="tag">monoscape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ogtag/" rel="tag">ogtag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/" rel="tag">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/" rel="tag">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans-serif/" rel="tag">sans-serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serif/" rel="tag">serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/style/" rel="tag">style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typedef/" rel="tag">typedef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vysor/" rel="tag">vysor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weblink/" rel="tag">weblink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">태그 클라우드</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/build-speed/" style="font-size: 10px;">build speed</a> <a href="/tags/card/" style="font-size: 10px;">card</a> <a href="/tags/chat-head/" style="font-size: 10px;">chat head</a> <a href="/tags/chromeadb/" style="font-size: 10px;">chromeadb</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dark-mode/" style="font-size: 10px;">dark mode</a> <a href="/tags/dark-theme/" style="font-size: 10px;">dark theme</a> <a href="/tags/delegation/" style="font-size: 10px;">delegation</a> <a href="/tags/elpa/" style="font-size: 10px;">elpa</a> <a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a> <a href="/tags/enum/" style="font-size: 10px;">enum</a> <a href="/tags/floating-widget/" style="font-size: 10px;">floating widget</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/font-family/" style="font-size: 10px;">font-family</a> <a href="/tags/foundation/" style="font-size: 13.33px;">foundation</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/melpa/" style="font-size: 10px;">melpa</a> <a href="/tags/monoscape/" style="font-size: 10px;">monoscape</a> <a href="/tags/ogtag/" style="font-size: 10px;">ogtag</a> <a href="/tags/org-mode/" style="font-size: 13.33px;">org mode</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/process/" style="font-size: 10px;">process</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/sans-serif/" style="font-size: 10px;">sans-serif</a> <a href="/tags/serif/" style="font-size: 10px;">serif</a> <a href="/tags/style/" style="font-size: 10px;">style</a> <a href="/tags/system-window/" style="font-size: 10px;">system window</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/thread/" style="font-size: 10px;">thread</a> <a href="/tags/tool/" style="font-size: 16.67px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/typedef/" style="font-size: 10px;">typedef</a> <a href="/tags/viewmodel/" style="font-size: 10px;">viewmodel</a> <a href="/tags/viewpager/" style="font-size: 10px;">viewpager</a> <a href="/tags/vysor/" style="font-size: 10px;">vysor</a> <a href="/tags/weblink/" style="font-size: 10px;">weblink</a> <a href="/tags/widget/" style="font-size: 10px;">widget</a> <a href="/tags/window/" style="font-size: 10px;">window</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">아카이브</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">11월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">5월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">4월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">3월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12월 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">최근 포스트</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 이정민<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+<p>마지막으로 안드로이드 개발을 시작한지 얼마 안된 사람들이 쉽게 착각하는 것 중 하나는 액티비티와 쓰레드의 생명주기가 동일하다고 착각하는 것입니다. 하지만 액티비티의 생명주기와 쓰레드의 생명주기는 관계가 없습니다. 쓰레드가 특정 액티비티에서 생성이 되고 해당 액티비티가 종료되어도 이 쓰레드는 이와 상관없이 실행됩니다.</p>
+<p>이를 제대로 이해하지 못하면 첫 번째로 언급한 이슈가 발생하기 쉽습니다. 이런 실수를 하게되면 결국 앱은 비정상 종료를 하게 됩니다.</p>
+<p><img src="https://developer.android.com/topic/performance/images/crash-example-framed.png" alt="Crash"></p>
+<h2 id="3-마무리"><a href="#3-마무리" class="headerlink" title="3. 마무리"></a>3. 마무리</h2><p>이번 포스팅에서는 안드로이드의 프로세스와 쓰레드에 대해 개념적인 내용들을 정리해 보았습니다. </p>
+<p>이를 정리하자면 아래와 같습니다.</p>
+<ol>
+<li>메인 쓰레드는 사용자 이벤트, 드로잉 이벤트 등을 처리하는 매우 중요한 쓰레드이며 여기서 시간이 오래 걸리는 일을 하면 앱이 끊기거나 먹통이 될 수 있다.</li>
+<li>1과 같은 이유로 많은 시간이 걸리는 작업은 새로 쓰레드를 만들어서 처리해주어야 하며 이를 워커 쓰레드라 부른다.</li>
+<li>사람이 느낄 수 있는 가장 부드러운 수치는 60fps 정도 이기 때문에 안드로이드에서도 앱 개발 시 60fps를 유지하도록 권장한다. 이를 위해 메인 쓰레드에서는 16ms 이상 걸리는 작업을 하지 않는다.</li>
+<li>워커 쓰레드에 액티비티나 View의 레퍼런스를 갖는 것은 메모리 릭과 앱의 비정상 종료를 일으킬 수 있기 때문에 매우 위험하다.</li>
+</ol>
+<p>개인적으로 안드로이드 앱 개발 시 가장 중요하다고 생각하는 부분이기도 합니다. 다음에는 좀 더 구체적으로 쓰레드에 대해 자세히 알아보고 상황에 따라 어떤 방식으로 쓰레드를 사용해야 하는지 다뤄보도록 하겠습니다.</p>
+<h2 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/topic/performance/vitals/anr">ANRs</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/topic/performance/vitals/crash">Crashes</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/guide/platform/">Platform architecture</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/guide/components/fundamentals">App components</a></li>
+<li><a href="(https://developer.android.com/guide/components/processes-and-threads)">Process and thread</a></li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/0Z5MZ0jL2BM">Perfmatter - Understanding Android Threading</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/topic/performance/vitals/render">Slow rendering</a></li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">43</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">링크</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/programming/"><span class="level-start"><span class="level-item">programming</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/programming/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/programming/kotlin/"><span class="level-start"><span class="level-item">kotlin</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/programming/kotlin/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/programming/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/tool/"><span class="level-start"><span class="level-item">tool</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/tool/emacs/"><span class="level-start"><span class="level-item">emacs</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-09T15:00:00.000Z">2023-11-10</time></p><p class="title"><a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/kotlin/">kotlin</a> / <a href="/categories/programming/kotlin/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-05-03T15:00:00.000Z">2020-05-04</time></p><p class="title"><a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-04-29T15:00:00.000Z">2020-04-30</time></p><p class="title"><a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/web/">web</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-03-07T15:00:00.000Z">2020-03-08</time></p><p class="title"><a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-06-27T15:00:00.000Z">2018-06-28</time></p><p class="title"><a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">아카이브</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/"><span class="level-start"><span class="level-item">2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/"><span class="level-start"><span class="level-item">2017</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/"><span class="level-start"><span class="level-item">2016</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/"><span class="level-start"><span class="level-item">2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">태그</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/android/"><span class="tag">android</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/annotation/"><span class="tag">annotation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/asynctask/"><span class="tag">asynctask</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/build-speed/"><span class="tag">build speed</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/card/"><span class="tag">card</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chat-head/"><span class="tag">chat head</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chromeadb/"><span class="tag">chromeadb</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-mode/"><span class="tag">dark mode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-theme/"><span class="tag">dark theme</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/delegation/"><span class="tag">delegation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/elpa/"><span class="tag">elpa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/emacs/"><span class="tag">emacs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/enum/"><span class="tag">enum</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/floating-widget/"><span class="tag">floating widget</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font/"><span class="tag">font</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font-family/"><span class="tag">font-family</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/foundation/"><span class="tag">foundation</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gradle/"><span class="tag">gradle</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/kotlin/"><span class="tag">kotlin</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/melpa/"><span class="tag">melpa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/monoscape/"><span class="tag">monoscape</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ogtag/"><span class="tag">ogtag</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/org-mode/"><span class="tag">org mode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/package/"><span class="tag">package</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/process/"><span class="tag">process</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/programming/"><span class="tag">programming</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sans-serif/"><span class="tag">sans-serif</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/serif/"><span class="tag">serif</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/style/"><span class="tag">style</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/system-window/"><span class="tag">system window</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/testing/"><span class="tag">testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/theme/"><span class="tag">theme</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/thread/"><span class="tag">thread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tool/"><span class="tag">tool</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tools/"><span class="tag">tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typedef/"><span class="tag">typedef</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewmodel/"><span class="tag">viewmodel</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewpager/"><span class="tag">viewpager</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vysor/"><span class="tag">vysor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/weblink/"><span class="tag">weblink</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/widget/"><span class="tag">widget</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/window/"><span class="tag">window</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">업데이트 소식 받기</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="구독"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="구독"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2023 이정민</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>

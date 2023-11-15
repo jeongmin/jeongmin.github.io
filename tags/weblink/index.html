@@ -1,233 +1,103 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>태그: weblink | 코딩 소년의 블로그</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="코딩 소년의 블로그">
-<meta property="og:url" content="https://jeongmin.github.io/tags/weblink/index.html">
-<meta property="og:site_name" content="코딩 소년의 블로그">
-<meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다.">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="이정민">
-<meta property="article:tag" content="프로그래밍">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="코딩 소년의 블로그" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>태그: weblink - 코딩 소년의 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="코딩 소년의 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="코딩 소년의 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:type" content="blog"><meta property="og:title" content="코딩 소년의 블로그"><meta property="og:url" content="https://jeongmin.github.io/"><meta property="og:site_name" content="코딩 소년의 블로그"><meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://jeongmin.github.io/img/og_image.png"><meta property="article:author" content="이정민"><meta property="article:tag" content="프로그래밍"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://jeongmin.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jeongmin.github.io"},"headline":"코딩 소년의 블로그","image":["https://jeongmin.github.io/img/og_image.png"],"author":{"@type":"Person","name":"이정민"},"publisher":{"@type":"Organization","name":"코딩 소년의 블로그","logo":{"@type":"ImageObject","url":"https://jeongmin.github.io/img/logo.svg"}},"description":"프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-  
-  
-<meta name="generator" content="Hexo 7.0.0"></head>
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">태그</a></li><li class="is-active"><a href="#" aria-current="page">weblink</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-03-29T15:00:00.000Z" title="2016. 3. 30. 오전 12:00:00">2016-03-30</time>&nbsp;게시 됨</span><span class="level-item"><time dateTime="2023-11-10T00:05:14.924Z" title="2023. 11. 10. 오전 9:05:14">2023-11-10</time>&nbsp;업데이트 됨</span><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/web/">web</a></span><span class="level-item">14분안에 읽기 (약 2122 단어)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/03/30/web/web-ogtag/">웹링크 미리보기 화면 보여주기(OGTag)</a></p><div class="content"><p>웹서핑을 하다보면 재미있는 글이나 자료들을 URL 링크 형태로 공유하는 경우가 많이 있습니다. 하지만 단순히 URL만 보게되면 보는 사람 입장에서는 해당 링크가 어떤 웹페이지인지 알기가 어렵죠. 그래서 많은 앱과 서비스에서 아래와 같이 해당 페이지에 대한 미리보기(제목, 설명, 이미지)를 제공합니다.</p>
+<p><img src="/assets/img/ogtag/ogtag.png" alt="OGTag"></p>
+<p>이런 화면을 보여주기 위해 사용되는 가장 기본적인 방법은 OGTag(Open Graph Meta Tag)를 이용하는 방법입니다. OGTag는 웹페이지에 대한 간단한 정보를 html에 입력해두고 이 페이지를 보여주는 앱이나 서비스에서 이를 이용해 위의 스크린 샷과 같이 페이지에 대한 간략한 정보를 보기 쉽게 보여줄 수 있도록 하는 것입니다. 아래는 html에 OGTag를 입력하는 예입니다. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">......</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;test&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;article&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:url&quot;</span> <span class="attr">content</span>=<span class="string">&quot;https://rootree.net&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;This is a description.&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:image&quot;</span> <span class="attr">content</span>=<span class="string">&quot;https://img.jpg&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:image:width&quot;</span> <span class="attr">content</span>=<span class="string">&quot;1200&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:image:height&quot;</span> <span class="attr">content</span>=<span class="string">&quot;627&quot;</span> /&gt;</span></span><br><span class="line">......</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">코딩 소년의 블로그</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">가고가고 가다보면 알게된다. 하고하고 하다보면 깨닫게 된다.</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="검색"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jeongmin.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/03/30/web/web-ogtag/" class="archive-article-date">
-  <time class="dt-published" datetime="2016-03-29T15:00:00.000Z" itemprop="datePublished">3월 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/30/web/web-ogtag/">웹링크 미리보기 화면 보여주기(OGTag)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">카테고리</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/">kotlin</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/kotlin/android/">android</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/emacs/">emacs</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">태그</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/annotation/" rel="tag">annotation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynctask/" rel="tag">asynctask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build-speed/" rel="tag">build speed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/card/" rel="tag">card</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat-head/" rel="tag">chat head</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromeadb/" rel="tag">chromeadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-mode/" rel="tag">dark mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dark-theme/" rel="tag">dark theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delegation/" rel="tag">delegation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elpa/" rel="tag">elpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/" rel="tag">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enum/" rel="tag">enum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/floating-widget/" rel="tag">floating widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font/" rel="tag">font</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-family/" rel="tag">font-family</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foundation/" rel="tag">foundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/melpa/" rel="tag">melpa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monoscape/" rel="tag">monoscape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ogtag/" rel="tag">ogtag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/" rel="tag">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/" rel="tag">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans-serif/" rel="tag">sans-serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serif/" rel="tag">serif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/style/" rel="tag">style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-window/" rel="tag">system window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/" rel="tag">testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typedef/" rel="tag">typedef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewmodel/" rel="tag">viewmodel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewpager/" rel="tag">viewpager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vysor/" rel="tag">vysor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weblink/" rel="tag">weblink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">태그 클라우드</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/build-speed/" style="font-size: 10px;">build speed</a> <a href="/tags/card/" style="font-size: 10px;">card</a> <a href="/tags/chat-head/" style="font-size: 10px;">chat head</a> <a href="/tags/chromeadb/" style="font-size: 10px;">chromeadb</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dark-mode/" style="font-size: 10px;">dark mode</a> <a href="/tags/dark-theme/" style="font-size: 10px;">dark theme</a> <a href="/tags/delegation/" style="font-size: 10px;">delegation</a> <a href="/tags/elpa/" style="font-size: 10px;">elpa</a> <a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a> <a href="/tags/enum/" style="font-size: 10px;">enum</a> <a href="/tags/floating-widget/" style="font-size: 10px;">floating widget</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/font-family/" style="font-size: 10px;">font-family</a> <a href="/tags/foundation/" style="font-size: 13.33px;">foundation</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/melpa/" style="font-size: 10px;">melpa</a> <a href="/tags/monoscape/" style="font-size: 10px;">monoscape</a> <a href="/tags/ogtag/" style="font-size: 10px;">ogtag</a> <a href="/tags/org-mode/" style="font-size: 13.33px;">org mode</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/process/" style="font-size: 10px;">process</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/sans-serif/" style="font-size: 10px;">sans-serif</a> <a href="/tags/serif/" style="font-size: 10px;">serif</a> <a href="/tags/style/" style="font-size: 10px;">style</a> <a href="/tags/system-window/" style="font-size: 10px;">system window</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/thread/" style="font-size: 10px;">thread</a> <a href="/tags/tool/" style="font-size: 16.67px;">tool</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/typedef/" style="font-size: 10px;">typedef</a> <a href="/tags/viewmodel/" style="font-size: 10px;">viewmodel</a> <a href="/tags/viewpager/" style="font-size: 10px;">viewpager</a> <a href="/tags/vysor/" style="font-size: 10px;">vysor</a> <a href="/tags/weblink/" style="font-size: 10px;">weblink</a> <a href="/tags/widget/" style="font-size: 10px;">widget</a> <a href="/tags/window/" style="font-size: 10px;">window</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">아카이브</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">11월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">5월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">4월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">3월 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12월 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">최근 포스트</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 이정민<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+<p>보시면 property가 og:xxx인 메타 태그들이 있는데요. 이것들이 바로 OGTag 입니다. 메타 태그는 본래 해당 페이지를 설명하는 정보들을 넣기위한 태그입니다. 검색엔진이 웹페이지를 검색하거나 웹브라우저가 해당 페이지를 정확하게 보여주기 위해 도움이 되는 정보 등으로 사용됩니다. 이중에서도 Open Graph Meta Tag는 사용자가 웹사이트를 페이스북에 공유하기 좋게 하기 위한 목적으로 만들어졌습니다. 이와 유사한 걸로는 트위터의 card 태그가 있습니다.</p>
+<p>위와 같이 og:xxx 태그를 입력해둔 웹페이지를 페이스북에 공유하면 페이스북에서는 이 태그들을 이용해서 해당 페이지의 링크를 마치 페이스북의 오브젝트처럼 다루어서 보다 예쁘게 보여줍니다. 아래 이미지는 페이스북에 링크를 공유했을때 보여지는 화면인데요. 이걸 보시면 바로 이해가 가실겁니다. 제가 공유한건 단순히 <a target="_blank" rel="noopener" href="https://naver.com/">https://naver.com</a> 이란 URL인데 아래와 같이 페이스북에서 자체적으로 예쁘게 보여주죠. 지금은 페이스북이 아니라 밴드, 라인, 카톡등 다른 서비스에서도 이를 이용해서 비슷하게 미리보기를 해주고 있습니다.</p>
+<p><img src="/assets/img/ogtag/ogtag_facebook.png" alt="OGTag_Facebook"></p>
+<p>Open Graph Meta Tag는 페이스북의 Open Graph Protocol에 정의가 되어있습니다. 이에 대한 자세한 설명은 아래 링크에서 확인 가능합니다. 지금까지 소개에선 타이틀, 설명, 썸네일 이미지 정도의 정보를 보여줄 수 있다는 정도였지만 실제로는 OGTag를 이용해 동영상, 음악 같은 것들도 표현할 수 있습니다. 또한 아래의 Open Graph Protocol 페이지에 가면 언어별 파서 및 플러그인, 개발 도구 등도 보실 수 있습니다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ogp.me/">Open Graph Protocol</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.facebook.com/docs/sharing/opengraph">Open Graph API</a></li>
+</ul>
+<p>그럼 안드로이드 앱에서 OGTag를 이용하려면 어떻게 하면 될까요? 아주 간단합니다. </p>
+<ol>
+<li>링크를 입력 받는다.</li>
+<li>해당 링크의 html을 가져와 OGTag를 파싱한다.</li>
+<li>2에서 파싱된 OGTag 정보를 가지고 원하는 UI로 예쁘게 보여준다.</li>
+</ol>
+<p>위의 과정을 간단히 코드로 구현해 보았습니다. Jsoup를 통해 html을 가져오고 여기서 OGTag를 파싱하는 코드입니다. 간단히 위의 로직만 옮긴 코드라서 슈도코드 정도 느낌으로 참고만 하면 될 것 같습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">getOGTag</span><span class="params">(String url, <span class="keyword">final</span> OGTag ret)</span> &#123;</span><br><span class="line">    <span class="comment">// 입력받은 url에 해당하는 html을 요청하고 OGTag들을 가져온다.</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> Jsoup.connect(url);</span><br><span class="line">        <span class="type">Document</span> <span class="variable">doc</span> <span class="operator">=</span> con.get();</span><br><span class="line">        <span class="type">Elements</span> <span class="variable">ogTags</span> <span class="operator">=</span> doc.select(<span class="string">&quot;meta[property^=og:]&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (ogTags.size() &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 필요한 OGTag를 추려낸다</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; ogTags.size(); i++) &#123;</span><br><span class="line">            <span class="type">Element</span> <span class="variable">tag</span> <span class="operator">=</span> ogTags.get(i);</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">text</span> <span class="operator">=</span> tag.attr(<span class="string">&quot;property&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&quot;og:url&quot;</span>.equals(text)) &#123;</span><br><span class="line">                ret.setOgUrl(tag.attr(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;og:image&quot;</span>.equals(text)) &#123;</span><br><span class="line">                ret.setOgImageUrl(tag.attr(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;og:description&quot;</span>.equals(text)) &#123;</span><br><span class="line">                ret.setOgDescription(tag.attr(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;og:title&quot;</span>.equals(text)) &#123;</span><br><span class="line">                ret.setOgTitle(tag.attr(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="조금-더-생각해볼-것들"><a href="#조금-더-생각해볼-것들" class="headerlink" title="조금 더 생각해볼 것들"></a>조금 더 생각해볼 것들</h3><h4 id="서비스-적용하기"><a href="#서비스-적용하기" class="headerlink" title="서비스 적용하기"></a>서비스 적용하기</h4><p>위의 예는 아주 간단한 구현이지만 실제로 서비스에 적용하려면 성능과 네트워크 사용에 대한 부분도 생각해봐야합니다. 링크가 PC 페이지인 경우 html 자체도 상당한 크기를 가질 수 있기때문에 이 자체도 부담이 될 수 있습니다. 따라서 매번 URL을 통해 OGTag를 파싱하는 건 쓸데없이 네트워크 트래픽 및 성능 상 낭비가 될 수 있습니다. 이를 피하기 위해서는 중간에 서버를 두거나, 캐싱을 사용하는 건데요. 서버를 두는건 OGTag를 통해 얻을 수 있는 장점에 비해 너무 큰 리소스가 들어가는 문제가 있습니다. </p>
+<p>또한 서버를 두든 앱에서 로컬 캐싱을 하든 웹페이지의 OGTag를 실시간으로 반영하기 어렵다는 이슈가 있습니다. 따라서 서비스에 따라 상황에 맞춰 적절히 적용하는 센스가 필요합니다. 앱개발자 입장에서는 며칠 단위의 로컬 캐시를 만들어서 서버없이 간단히 구현하는 방식도 좋을것 같습니다.</p>
+<h4 id="OGTag가-없는-경우"><a href="#OGTag가-없는-경우" class="headerlink" title="OGTag가 없는 경우"></a>OGTag가 없는 경우</h4><p>OGTag를 사용자가 넣어두지 않은 경우에도 URL미리보기를 적용하고 싶다면 html내에서 적당한 이미지와 타이틀, 설명을 뽑아서 사용하면 됩니다. 가령 타이틀은 메타 태그의 title을, 설명은 description을 사용한다든지, 아니면 본문의 텍스트 중 앞부분에서 적당히 잘라서 쓴다든지 하는 것이죠. 이미지 역시 div 또는 body안에서 첫번째 이미지를 찾아서 가져 올 수 있겠죠. 이런 부분은 정답이 없기에 성능이나 정책을 적당히 고려해서 적용하면 될 것 같습니다.</p>
+<h4 id="페이스북의-OGTag-처리"><a href="#페이스북의-OGTag-처리" class="headerlink" title="페이스북의 OGTag 처리"></a>페이스북의 OGTag 처리</h4><p>참고로 페이스북은 서버단에서 OGTag를 처리하고 자체적으로 캐싱도 해주고 있습니다. 사용자의 포스팅을 피드 형식으로 보여주니 당연한거 같기도 합니다. 사용자가 포스팅에 URL을 첨부하면 페이스북 크롤러가 해당 페이지의 OGTag를 캐싱해서 피드에 내려주는 방식입니다. 성능 이슈 때문인지 캐싱된 OGTag는 크롤링 될 때의 스냅샷이 저장되고 개발자 콘솔에서 캐시를 초기화 해주지 않으면 OGTag가 수정되어도 반영이 되지 않습니다. 폴라에는 각 엔드나 프로필등의 주요화면에 URL 공유하기 기능이 있는데요. 위와 같은 이슈때문에 공유하기 URL을 생성할때 앱에서 URL 뒤에 타임스탬프를 붙여서 이를 회피하고 있습니다(캐싱이 되지 않도록). </p>
+<p>그리고 OGTag가 없더라도 타이틀, 설명, 이미지를 적당히 가져와서 보여줍니다. 페이스북 크롤러가 미리보기에 사용할 값을들 파싱할때 OGTag가 있으면 OGTag를, 없으면 다른 곳에서 데이터를 가져오도록 구현되어 있는듯 하네요. <a target="_blank" rel="noopener" href="http://develope.android.com/">http://develope.android.com</a> 페이지를 가지고 테스트 해봤더니(ogtag가 없는 페이지) 타이틀은 title, 설명은 description을 가져옵니다. 이미지는 첫번째 이미지가 아니고 중간에 있는걸 가져오는데 뭘 기준으로 고르는지는 잘 모르겠네요.</p>
+<h4 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h4><p>폴라에서 공유하기 기능을 개발하면서 단순히 URL링크만 공유했는데 어떻게 다른 서비스에서는 저렇게 링크를 보기좋게 보여줄까 하고 궁금했습니다. 다른 분께도 이 글이 도움이 되면 좋겠습니다</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">43</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">링크</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/programming/"><span class="level-start"><span class="level-item">programming</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/programming/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/programming/kotlin/"><span class="level-start"><span class="level-item">kotlin</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/programming/kotlin/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/programming/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/tool/"><span class="level-start"><span class="level-item">tool</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/tool/emacs/"><span class="level-start"><span class="level-item">emacs</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-09T15:00:00.000Z">2023-11-10</time></p><p class="title"><a href="/2023/11/10/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/kotlin/">kotlin</a> / <a href="/categories/programming/kotlin/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-05-03T15:00:00.000Z">2020-05-04</time></p><p class="title"><a href="/2020/05/04/android/architecture-components/viewmodel/">안드로이드(Android) 뷰모델(ViewModel)</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-04-29T15:00:00.000Z">2020-04-30</time></p><p class="title"><a href="/2020/04/30/web/css-font/">CSS 글꼴(Font) 이야기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/web/">web</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-03-07T15:00:00.000Z">2020-03-08</time></p><p class="title"><a href="/2020/03/08/android/styling/android-theming/">테마(Theme)를 이용해서 다양한 모습의 안드로이드 앱 만들기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-06-27T15:00:00.000Z">2018-06-28</time></p><p class="title"><a href="/2018/06/28/android/android-process-thread/">안드로이드의 프로세스, 쓰레드 이해하기</a></p><p class="categories"><a href="/categories/programming/">programming</a> / <a href="/categories/programming/android/">android</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">아카이브</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/"><span class="level-start"><span class="level-item">2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/"><span class="level-start"><span class="level-item">2017</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/"><span class="level-start"><span class="level-item">2016</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/"><span class="level-start"><span class="level-item">2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">태그</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/android/"><span class="tag">android</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/annotation/"><span class="tag">annotation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/asynctask/"><span class="tag">asynctask</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/build-speed/"><span class="tag">build speed</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/card/"><span class="tag">card</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chat-head/"><span class="tag">chat head</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chromeadb/"><span class="tag">chromeadb</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-mode/"><span class="tag">dark mode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-theme/"><span class="tag">dark theme</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/delegation/"><span class="tag">delegation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/elpa/"><span class="tag">elpa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/emacs/"><span class="tag">emacs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/enum/"><span class="tag">enum</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/floating-widget/"><span class="tag">floating widget</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font/"><span class="tag">font</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font-family/"><span class="tag">font-family</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/foundation/"><span class="tag">foundation</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gradle/"><span class="tag">gradle</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/kotlin/"><span class="tag">kotlin</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/melpa/"><span class="tag">melpa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/monoscape/"><span class="tag">monoscape</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ogtag/"><span class="tag">ogtag</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/org-mode/"><span class="tag">org mode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/package/"><span class="tag">package</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/process/"><span class="tag">process</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/programming/"><span class="tag">programming</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sans-serif/"><span class="tag">sans-serif</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/serif/"><span class="tag">serif</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/style/"><span class="tag">style</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/system-window/"><span class="tag">system window</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/testing/"><span class="tag">testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/theme/"><span class="tag">theme</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/thread/"><span class="tag">thread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tool/"><span class="tag">tool</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tools/"><span class="tag">tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typedef/"><span class="tag">typedef</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewmodel/"><span class="tag">viewmodel</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewpager/"><span class="tag">viewpager</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vysor/"><span class="tag">vysor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/weblink/"><span class="tag">weblink</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/widget/"><span class="tag">widget</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/window/"><span class="tag">window</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">업데이트 소식 받기</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="구독"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="구독"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2023 이정민</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>
