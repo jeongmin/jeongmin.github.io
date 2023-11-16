@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/2020/04/30/web/css-font/</loc>
-    
-    <lastmod>2023-11-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jeongmin.github.io/2017/11/09/emacs/emacs-package/</loc>
     
     <lastmod>2023-11-10</lastmod>
@@ -38,6 +29,15 @@
   </url>
   
   <url>
+    <loc>https://jeongmin.github.io/2020/04/30/web/css-font/</loc>
+    
+    <lastmod>2023-11-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jeongmin.github.io/about/index.html</loc>
     
     <lastmod>2023-11-10</lastmod>
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-introduction/</loc>
+    <loc>https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-intro/</loc>
     
     <lastmod>2023-11-10</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-intro/</loc>
+    <loc>https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-introduction/</loc>
     
     <lastmod>2023-11-10</lastmod>
     
@@ -83,16 +83,7 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/2015/12/30/android/android-get-current-fragment/</loc>
-    
-    <lastmod>2023-11-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/2018/06/28/android/android-process-thread/</loc>
+    <loc>https://jeongmin.github.io/2016/03/19/android/android-tools/</loc>
     
     <lastmod>2023-11-10</lastmod>
     
@@ -110,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/2016/03/19/android/android-tools/</loc>
+    <loc>https://jeongmin.github.io/2018/06/28/android/android-process-thread/</loc>
     
     <lastmod>2023-11-10</lastmod>
     
@@ -119,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/2017/10/08/android/android-enum-intdef/</loc>
+    <loc>https://jeongmin.github.io/2015/12/30/android/android-get-current-fragment/</loc>
     
     <lastmod>2023-11-10</lastmod>
     
@@ -129,6 +120,15 @@
   
   <url>
     <loc>https://jeongmin.github.io/2016/04/11/android/android-floating_widget/</loc>
+    
+    <lastmod>2023-11-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/2017/10/08/android/android-enum-intdef/</loc>
     
     <lastmod>2023-11-10</lastmod>
     
@@ -146,42 +146,28 @@
 
   
   <url>
+    <loc>https://jeongmin.github.io/tags/emacs/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/tool/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/org-mode/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jeongmin.github.io/tags/android/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/foundation/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/enum/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/typedef/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/annotation/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/viewpager/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -223,56 +209,28 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/tags/process/</loc>
+    <loc>https://jeongmin.github.io/tags/foundation/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/tags/thread/</loc>
+    <loc>https://jeongmin.github.io/tags/enum/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/tags/asynctask/</loc>
+    <loc>https://jeongmin.github.io/tags/typedef/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/tags/gradle/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/build-speed/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/emacs/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/tool/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/org-mode/</loc>
+    <loc>https://jeongmin.github.io/tags/annotation/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -294,48 +252,6 @@
   
   <url>
     <loc>https://jeongmin.github.io/tags/vysor/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/css/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/font/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/font-family/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/serif/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/sans-serif/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/monoscape/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -384,20 +300,6 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/tags/viewmodel/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/tags/testing/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jeongmin.github.io/tags/programming/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -413,6 +315,104 @@
   
   <url>
     <loc>https://jeongmin.github.io/tags/delegation/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/gradle/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/build-speed/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/process/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/thread/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/asynctask/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/css/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/font/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/font-family/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/serif/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/sans-serif/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/monoscape/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/viewpager/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/viewmodel/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/testing/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -449,6 +449,13 @@
 
   
   <url>
+    <loc>https://jeongmin.github.io/categories/tool/</loc>
+    <lastmod>2023-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jeongmin.github.io/categories/programming/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -456,14 +463,14 @@
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/categories/programming/android/</loc>
+    <loc>https://jeongmin.github.io/categories/tool/emacs/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jeongmin.github.io/categories/tool/</loc>
+    <loc>https://jeongmin.github.io/categories/programming/android/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -478,13 +485,6 @@
   
   <url>
     <loc>https://jeongmin.github.io/categories/programming/kotlin/</loc>
-    <lastmod>2023-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeongmin.github.io/categories/tool/emacs/</loc>
     <lastmod>2023-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
