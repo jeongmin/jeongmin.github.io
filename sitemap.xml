@@ -506,6 +506,62 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://jeongmin.github.io/tags/Kotlin/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/Java/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/Variance/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/Invariance/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/Covariance/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/Contravariance/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/OOP/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeongmin.github.io/tags/Polymorphysm/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
