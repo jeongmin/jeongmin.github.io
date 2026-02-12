@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>태그: gradle - 코딩 소년의 블로그</title><meta description="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:type" content="blog"><meta property="og:title" content="코딩 소년의 블로그"><meta property="og:url" content="https://jeongmin.github.io/"><meta property="og:site_name" content="코딩 소년의 블로그"><meta property="og:description" content="프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://jeongmin.github.io/img/og_image.png"><meta property="article:author" content="이정민"><meta property="article:tag" content="프로그래밍"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jeongmin.github.io"},"headline":"코딩 소년의 블로그","image":["https://jeongmin.github.io/img/og_image.png"],"author":{"@type":"Person","name":"이정민"},"description":"프로그래밍을 하며 배운 것들과 생각들을 남기는 공간입니다. 다른 개발자 분들과도 많은 교류를 할 수 있었으면 좋겠습니다."}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-SMXNY2YZ28" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-SMXNY2YZ28');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="alternate" href="/rss2.xml" title="코딩 소년의 블로그" type="application/rss+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">태그</a></li><li class="is-active"><a href="#" aria-current="page">gradle</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2017-09-20T15:00:00.000Z" title="2017-09-20T15:00:00.000Z">2017-09-21</time><span class="level-item"><a class="link-muted" href="/categories/programming/">programming</a><span> / </span><a class="link-muted" href="/categories/programming/android/">android</a></span><span class="level-item">34분 읽기 (대략 5033 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/09/21/android/android-speeding-up-build-speed/">안드로이드 그래들 빌드 속도 올리기</a></h1><div class="content"><p>이 글은 2017년 5월 구글I/O의 <a href="https://youtu.be/7ll-rkLCtyk">Speeding Up Your Android Gradle Builds (Google I/O '17</a> 세션 중 일부를 정리한 내용입니다.</p>
+<p><a href="http://www.youtube.com/watch?v=7ll-rkLCtyk"><img src="http://img.youtube.com/vi/7ll-rkLCtyk/0.jpg" alt="IMAGE ALT TEXT HERE"></a></p>
+<p>발표 영상, 슬라이드는 맨 아래 <a href="#reference">참고 링크</a>에서 확인 할 수 있습니다. 발표자는 안드로이드 스튜디오 팀의 <em>James Lau</em> 입니다.</p>
+<p>영상을 보면, 산타트래커란 샘플 프로젝트에 하나씩 최적화를 적용하면서 어느정도 최적화가 되었는지 보여주는 방식으로 진행됩니다. 빌드속도는 당연히 프로젝트의 구성과 환경에 영향을 받습니다. 발표자가 테스트에 사용한 산타트래커는 아래와 같이 구성되었습니다.</p>
+<ul>
+<li>안드로이드 웨어를 포함한 9개의 모듈</li>
+<li>500개의 자바 파일</li>
+<li>1700개의 xml</li>
+<li>3500개의 PNG</li>
+<li>멀티덱스</li>
+<li>60MB 정도의 apk를 크기</li>
+<li>어노테이션프로세서는 사용치 않음</li>
+</ul>
+<p>벤치마크는 아래 세 가지 경우로 보여줍니다. incremental build는 구글 개발자 페이지에 증분 빌드로 번역하고 있어서 그대로 사용했습니다. <a href="https://developer.android.com/studio/run/index.html">참고 링크</a></p>
+<ul>
+<li>전체 빌드(Full build)
+<ul>
+<li>Clean, assemble debug</li>
+</ul>
+</li>
+<li>증분 빌드(Incremental build - Java change)
+<ul>
+<li>한 메소드 안에 한줄의 자바코드 수정</li>
+</ul>
+</li>
+<li>증분 빌드(Incremental build - resource changing)
+<ul>
+<li>스트링 리소스 한 개를 추가하거나 제거</li>
+</ul>
+</li>
+</ul>
+<h2 id="빠른-빌드를-위한-10가지-팁">빠른 빌드를 위한 10가지 팁</h2>
+<p>세션에서 소개된 팁은 총 10개로 아래 목차와 같습니다.</p>
+<ol>
+<li><a href="#use-lastest-android-gradle-plugin">최신 안드로이드 그래들 플러그인을 쓸 것</a>
+<ul>
+<li>Use lastest Android Gradle Plugin</li>
+</ul>
+</li>
+<li><a href="#avoid-legacy-multidex">레거시 멀티덱스를 피할 것</a>
+<ul>
+<li>Avoid legacy multidex</li>
+</ul>
+</li>
+<li><a href="#disable-multi-apk">멀티 APK를 사용하지 말 것</a>
+<ul>
+<li>Disable multi-APK</li>
+</ul>
+</li>
+<li><a href="#include-minimal-resources">최소한의 리소스만 포함 시킬 것</a>
+<ul>
+<li>Include minimal resources</li>
+</ul>
+</li>
+<li><a href="#disable-png-crunching">PNG 최적화 설정을 사용하지 말 것</a>
+<ul>
+<li>Disable PNG crunching</li>
+</ul>
+</li>
+<li><a href="#use-instant-run">인스턴트 런을 사용할 것</a>
+<ul>
+<li>User Instant Run</li>
+</ul>
+</li>
+<li><a href="#avoid-inadvertent-changes">의도치 않은 수정은 피할 것</a>
+<ul>
+<li>Avoid inadvertent changes</li>
+</ul>
+</li>
+<li><a href="#do-not-use-dynamic-version">다이나믹 버전은 사용하지 말 것</a>
+<ul>
+<li>Don’t use dynamic version</li>
+</ul>
+</li>
+<li><a href="#watch-the-memory">메모리를 확인할 것</a>
+<ul>
+<li>Watch the memory</li>
+</ul>
+</li>
+<li><a href="#use-gradle-cache">그래들 캐시를 사용할 것</a>
+<ul>
+<li>Use Gradle Cache</li>
+</ul>
+</li>
+</ol>
+<h3 id="a-name-use-lastest-android-gradle-plugin-1-최신-안드로이드-그래들-플러그인을-쓸-것-a"><a name="use-lastest-android-gradle-plugin">1. 최신 안드로이드 그래들 플러그인을 쓸 것</a></h3>
+<p>안드로이드 스튜디오 팀에서는 빌드 속도와 버그수정을 위해 그래들 플러그인을 계속 업데이트 하고 있습니다. 그래들 3.0부터는 구글 메이븐 저장소를 통해 그래들이 배포됩니다. 따라서 메이븐 구글 저장소를 추가해주고, dependency에 gradle 3.0.0을 추가해줍니다. 발표 영상에는 alpha1인데 오늘(2017.09.20일) 확인해본 바로는 beta4까지 나왔네요.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">	repository &#123;</span><br><span class="line">		jcenter()</span><br><span class="line">		maven &#123; url <span class="string">'https://maven.google.com'</span> &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dependency &#123;</span><br><span class="line">		classpath <span class="string">'com.android.tools.build:gradle:3.0.0-alpha1'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>결과를 보니 단순히 그래들 버전을 3.x대로 올리는 것만으로 속도가 아래와 같이 엄청나게 향상됩니다. 아래 결과는 발표자 영상에 있는걸 그대로 옮긴거구요, 대강 어느정도 향상되는지 참고 하시면 될 것 같습니다.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+전체 빌드 | -15s | -25%<br>
+증분 빌드(자바) | -10s | -38%<br>
+증분 빌드(리소스) | -2.5s | -16%</p>
+<h3 id="a-name-avoid-legacy-multidex-2-레거시-멀티덱스를-피할-것-a"><a name="avoid-legacy-multidex">2. 레거시 멀티덱스를 피할 것</a></h3>
+<p>멀티덱스 사용 시 minSdkVersion &lt; 21인 경우 레거시 멀티덱스가 적용됩니다. 그리고 이 레거시 멀티덱스는 빌드 속도를 심각하게 다운 시킵니다. 안드로이드 스튜디오 2.3+에서부터는 런 버튼을 클릭해서 앱을 실행하면, 연결된 디바이스나 에물레이터의 API 버전을 감지해서 가능하면 네이티브 멀티덱스를 적용해준다고 합니다. 참고로 커맨드라인으로 빌드하는 경우엔 이렇게 자동으로 버전을 감지해서 최적화 해주는 기능은 동작하지 않습니다.</p>
+<p>만약 프로덕트가 api 레벨 21 미만의 단말도 지원해야 한다면 아래와 같이 <a href="https://developer.android.com/studio/build/build-variants.html">빌드 변형 구성</a>을 이용해 개발 용 빌드의 minSdkVersion을 21로 설정할 수 있습니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">productFlavors &#123;</span><br><span class="line">	development &#123;</span><br><span class="line">		minSdkVersion <span class="number">21</span></span><br><span class="line">		...	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>결과는 아래와 같습니다. 이것도 성능 향상이 꽤 크네요.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+전체 빌드 | -5.5s | -12%<br>
+증분 빌드(자바) | -8s | -53%<br>
+증분 빌드(리소스) | same | same</p>
+<h3 id="a-name-disable-multi-apk-3-멀티-APK를-사용하지-말-것-a"><a name="disable-multi-apk">3. 멀티 APK를 사용하지 말 것</a></h3>
+<p>멀티 APK는 ABI나 density에 따라 apk를 다르게 빌드하는 기능입니다. 한 프로젝트에 대해 여러 APK가 생성되지만, 각 빌드의 결과물로 나오는 APK 크기가 작아지는 장점이 있습니다. 하지만 개발환경에선 필요없는 기능이죠. 따라서 개발 용 빌드인 경우에는 멀티 APK 기능을 아래와 같이 꺼줍니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	<span class="keyword">if</span> (project.hasProperty(<span class="string">'devBuild'</span>)) &#123;</span><br><span class="line">		splits.abi.enable = <span class="literal">false</span></span><br><span class="line">		splits.density.enable = <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 그래들 빌드 스크립트를 보면 'devBuild’란 속성을 확인하는데 저 속성은 커맨드라인 빌드 시 아래와 같이 넘겨줍니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew santa-<span class="string">tracker:</span>assembleDevelopmentDebug -PdevBuild</span><br></pre></td></tr></table></figure>
+<p>이걸 안드로이드 스튜디오에 적용한다면 preference -&gt; Build, Execution, Deployment -&gt; Compiler -&gt; Command-line Option 에 -P<strong>devBuild</strong>을 적어주면 됩니다.</p>
+<p>결과는 아래와 같습니다. 리소스에 대한 증분 빌드 시에 많은 속도 향상이 있네요.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+전체 빌드 | -4.8s | -12%<br>
+증분 빌드(자바) | -0.5s | -6%<br>
+증분 빌드(리소스) | -3s | -26%</p>
+<h3 id="a-name-include-minimal-resources-4-최소한의-리소스만-포함시킬-것-a"><a name="include-minimal-resources">4. 최소한의 리소스만 포함시킬 것</a></h3>
+<p>앱이 다국어를 지원한다면 여러 스트링 리소스를 포함합니다. 다국어를 지원하지 않더라도 대부분의 앱은 하나 이상의 스크린 density를 지원하는 경우가 많습니다. 안드로이드의 빌드 시 기본 설정은 모든 버전의 리소스를 빌드에 포함시키도록 되어있습니다. 하지만 아래와 같이 특정 버전의 리소스들만 포함시키도록 할 수 있습니다. 아래는 개발용 빌드에 특정 리소스만 포함 시키도록 하는 그래들 설정 예시입니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">productFlavor &#123;</span><br><span class="line">	developement &#123;</span><br><span class="line">		minSdkVersion <span class="number">21</span></span><br><span class="line">		resConfigs (<span class="string">"en"</span>, <span class="string">"xxhdpi"</span>)</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>적용 결과입니다.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+전체 빌드 | -6s | -17%<br>
+증분 빌드(자바) | -1.5s | -24%<br>
+증분 빌드(리소스) | -2s | -21%</p>
+<h3 id="a-name-disable-png-crunching-5-개발-빌드에는-PNG-최적화를-끄자-a"><a name="disable-png-crunching">5. 개발 빌드에는 PNG 최적화를 끄자</a></h3>
+<p>안드로이드 빌드 툴은  PNG 크기 최적화를 기본으로 수행합니다. 최적화라면 PNG 파일들을 압축하는 거겠죠. 당연히 PNG 파일이 많으면 빌드 시 많은 시스템 자원을 사용하게 됩니다. 릴리즈 시에는 APK 크기를 줄여주므로 중요한 기능이지만 개발 시에는 별 필요 없는 기능입니다. 역시나 아래와 같이 그래들 빌드 스크립트를 이용해 설정을 살포시 꺼줍니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">productFlavor &#123;</span><br><span class="line">	developement &#123;</span><br><span class="line">		minSdkVersion <span class="number">21</span></span><br><span class="line">		resConfigs (<span class="string">"en"</span>, <span class="string">"xxhdpi"</span>)</span><br><span class="line">		aaptOptions.cruncherEnabled = <span class="literal">false</span></span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>아니면 아예 webP 포맷을 사용하는 것도 좋은 방법입니다. webP는 PNG 파일보다 최대 25% 작은 크기를 갖는 포맷입니다. 안드로이드 스튜디오 2.3+ 부터는 IDE에서 PNG를 webP로 변환하는 기능을 지원합니다. 불투명 이미지는 안드로이드 API 15+, 투명도를 갖는 이미지는 API 18+부터 지원합니다. 또한 애초에 최적화된 PNG를 사용하면 최적화가 수행되어도 실제 APK의 크기는 별 차이가 없습니다. 그냥 시간만 잡아 먹는 거죠.</p>
+<p>아래는 위의 PNG 최적화 기능을 끈 결과입니다.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+전체 빌드 | -9s | -33%<br>
+증분 빌드(자바) | same | same<br>
+증분 빌드(리소스) | same | same</p>
+<h3 id="a-name-use-instant-run-6-인스턴트-런을-사용할-것-a"><a name="use-instant-run">6. 인스턴트 런을 사용할 것</a></h3>
+<p>인스턴트 런은 안드로이드 스튜디오 2.0 때 런칭된 기능입니다. 발표자 말로는 런칭 이후 인스턴트 런의 신뢰성(reliability)를 위해 많은 노력을 기울였다고 합니다. 바꿔말하면 그동안에 인스턴트 런은 문제가 많았다는 뜻이겠죠. 저 역시도 인스턴트 런을 사용하지 않는데 이유는 수정한 코드가 실제로 빌드에 적용이 되지 않아 삽질을 한 기억이 많기 때문입니다. 수정한 코드가 빌드에 적용이 안된다면 빌드가 아무리 빨리 된들 무슨 소용이 있을까요.</p>
+<p>하지만 안드로이드 스튜디오 3.0에 적용된 인스턴트 런은 2.0과 매우 다르다 합니다. 한번 믿어보는것도 좋을것 같습니다. 참고로 플랫폼의 한계에 따라 적용했던 많은 핵들을 신뢰성을 위해 과감히 제거하고 대신 안드로이드 스튜디오 3.0부터의 인스턴트 런은 API 레벨 21 이상에서만 동작한다고 합니다. (minSdk가 21 이상이여야 한다는게 아니라 연결된 단말의 버전이 21 이상이면 된다는 얘기입니다!)</p>
+<p>안드로이스 스튜디오 3.0 이상에서는 인스턴트 런과 일반 빌드를 쉽게 구분하기 위해 런 버튼을 Run과 Apply Changes 두 개로 분리 했습니다.</p>
+<p>Run 버튼을 클릭하면 콜드 스왑을 시도하고 앱은 재실행 됩니다. 반면 Apply Changes 버튼을 클릭하면 hot or warm swap을 시도합니다.  <a href="https://developer.android.com/studio/run/index.html">Cold, hot, warm swap</a>에 대한 내용은 이 링크에서 자세히 알 수 있습니다.</p>
+<p>인스턴트 런을 실행하면 연결된 디바이스의 API, 스크린 density등을 분석해서 자동으로 필요한 최적화를 수행해 줍니다. 즉 앞서 얘기했던 특정 버전의 리소스만 포함하는 빌드를 생성한다거나 멀티 APK등에 대한 최적화 들을 알아서 해준다는 것 같습니다.</p>
+<p>아래는 인스턴트 런을 적용한 결과입니다.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+전체 빌드 | +7s | +37%<br>
+증분 빌드(자바) | -3s | -54%<br>
+증분 빌드(리소스) | -3s | -42%</p>
+<p>특이한게 인스턴트 런을 적용 했을 때, 풀빌드의 경우 오히려 빌드 시간이 증가했습니다. 이는 인스턴트 런이 sharding을 APK에 적용해야하기 때문이라 합니다. 이 sharding은 swap(cold, hot, warm)을 하기 위해 필요한 미리 수행되어야 하는 작업으로 발표자는 풀빌드에서 시간이 더 걸리지만 이후의 증분 빌드에서 시간을 줄일 수 있다고 이야기합니다. 간단히 위의 결과를 가지고  생각해보면 풀빌드 한번 후 증분 빌드를 2번만 하면 거의 동일하고 2번 이상부터는 매번 3초가량 시간을 벌 수 있겠네요.</p>
+<h3 id="a-name-avoid-inadvertent-changes-7-의도치-않은-수정은-피할-것-a"><a name="avoid-inadvertent-changes">7. 의도치 않은 수정은 피할 것</a></h3>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> buildDateTime = <span class="keyword">new</span> Date().format(<span class="string">'yyMMddHHmm'</span>).toInteger()</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">	defaultConfig &#123;</span><br><span class="line">		versionCode buildDateTime</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 코드는 매 빌드가 유일한 버전코드를 갖도록 시간을 가지고 버전 코드를 설정하고 있습니다. 별거 아닌것 같은 코드이지만 이 코드는 매번 빌드를 할때마다 AndroidManifest를 변경합니다. 자세히 얘기하면 versionCode같은 값들은 그래들 빌드 스크립트에 기술되어 있지만 실제 빌드가 되는 과정에서 AndroidManifest.xml에 합쳐(merge)집니다.<a href="https://developer.android.com/studio/publish/versioning.html#appversioning">참고</a>.</p>
+<p>위의 코드를 보면 매번 빌드 할때마다 versionCode가 변경되는데 이는 곧 매 빌드 마다 AndroidManifest의 <code>uses-sdk</code> 속성이 변경 되는 것이죠.<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html">참고</a>. 아무튼 위의 코드가 적용된 후 결과는 아래와 같습니다.</p>
+<p>빌드 타입 | 속도 차이(초) | 속도 차이(백분율)<br>
+— | — |<br>
+증분 빌드(자바) | +3s | +130%<br>
+증분 빌드(리소스) | +3.6s | +90%</p>
+<p>이런 문제를 개선하기 위해서는 앞서 개발 빌드 시에 멀티 APK를 적용하지 않았던 방법을 이용하면 됩니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> buildDateTime = project.hasProperty(<span class="string">'devBuild'</span>)? 100: <span class="keyword">new</span> Date().format(<span class="string">'yyMMddHHmm'</span>).toInteger()</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">	...</span><br><span class="line">	defaultConfig &#123;</span><br><span class="line">		...</span><br><span class="line">		versionCode buildDateTime</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a-name-do-not-use-dynamic-version-8-다이나믹-버전은-사용하지-말-것-a"><a name="do-not-use-dynamic-version">8. 다이나믹 버전은 사용하지 말 것</a></h3>
+<p>다이나믹 버전은 아래와 같이 그래들에 외부 라이브러리를 임포트 할 때, 뒤에 +를 붙여서 가장 최근 버전의 라이브러리를 가져올 수 있게하는 기능입니다.</p>
+<p>발표자의 설명에 의하면 이 기능이 라이브러리의 새 버전을 추가로 확인하게 만들기 때문에 의존성 결정(dependency resolution) 시간을 증가시킨다고 합니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		compile <span class="string">'com.android.support:appcompat-v7:+'</span>	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>또 하나의 문제는 이게 앱을 nondeterministic하게 만든다는 겁니다. 코드의 수정이 전혀 없더라도 라이브러리의 새 버전이 나오면 빌드가 달라진다는 겁니다. 이거는 앱의 형상관리랑도 연관이 있는 부분입니다.</p>
+<p>대부분의 프로젝트는 git같은 형상관리 툴을 이용해서 관리합니다. 형상관리 툴의 핵심기능이자 키포인트 중에 하나는, 특정 시점의 빌드를 내가 원할때 빌드해 낼 수 있고 이 빌드는 항상 동일해야 한다는 겁니다. 바이너리 수준에서 완전히 동일하진 않을 수도 있겠지만 적어도 라이브러리가 바뀌면 안되겠죠.</p>
+<p>오래 전 내보낸 빌드에 핫픽스가 필요해서 코드의 특정 부분만 고쳐 새로 빌드를 했는데 임포트하는 라이브러리중에 업데이트가 된게 있다면? 최악의 경우 업데이트 된 라이브러리가 하위호환성을 지켜주지 않는다면? 꽤 골치아픈 상황이 되겠죠.</p>
+<h3 id="a-name-watch-the-memory-9-메모리를-확인할-것-a"><a name="watch-the-memory">9. 메모리를 확인할 것</a></h3>
+<h4 id="그래들에-할당하는-메모리">그래들에 할당하는 메모리</h4>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#gradle.property 파일</span><br><span class="line">org.gradle.jvmargs=-Xmx1536m</span><br></pre></td></tr></table></figure>
+<h4 id="덱스-처리-시-사용하는-메모리">덱스 처리 시 사용하는 메모리</h4>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#build.gradle 파일</span><br><span class="line">dexOptions &#123;</span><br><span class="line">	javaMaxHeapSize = <span class="string">"4g"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그래들에 할당하는 메모리의 적정량은 프로젝트 마다 다르니 메모리를 잘 조절하면서 최적의 값을 찾으라고 합니다. 한가지 주의할 점은 무작정 메모리를 많이 할당하면 오히려 성능이 떨어질 수도 있습니다. 본인 시스템의 메모리 용량에 따라 잘 맞춰서 설정해야합니다.</p>
+<p>두번째는 덱스 프로세스의 자바 힙 크기를 설정하는 방법입니다. 덱스 프로세스가 기존에는 out-process로 동작했으나 안드로이드 스튜디오 2.1 부터 기본값이 in-process로 변경되어 저 설정은 이제 의미가 없다고 합니다. 있으면 그냥 지워버리라네요. 근데 여기서 out-process랑 in-process가 뭔지 조금 애매합니다. 기존에는 별도의 프로세스로 처리하다가 2.1부터는 안드로이드 스튜디오 프로세스 내에서 처리한다는 걸로 이해했는데 맞는지 모르겠네요. 안드로이드 스튜디오에서 빌드 한번 돌리면 램을 2기가 넘게 써대던데 이것 때문일지도 모르겠습니다.</p>
+<h3 id="a-name-use-gradle-cache-10-그래들-캐시를-사용할-것-a"><a name="use-gradle-cache">10. 그래들 캐시를 사용할 것</a></h3>
+<p>그래들의 새 캐싱 메카니즘 설정이라는데 모든 작업 결과를 캐시할 수 있다고 합니다. 안드로이드 스튜디오 2.3에 소개됐던 빌드 캐시랑 다른 점은 빌드 캐시는 pre-dexed external libararies만 캐시하는데 요건 가장 최근 빌드 뿐만 아니라 이전 빌드에 대한 캐시도 있다고 합니다. 또한 브랜치를 오가며 빌드하는 경우에도 캐시가 되고 캐싱된걸 배포할수도 있다고 하는데… 뭔 말인지는 잘 모르겠는데 어쨌든 안드로이드 스튜디오 3.0에 제대로 들어갈거라 하니 안드로이드 스튜디오 3.0이 정식 릴리즈 되면 그때 지켜봐야겠습니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Set this in gradle.properties</span><br><span class="line">org.gradle.caching=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="마무리">마무리</h2>
+<p>위의 최적화를 모두 마친 결과가 아래와 같습니다.</p>
+<ul>
+<li>전체 빌드 : 59s -&gt; 19s로 3배 빨라짐</li>
+<li>증분 빌드(자바) : 24s -&gt; 2s로 12배 빨라짐</li>
+<li>증분 빌드(리소스): 15s -&gt; 4.5s로 3배 빨라짐</li>
+</ul>
+<p>팁들을 대강 살펴보면 개발 빌드에 필요 없는 항목들은 빌드를 하지 않는데 초점이 맞쳐져 있는걸 알 수 있습니다. <strong>즉 개발 중에는 위의 팁들을 이용해 빌드 속도가 많이 향상될 수 있지만 릴리즈 빌드 시에는 결국 비슷한 속도로 빌드가 진행되게 됩니다.</strong></p>
+<p><strong>또한 위의 팁들은 빌드 툴의 영향을 받는 것들이 대부분입니다.</strong> 즉 발표자의 발표 시점과 실제 적용 시에는 차이가 있을 수 있습니다. 따라서 위의 결과들은 앞으로 안드로이드 스튜디오나 빌드 툴이 변해가며 계속 변할 수 있는 것들이라는 점을 유념해야 합니다.</p>
+<p>어쨋거나 개발 과정에 빌드 속도는 생산성에 큰 영향을 미치는 요소입니다. 빌드 속도가 빠르면 코드 수정 후 결과를 빠르게 확인 할 수 있고 그만큼 집중력을 유지할 수 있겠죠. 개인적으로는 아주 재미있었던 세션이였습니다. 시간이 되시는 분들은 원래 영상을 꼭 직접 보시면 좋을 것 같습니다.</p>
+<h2 id="번외-직접-테스트">번외(직접 테스트)</h2>
+<p>참고로 제가 개발하는 회사 프로젝트에 간단히 적용할 수 있는 최적화를 몇개 해보았는데 <code>전체 빌드 기준</code> 1분41초 -&gt; 56초의 개선이 있었습니다.</p>
+<p>적용한 최적화 팁</p>
+<ul>
+<li>그래들 버전업(2.2.2 -&gt; 3.0.0-beta6)</li>
+<li>레거시 멀티 덱스 우회(개발 빌드 시 minSdk 16 -&gt; 19)</li>
+<li>PNG Crunch 모드 끄기</li>
+<li>필요한 리소스만 빌드(xhdpi만 빌드)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>최적화 전</th>
+<th>최적화 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101초</td>
+<td>56초</td>
+</tr>
+</tbody>
+</table>
+<h2 id="참고-링크-a-name-reference-a">참고 링크<a name="reference"></a></h2>
+<p><a href="https://youtu.be/7ll-rkLCtyk">Speeding Up Your Android Gradle Builds (Google I/O '17</a><br><br>
+구글 I/O의 ‘Speeding Up Your Android Gradle Builds’ 세션 영상입니다.</p>
+<p><a href="https://speakerdeck.com/jmslau/speeding-up-android-gradle-builds">Slide for the speech(Spddeing Up Your Android Gradle Build)</a><br><br>
+발표자의 발표자료입니다.</p>
+<p><a href="https://developer.android.com/studio/build/optimize-your-build.html">Optimize Your Build Speed</a><br><br>
+안드로이드 개발자 사이트의 <code>Optimize Your Build Speed</code> 문서입니다. 발표 영상에 나오는 대부분의 내용들을 볼 수 있습니다.</p>
+<p><a href="https://developer.android.com/studio/run/index.html">Build and Run Your App</a><br><br>
+안드로이드 빌드 및 실행에 대한 전반적인 설명이 있는 페이지입니다.</p>
+<p><a href="https://developer.android.com/studio/run/index.html">Cold, hot, warm swap</a><br><br>
+콜드, 핫, 웜 스왑에 대한 설명입니다.</p>
+<p><a href="https://developer.android.com/studio/publish/versioning.html#appversioning">Version Your App</a><br><br>
+안드로이드 버전 설정에 대한 내용입니다.</p>
+<p><a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html">AndroidManifest uses-sdk property</a><br><br>
+그래들에 명시한 sdk 관련 설정들이 빌드 과정에서 AndroidManifest에 병합되어 처리된다는 걸 알 수 있습니다.</p>
+<p><a href="https://developer.android.com/studio/build/gradle-plugin-3-0-0.html">About Android Plugin for Gradle 3.0.0</a><br><br>
+그래들 3.0.0 버전에 대한 설명 페이지입니다.</p>
+</div></article></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="" src="/img/avatar.png" alt="코딩소년"></figure><p class="title is-size-4 is-block line-height-inherit">코딩소년</p><p class="is-size-6 is-block">나의 생각 모음</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>대한민국</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">66</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/jeongmin" target="_blank" rel="noopener">홈페이지</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/anitoy84"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/programming/"><span class="level-start"><span class="level-item">programming</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/programming/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/programming/android/compose/"><span class="level-start"><span class="level-item">compose</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/programming/kotlin/"><span class="level-start"><span class="level-item">kotlin</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/programming/kotlin/android/"><span class="level-start"><span class="level-item">android</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/programming/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/tool/"><span class="level-start"><span class="level-item">tool</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/tool/emacs/"><span class="level-start"><span class="level-item">emacs</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/wobbly-rocket/"><span class="level-start"><span class="level-item">wobbly-rocket</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2026-02-10T15:00:00.000Z">2026-02-11</time></p><p class="title is-6"><a class="link-muted" href="/2026/02/11/wobbly-rocket/blueprint/">워블리 로켓</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/wobbly-rocket/">wobbly-rocket</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2024-06-18T15:00:00.000Z">2024-06-19</time></p><p class="title is-6"><a class="link-muted" href="/2024/06/19/android/rememberUpdatedState/">rememberUpdatedState 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a> / <a class="link-muted" href="/categories/programming/android/compose/">compose</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2024-04-12T15:00:00.000Z">2024-04-13</time></p><p class="title is-6"><a class="link-muted" href="/2024/04/13/kotlin/variance%20in%20kotlin%20and%20java/">자바와 코틀린에서의 변성(Variance in Java and Kotlin)</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2023-11-24T15:00:00.000Z">2023-11-25</time></p><p class="title is-6"><a class="link-muted" href="/2023/11/25/android/android-applinks/">안드로이드에서의 딥링크(Deep links)와 앱링크(App links)</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/android/">android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2023-11-08T15:00:00.000Z">2023-11-09</time></p><p class="title is-6"><a class="link-muted" href="/2023/11/09/kotlin/delegation%20in%20kotlin/">코틀린에서의 위임(Delegation in Kotlin)</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/programming/">programming</a> / <a class="link-muted" href="/categories/programming/kotlin/">kotlin</a> / <a class="link-muted" href="/categories/programming/kotlin/android/">android</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">아카이브</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2026/02/"><span class="level-start"><span class="level-item">2월 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2024/06/"><span class="level-start"><span class="level-item">6월 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2024/04/"><span class="level-start"><span class="level-item">4월 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2023/11/"><span class="level-start"><span class="level-item">11월 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">5월 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">4월 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">3월 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/06/"><span class="level-start"><span class="level-item">6월 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">11월 2017</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/10/"><span class="level-start"><span class="level-item">10월 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/09/"><span class="level-start"><span class="level-item">9월 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/04/"><span class="level-start"><span class="level-item">4월 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/03/"><span class="level-start"><span class="level-item">3월 2016</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2015/12/"><span class="level-start"><span class="level-item">12월 2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">태그</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AppFundmental/"><span class="tag">AppFundmental</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AppLinks/"><span class="tag">AppLinks</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Contravariance/"><span class="tag">Contravariance</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Covariance/"><span class="tag">Covariance</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Deeplinks/"><span class="tag">Deeplinks</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DefferedLinks/"><span class="tag">DefferedLinks</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DynamicLinks/"><span class="tag">DynamicLinks</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Invariance/"><span class="tag">Invariance</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kotlin/"><span class="tag">Kotlin</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OOP/"><span class="tag">OOP</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Polymorphysm/"><span class="tag">Polymorphysm</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SideEffects/"><span class="tag">SideEffects</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/URI/"><span class="tag">URI</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Variance/"><span class="tag">Variance</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/agent-coding/"><span class="tag">agent-coding</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ai/"><span class="tag">ai</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/android/"><span class="tag">android</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/annotation/"><span class="tag">annotation</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/asynctask/"><span class="tag">asynctask</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/build-speed/"><span class="tag">build speed</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/card/"><span class="tag">card</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chat-head/"><span class="tag">chat head</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/chromeadb/"><span class="tag">chromeadb</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/compose/"><span class="tag">compose</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css/"><span class="tag">css</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-mode/"><span class="tag">dark mode</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dark-theme/"><span class="tag">dark theme</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/delegation/"><span class="tag">delegation</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/elpa/"><span class="tag">elpa</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/emacs/"><span class="tag">emacs</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/enum/"><span class="tag">enum</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/floating-widget/"><span class="tag">floating widget</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font/"><span class="tag">font</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/font-family/"><span class="tag">font-family</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/foundation/"><span class="tag">foundation</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gradle/"><span class="tag">gradle</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/kotlin/"><span class="tag">kotlin</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/melpa/"><span class="tag">melpa</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/monoscape/"><span class="tag">monoscape</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ogtag/"><span class="tag">ogtag</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/org-mode/"><span class="tag">org mode</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/package/"><span class="tag">package</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/personal-project/"><span class="tag">personal-project</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/problem-solving/"><span class="tag">problem-solving</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/process/"><span class="tag">process</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/programming/"><span class="tag">programming</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sans-serif/"><span class="tag">sans-serif</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/serif/"><span class="tag">serif</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/state/"><span class="tag">state</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/style/"><span class="tag">style</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/system-window/"><span class="tag">system window</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/testing/"><span class="tag">testing</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/theme/"><span class="tag">theme</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/thread/"><span class="tag">thread</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tool/"><span class="tag">tool</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tools/"><span class="tag">tools</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/trading/"><span class="tag">trading</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typedef/"><span class="tag">typedef</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewmodel/"><span class="tag">viewmodel</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/viewpager/"><span class="tag">viewpager</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vysor/"><span class="tag">vysor</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/weblink/"><span class="tag">weblink</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/widget/"><span class="tag">widget</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/window/"><span class="tag">window</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/wobbly-rocket/"><span class="tag">wobbly-rocket</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a><p class="size-small"><span>&copy; 2026 이정민</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://jeongmin.github.io',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="처음으로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(Untitled)","posts":"포스트","pages":"Pages","categories":"카테고리","tags":"태그"});
+        });</script></body></html>
