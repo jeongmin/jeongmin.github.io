@@ -10772,6 +10772,12 @@ article.article .content code {
   background: transparent;
   overflow-wrap: break-word;
 }
+article.article .content img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+  height: auto;
+}
 article.article .content blockquote.pullquote {
   float: right;
   max-width: 50%;
