@@ -4,7 +4,7 @@
         gtag('js', new Date());
     
         gtag('config', 'G-SMXNY2YZ28');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="alternate" href="/rss2.xml" title="코딩 소년의 블로그" type="application/rss+xml">
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">태그</a></li><li class="is-active"><a href="#" aria-current="page">problem-solving</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2026-03-02T15:00:00.000Z" title="2026-03-02T15:00:00.000Z">2026-03-03</time><span class="level-item"><a class="link-muted" href="/categories/wobbly-rocket/">wobbly-rocket</a></span><span class="level-item">12분 읽기 (대략 1853 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/wobbly-rocket/cockpit/">소중한 시드에 안전벨트를 채워주자!</a></h1><div class="content"><p><a href="https://jeongmin.github.io/2026/02/11/wobbly-rocket/insights/">이전 글(인사이트 탭)</a>에서 저는 인사이트 탭을 통해 내 매매를 객관화 하고 다양한 인사이트를 얻는 목표를 달성하였습니다.</p>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">태그</a></li><li class="is-active"><a href="#" aria-current="page">problem-solving</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2026-03-02T15:00:00.000Z" title="2026-03-02T15:00:00.000Z">2026-03-03</time><span class="level-item"><a class="link-muted" href="/categories/wobbly-rocket/">wobbly-rocket</a></span><span class="level-item">18분 읽기 (대략 2708 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/wobbly-rocket/cockpit/">소중한 시드에 안전벨트를 채워주자!</a></h1><div class="content"><p><a href="https://jeongmin.github.io/2026/02/11/wobbly-rocket/insights/">이전 글(인사이트 탭)</a>에서 저는 인사이트 탭을 통해 내 매매를 객관화 하고 다양한 인사이트를 얻는 목표를 달성하였습니다.</p>
 <p>하지만 이것만으로 제 안좋은 매매 습관을 고치기에는 역부족이였습니다.</p>
 <p>그래서 이번에는 보다 직접적으로 나의 안좋은 매매 습관을 고치기 위한 기능들을 고민하고 조종석(Cockpit)라는 이름을 붙여서 새로운 탭으로 추가하였습니다.</p>
 <p>이번 글에서는 조종석 탭의 기능들과 이것들이 어떤 문제를, 어떻게 해결하려 했는지에 대한 고민들을 공유해보도록 하겠습니다.</p>
@@ -27,12 +27,13 @@
 <p>일단 스탑로스가 설정이 되면 이후엔 차트에서 시선을 떼고 현재 가격을 스탑로스, 진입 지점, 목표가 세개의 기준을 가지고 게이지 형태로 노출하고, 차트 보단 워블리 로켓에서 가격의 이동을 볼 수 있도록 합니다.</p>
 <p>차트를 계속 보게되면 가격이 손실 지점에 있을 때 자꾸 손절 지점 너머에 있는 반대 근거를 찾아가며 손절라인을 미루거나 스탑로스를 없애고 싶은 충동에 빠지게 됩니다. 일단 포지션에 진입하면 손절 또는 익절이 되기 전까진 차트를 보는 횟수를 줄입니다.</p>
 <div style="text-align: center"><img src="/assets/img/wobbly-rocket/safe-mode.jpg" alt="안전 모드 on" style="max-width: 400px;"></div>
+<p>물론 차트를 보고 실시간 대응을 하는것도 중요하다고 볼 수 있겠지만, 저의 경우엔 대부분의 경우 손절을 늦추는 결과로 이어지는 경우가 대부분이였고, 차트의 움직임을 보고 대응을 한다 하더라도 차라리 빠르게 손절을 하고 다시 포지션을 잡는게 더 좋은 결과로 이어지는 경우가 많았습니다.</p>
 <h2 id="문제-2-욕심">문제 2. 욕심</h2>
 <p>충분한 수익권에 도달 했음에도 한번에 아주 큰 수익을 기대하며 익절을 미루다 결국 손실로 매매를 마무리하게되는 경우가 종종 있습니다. 이건 결국 <code>욕심</code>으로 인해 생기는 문제입니다. 사실 진입은 기술이지만 익절은 예술이다 라는 말이 있을정도로 좋은 익절 타이밍을 잡기란 정말 어려운 일입니다.</p>
 <p>저는 정확한 익절 타이밍을 잡자거나 하는 문제가 아니라, 적어도 어느정도 수익권에 도달했다면, 적어도 손실로 매매를 마무리 하지 않도록 해주자 하는 생각을 해보았습니다.</p>
 <p>물론 관점이 틀릴때까지 기다렸다가 처음의 손실 구간에서 손절을 하는게 원칙이라고 생각할 수도 있겠지만, 가격이 예상한 방향으로 크게 움직였거나, 시간이 오래 끌렸다면, 나의 진입 근거가 틀렸거나 진입이 성급했을 가능성이 높습니다.</p>
 <p>적어도 본절에서 포지션을 정리한다면 더 좋은 자리에서 포지션을 잡을 수 있는 기회를 가질 수 있고, 동시에 수익권에서 손절로 마무리 했을때 오는 좌절감으로 인한 틸트에 빠지지 않을 수 있습니다.</p>
-<p>해당 기능은 <code>제로 리스크</code> 기능으로 정의해 보았습니다.</p>
+<p>해당 기능은 <code>제로 리스크</code> 기능으로 정의해 보았습니다. 이 기능은 현재 가격이 수수료를 포함해서 본전 가격보다 위에 있을때 가능하며, 적용 시 스탑로스를 본적 가격으로 이동시킴으로써 손절이 나가더라도 리스크가 없도록 간편하게 스탑로스를 설정해줍니다.</p>
 <table>
 <thead>
 <tr>
@@ -43,9 +44,9 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><img src="/assets/img/wobbly-rocket/.jpg" alt="제로리스크 off"></td>
-<td style="text-align:left"><img src="/assets/img/wobbly-rocket/zerorisk-info.jpg" alt="제로 리스크 안내"></td>
-<td style="text-align:left"><img src="/assets/img/wobbly-rocket/zerorisk.jpg" alt="제로 리스크"></td>
+<td style="text-align:left"><img src="/assets/img/wobbly-rocket/before-zerorisk.png" alt="제로리스크 off"></td>
+<td style="text-align:left"><img src="/assets/img/wobbly-rocket/zerorisk-info.png" alt="제로 리스크 안내"></td>
+<td style="text-align:left"><img src="/assets/img/wobbly-rocket/zerorisk.png" alt="제로 리스크"></td>
 </tr>
 </tbody>
 </table>
@@ -66,15 +67,19 @@
 </tr>
 </tbody>
 </table>
-<h3 id="결과는">결과는?</h3>
-<p>TBD - 어쨌든 결론은 내 매매에 있어서 SL을 걸지 않는 습관은 확실히 고쳐음. 다만 틸트에 빠진 경우는 아직 해결이 안됨.</p>
-<h3 id="앞으로의-방향">앞으로의 방향</h3>
-<p>이제 워블리 로켓의 큰 방향성의 두 단추가 채워졌습니다.</p>
-<p>여기서의 배움을 매매일지나 다른 기능들에 녹여보자.</p>
-<p>매매의 객관화 -&gt; 행동 교정 -&gt;</p>
-<h3 id="아쉬운-점">아쉬운 점</h3>
-<p>SL 걸지 않는 습관이 어느정도 고쳐졌지만 틸트에 빠진 경우엔 여전히 해결이 안된점</p>
+<h2 id="조종석-탭을-통해-배운것">조종석 탭을 통해 배운것</h2>
+<p>이번에는 저의 스탑로스를 걸지 않는 습관을 고치는 것이 가장 큰 목표였습니다. 이를 위해 스탑로스를 긍정적인 형태의 이미지로 리프레이밍 하고, UI를 통해 리스크 관리의 중요성을 반복적으로 상기시켰습니다.</p>
+<p>하나씩 문제를 정의하고, 원인과 해결 방법을 고민하면서 이렇게 단순한 방법들이 잘 동작할까? 하는 의문이 있었습니다.</p>
+<p>하지만 결과는 놀랍게도 아주 좋았습니다. 따로 트래킹을 하진 않았지만 저는 지금 포지션에 진입할때 반드시 스탑로스를 설정하는 습관이 이미 자리를 잡았습니다.</p>
+<p>아주 어려운 해결책은 아니였지만 단순한 방법들이 실제로 동작하는걸 보고 항상 문제에 대한 해결책을 생각할때 너무 복잡하게 접근하지 말고, 단순한 접근을 직접 해보는것도 좋겠다는 생각이 들었습니다.</p>
+<h2 id="앞으로의-방향">앞으로의 방향</h2>
+<p>유저가 워블리 로켓을 통해 수익이 나는 매매시스템을 만들어 나갔으면 좋겠다는 목표를 두고, 매매의 객관화 -&gt; 행동 교정 -&gt; 회고를 통한 하나의 루프를 만들어보면 어떨까 하는 그림을 그려보았습니다.</p>
+<p>일단은 미약하지만 매매의 객관화 -&gt; 행동 교정의 첫 단추가 끼워진것 같습니다. 하지만 당연히 아주 초보적인 접근과 결과일 뿐이고, 이것들을 계속 개선하고 다양한 기능에 꾸준히 녹여감으로써 그 효과를 극대화 할 수 있다고 생각합니다.</p>
+<h2 id="아쉬운-점">아쉬운 점</h2>
+<p>지금 이 프로젝트는 서비스의 특성 상 API 키가 필요한 관계로 대중적인 테스트 보다는 저 개인의 문제를 풀어보는 것에 집중하고 있습니다. 사실 디자인 능력이 부족한 관계로 스탑로스의 이미지를 긍정적인 이미지로 풀어내는 시도는 좋았으나, 실제 디자인과 UI는 목표에 부합할 정도로 완성도가 있지는 않습니다.</p>
+<p>개인적인 결과는 좋게 나왔으나 이 결과가 단순히 워블리 로켓의 새 기능을 통해 만들어진 것인지, 문제를 해결하기 위한 고민을 하는 과정에서 자연스럽게 제게 스며든건지는 확실히 알수 없기에 이부분에 대해서는 추후 테스트를 해볼수 있는 기회가 있다면 좋을것 같습니다.</p>
 <h2 id="마무리">마무리</h2>
+<p>행동을 교정하는 것은 아무래도 직접 유저가 매매를 하는 순간에 개입을 해야한다는 생각이 들고 있습니다. 다음 기능은 애초에 포지션에 진입하는 순간 부터 리스크 관리를 할 수 있도록 보다 효과적인 방법을 고민해보려 합니다.</p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2026-02-12T15:00:00.000Z" title="2026-02-12T15:00:00.000Z">2026-02-13</time><span class="level-item"><a class="link-muted" href="/categories/wobbly-rocket/">wobbly-rocket</a></span><span class="level-item">20분 읽기 (대략 2933 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/02/13/wobbly-rocket/insights/">매매는 객관화했지만 행동은 그대로였다(인사이트 탭 MVP 회고)</a></h1><div class="content"><div align="center">
 <p><img src="/assets/img/wobbly-rocket/wobblyrocket-logo.png" alt="Wobbly Rocket"></p>
 </div>
