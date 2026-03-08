@@ -1,101 +1,210 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>이맥스(Emacs) Org 모드 - 코딩 소년의 블로그</title><meta description="이맥스는 쓰면 쓸수록 매력있는 텍스트 에디터입니다. 이맥스로 할 수 있는게 아주 많습니다. 대부분의 사람들이 이맥스를 프로그래밍 할 때 사용하지만 Org 모드를 이용하면 일정관리, 메모, 문서작성에도 요긴하게 쓸 수 있습니다. 이 글에서는 Org 모드 중 일정관리에 대한 부분을 중점적으로 살펴보도록 하겠습니다. 들어가며 아래는 Org 모드가 어떤 것인지 한"><meta property="og:type" content="blog"><meta property="og:title" content="이맥스(Emacs) Org 모드"><meta property="og:url" content="https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-intro/"><meta property="og:site_name" content="코딩 소년의 블로그"><meta property="og:description" content="이맥스는 쓰면 쓸수록 매력있는 텍스트 에디터입니다. 이맥스로 할 수 있는게 아주 많습니다. 대부분의 사람들이 이맥스를 프로그래밍 할 때 사용하지만 Org 모드를 이용하면 일정관리, 메모, 문서작성에도 요긴하게 쓸 수 있습니다. 이 글에서는 Org 모드 중 일정관리에 대한 부분을 중점적으로 살펴보도록 하겠습니다. 들어가며 아래는 Org 모드가 어떤 것인지 한"><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://orgmode.org/img/main.jpg"><meta property="article:published_time" content="2017-11-14T15:00:00.000Z"><meta property="article:modified_time" content="2026-02-12T01:54:32.776Z"><meta property="article:author" content="이정민"><meta property="article:tag" content="emacs"><meta property="article:tag" content="tool"><meta property="article:tag" content="org mode"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://orgmode.org/img/main.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-intro/"},"headline":"코딩 소년의 블로그","image":["https://orgmode.org/img/main.jpg"],"datePublished":"2017-11-14T15:00:00.000Z","dateModified":"2026-02-12T01:54:32.776Z","author":{"@type":"Person","name":"이정민"},"description":"이맥스는 쓰면 쓸수록 매력있는 텍스트 에디터입니다. 이맥스로 할 수 있는게 아주 많습니다. 대부분의 사람들이 이맥스를 프로그래밍 할 때 사용하지만 Org 모드를 이용하면 일정관리, 메모, 문서작성에도 요긴하게 쓸 수 있습니다. 이 글에서는 Org 모드 중 일정관리에 대한 부분을 중점적으로 살펴보도록 하겠습니다. 들어가며 아래는 Org 모드가 어떤 것인지 한"}</script><link rel="canonical" href="https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-intro/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-SMXNY2YZ28" async></script><script>window.dataLayer = window.dataLayer || [];
+<html lang="ko"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>코딩 소년의 블로그</title><meta description="Privacy Policy – Ketone        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }      body {       font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto"><meta property="og:type" content="blog"><meta property="og:title" content="코딩 소년의 블로그"><meta property="og:url" content="https://jeongmin.github.io/ketone/privacy/index.html"><meta property="og:site_name" content="코딩 소년의 블로그"><meta property="og:description" content="Privacy Policy – Ketone        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }      body {       font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto"><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://jeongmin.github.io/img/og_image.png"><meta property="article:published_time" content="2026-03-08T13:33:07.349Z"><meta property="article:modified_time" content="2026-03-08T13:33:07.349Z"><meta property="article:author" content="이정민"><meta property="article:tag" content="프로그래밍"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jeongmin.github.io/ketone/privacy/index.html"},"headline":"코딩 소년의 블로그","image":["https://jeongmin.github.io/img/og_image.png"],"datePublished":"2026-03-08T13:33:07.349Z","dateModified":"2026-03-08T13:33:07.349Z","author":{"@type":"Person","name":"이정민"},"description":"Privacy Policy – Ketone        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }      body {       font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto"}</script><link rel="canonical" href="https://jeongmin.github.io/ketone/privacy/index.html"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-SMXNY2YZ28" async></script><script>window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'G-SMXNY2YZ28');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="alternate" href="/rss2.xml" title="코딩 소년의 블로그" type="application/rss+xml">
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2017-11-14T15:00:00.000Z" title="2017-11-14T15:00:00.000Z">2017-11-15</time><span class="level-item"><a class="link-muted" href="/categories/tool/">tool</a><span> / </span><a class="link-muted" href="/categories/tool/emacs/">emacs</a></span><span class="level-item">9분 읽기 (대략 1365 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile">이맥스(Emacs) Org 모드</h1><div class="content"><p>이맥스는 쓰면 쓸수록 매력있는 텍스트 에디터입니다. 이맥스로 할 수 있는게 아주 많습니다. 대부분의 사람들이 이맥스를 프로그래밍 할 때 사용하지만 <strong>Org 모드를 이용하면 일정관리, 메모, 문서작성에도 요긴하게 쓸 수 있습니다.</strong> 이 글에서는 Org 모드 중 일정관리에 대한 부분을 중점적으로 살펴보도록 하겠습니다.</p>
-<h2 id="들어가며">들어가며</h2>
-<p>아래는 Org 모드가 어떤 것인지 한눈에 볼 수 있는 이미지입니다.</p>
-<p><img src="https://orgmode.org/img/main.jpg" alt="Preview of Org mode"></p>
-<h2 id="시작하기">시작하기</h2>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">global-set-key</span> <span class="string">"\C-c l"</span> 'org-store-link)</span><br><span class="line">(<span class="name">global-set-key</span> <span class="string">"\C-c a"</span> 'org-agenda)</span><br><span class="line">(<span class="name">global-set-key</span> <span class="string">"\C-c c"</span> 'org-capture)</span><br><span class="line">(<span class="name">global-set-key</span> <span class="string">"\C-c b"</span> 'org-iswitchb)</span><br></pre></td></tr></table></figure>
-<h3 id="헤드라인">헤드라인</h3>
-<p>Org 모드의 시작은 헤드라인과 함께 합니다. 헤드라인은 위의 스크린 샷에서 <code>*</code>로 시작하는 줄입니다. 헤드라인은 단락과도 비슷한데, 들여쓰기와 함께 문서를 __트리 구조__로 작성할 수 있게 합니다. <code>M-RET</code>를 통해 추가할 수 있으며 헤드라인이 있는 줄에서 <code>M-방향키</code>를 입력하면 레벨과 위치를 조절 할 수 있습니다.</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* Top level headline</span><br><span class="line">    ** Second level</span><br><span class="line">    *** <span class="number">3</span>rd level</span><br><span class="line">        some text</span><br><span class="line">    *** <span class="number">3</span>rd level</span><br><span class="line">        more text</span><br><span class="line">     </span><br><span class="line">    * Another top level headline</span><br></pre></td></tr></table></figure>
-<h3 id="할-일-목록-TODO-Items">할 일 목록(TODO Items)</h3>
-<p>헤드라인은 모두 할 일이 될 수 있습니다. 할 일이 되기 위해서는 헤드라인이 _TODO_로 시작하면 됩니다. 헤드라인에서 <code>S-&lt;LEFT&gt;</code> 또는 <code>S-&lt;RIGHT&gt;</code>를 입력하면 헤드라인 -&gt; TODO -&gt; DONE의 세 가지 상태로 쉽게 전환할 수 있습니다.</p>
-<h3 id="시간과-날짜-Date-and-Times">시간과 날짜(Date and Times)</h3>
-<p>일정관리에는 시간이 중요합니다. 일정은 특정한 날까지 수행해야 하는 일, 일정한 주기로 반복적으로 일어나는 일, 언제부터 언제까지와 같은 일정 날짜 사이에 해야하는 일 등 시간 엮이는 경우가 많습니다.</p>
-<p>Org 모드에서 각각의 할 일은 타임스탬프 레이블을 통해 관리 할 수 있습니다. 타임스탬프는 할 일 목록에만 붙는게 아니라 Org 트리에 있는 엔트리에 모두 붙을 수 있습니다.</p>
-<h4 id="일반-시간-이벤트-일정">일반 시간, 이벤트, 일정</h4>
-<p>특정한 이벤트나 일정이 열시는 시간을 나타냅니다.</p>
-<pre>
-     * Meet Peter at the movies
-       <2006-11-01 Wed 19:15>
-     * Discussion on climate change
-       <2006-11-02 Thu 20:00-22:00>
-</pre>
-<h4 id="반복되는-시간">반복되는 시간</h4>
-<p>일정한 주기로 반복되는 일을 나타냅니다.</p>
-<pre>
-     * Pick up Sam at school
-       <2007-05-16 Wed 12:30 +1w>
-</pre>
-<h4 id="Diary-style-sexp-entries">Diary-style sexp entries</h4>
-<pre>
-     * The nerd meeting on every 2nd Thursday of the month
-       <%%(diary-float t 4 2)>
-</pre>
-<h4 id="시간-범위">시간 범위</h4>
-<p>시간 범위를 나타냅니다. '–'로 두 타임스탬프를 연결하는 형태로 표현합니다.</p>
-<pre>
-     ** Meeting in Amsterdam
-        <2004-08-23 Mon>--<2004-08-26 Thu>
-</pre>
-<h4 id="비활성-타임스탬프">비활성 타임스탬프</h4>
-<p>아젠다에 나타나지 않는 시간입니다. ‘[’ ~ ']'로 표현되며 할 일을 완료해서 DONE이 되면 나타나는 시간입니다.</p>
-<pre>
-     * Gillian comes late for the fifth time
-       [2006-11-01 Wed]
-</pre>
-<h3 id="태그-Tags">태그(Tags)</h3>
-<p>헤드라인에 서로 연관있는 정보나 추가 정보를 기입하기 위해 태그를 사용할 수 있습니다. 태그는 헤드라인의 끝에 들어가며 여러 태그를 같이 달 수 있습니다. 태그는 문자와 숫자,  <code>_</code>, <code>@</code>로 구성되며 <code>:</code>와 <code>:</code>로 감싸야합니다. 아래는 태그의 예 입니다.</p>
-<p>또한 태그는 상속이 됩니다. 아래 예에서 두 번째 레벨의 헤드라인은 :work:boss:notes: 태그를 갖게 되고 세 번째 레벨의 헤드라인은 :work:boss:notes:action: 태그를 갖게 됩니다.</p>
-<pre>
-     * Meeting with the French group      :work:
-     ** Summary by Frank                  :boss:notes:
-     *** TODO Prepare slides for him      :action:
-</pre>
-<p>태그는 파일 단위로도 달 수 있습니다. 아래와 같이 문서에 <code>#+FILETAGS:</code>를 이용하면 파일 전체에 태그가 적용됩니다.</p>
-<blockquote>
-<p>#+FILETAGS: :Peter:Boss:Secret:</p>
-</blockquote>
-<p>Enter new tags for the current headline. Org mode will either offer completion or a special single-key interface for setting tags, see below. After pressing <RET>, the tags will be inserted and aligned to org-tags-column. When called with a C-u prefix, all tags in the current buffer will be aligned to that column, just to make things look nice.</p>
-<h3 id="아젠다-Agenda">아젠다(Agenda)</h3>
-<h2 id="기능">기능</h2>
-<p><a href="https://orgmode.org/features.html">Feature list</a></p>
-<h2 id="일정관리-Todo">일정관리(Todo)</h2>
-<h2 id="팁">팁</h2>
-<p>C-c C-c<br>
-When the cursor is in a headline, this does the same as C-c C-q.</p>
-<ul>
-<li>헤드라인에서 입력하는 경우 : 태그 입력</li>
-<li>타임스탬프에서 입력하는 경우 : 타임스탬프 수정</li>
-</ul>
-<p>org-support-shift-select</p>
-<h2 id="자주쓰는-단축키">자주쓰는 단축키</h2>
-<h6 id="태그-단축키">태그 단축키</h6>
-<p>단축키    | 명령어               | 설명<br>
-—       | —                 |<br>
-C-c C-q | C-c C-q | 현재 엔트리에 태그를 추가합니다</p>
-<h6 id="할-일-목록-단축키">할 일 목록 단축키</h6>
-<p>단축키    | 명령어               | 설명<br>
-—       | —                 |<br>
-C-c C-t | org-todo | 헤드라인을 할일, 완료, 상태없음(unmarked)로 변경<br>
-S-<right>/<left> | org-shift-right / org-shift-left | 헤드라인을 할일, 완료, 상태없음(unmarked)로 변경<br>
-C-c / t  |       | 모든 할일 목록을 보여준다<br>
-S-M-<RET> | org-insert-todo-heading | 현재 헤드라인과 동일한 레벨에 할일 목록을 추가한다.</p>
-<h6 id="아젠다-단축키">아젠다 단축키</h6>
-<p>단축키    | 명령어               | 설명<br>
-—       | —                 |<br>
-C-c [ | org-agenda-file-to-front | 현재 파일을 아젠다 목록에 추가<br>
-C-c ] | org-remove-file | 현재 파일을 아젠다 목록에서 제거<br>
-C-,	  |	org-cycle-agenda-files | org-agenda-files 목록에 있는 아젠다 파일 순회<br>
-C-c C-d	  |	org-deadline | 데드라인 타임스탬프 추가</p>
-</div><div class="article-tags size-small is-uppercase mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/emacs/">emacs</a><a class="link-muted mr-2" rel="tag" href="/tags/tool/">tool</a><a class="link-muted mr-2" rel="tag" href="/tags/org-mode/">org mode</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2017/11/15/emacs/emacs-org-mode-introduction/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">이맥스(Emacs) Org 모드 - 1. 시작하기</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2017/11/09/emacs/emacs-package/"><span class="level-item">이맥스(Emacs) 패키지 관리</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">댓글</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
-            this.page.url = 'https://jeongmin.github.io/2017/11/15/emacs/emacs-org-mode-intro/';
-            this.page.identifier = '2017/11/15/emacs/emacs-org-mode-intro/';
+        gtag('config', 'G-SMXNY2YZ28');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="코딩 소년의 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jeongmin"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><h1 class="title is-3 is-size-4-mobile"> </h1><div class="content"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Ketone</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p  { margin-top: 8px; color: #aaa; font-size: 0.95rem; }
+
+    main {
+      max-width: 760px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    section { margin-bottom: 40px; }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e5e5e5;
+    }
+
+    p  { margin-bottom: 12px; color: #333; }
+    ul { padding-left: 20px; margin-bottom: 12px; color: #333; }
+    li { margin-bottom: 6px; }
+
+    .badge {
+      display: inline-block;
+      background: #f0f0f0;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .contact-box {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      padding-bottom: 40px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body    { background: #111; color: #eee; }
+      header  { background: #000; }
+      h2      { border-bottom-color: #2a2a2a; }
+      p, ul, li { color: #ccc; }
+      .badge  { background: #222; color: #aaa; }
+      .contact-box { background: #1a1a1a; border-color: #2a2a2a; }
+    }
+  </style>
+<link rel="alternate" href="/rss2.xml" title="코딩 소년의 블로그" type="application/rss+xml">
+</head>
+<body>
+
+<header>
+  <h1>Ketone – Privacy Policy</h1>
+  <p>Last updated: March 8, 2026</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Ketone ("we", "our", or "the app") is an intermittent fasting timer app.
+      We are committed to protecting your privacy. This policy explains what data
+      the app collects, how it is used, and your rights.
+    </p>
+    <p>
+      <strong>TL;DR:</strong> Your health data (fasting records, weight, mood)
+      is stored <em>only on your device</em>. We do not sell your data.
+      We use limited, anonymized analytics to improve the app.
+    </p>
+  </section>
+
+  <section>
+    <h2>Data We Collect</h2>
+
+    <p><span class="badge">Stored on device only</span></p>
+    <ul>
+      <li><strong>Fasting records</strong> – start time, duration, fasting stage reached</li>
+      <li><strong>Weight data</strong> – weight entries and goal weight you input</li>
+      <li><strong>Mood logs</strong> – mood ratings you record after a fast</li>
+      <li><strong>App preferences</strong> – timer style, color theme, notification settings</li>
+    </ul>
+    <p>This data is stored locally using Room database and DataStore. It never leaves your device unless you explicitly export or back it up.</p>
+
+    <p><span class="badge">Collected by third-party services</span></p>
+    <ul>
+      <li>
+        <strong>Firebase Crashlytics</strong> – crash logs and stack traces when the app crashes,
+        to help us fix bugs. Does not include personal health data.
+      </li>
+      <li>
+        <strong>Firebase Analytics</strong> – anonymous usage events (e.g., "fasting started",
+        "weight recorded") to understand how features are used. No personally identifiable
+        information is included.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Permissions We Request</h2>
+    <ul>
+      <li>
+        <strong>Physical Activity Recognition</strong> – detects transitions between activities
+        (walking, running, cycling) to provide contextual fasting insights.
+        This uses on-device sensors only; raw activity data is not transmitted.
+      </li>
+      <li>
+        <strong>Post Notifications</strong> – sends reminders when you reach fasting milestones
+        (fat burning, ketosis, autophagy, cell regeneration stages).
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Third-Party Services</h2>
+    <p>The app integrates the following third-party SDKs, each with their own privacy policies:</p>
+    <ul>
+      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google Firebase (Analytics &amp; Crashlytics)</a></li>
+      <li><a href="https://policies.google.com/privacy" target="_blank">Google Play Services</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Retention &amp; Deletion</h2>
+    <p>
+      All health data (fasting, weight, mood) is stored locally on your device.
+      You can delete it at any time by clearing the app's data or uninstalling the app.
+    </p>
+    <p>
+      Anonymized analytics and crash data retained by Firebase are subject to
+      Google's data retention policies (typically 14 months for Analytics).
+    </p>
+  </section>
+
+  <section>
+    <h2>Children's Privacy</h2>
+    <p>
+      Ketone is not directed to children under the age of 13.
+      We do not knowingly collect personal information from children.
+    </p>
+  </section>
+
+  <section>
+    <h2>Changes to This Policy</h2>
+    <p>
+      We may update this privacy policy from time to time. The "Last updated" date
+      at the top of this page reflects the most recent revision.
+      Continued use of the app after changes constitutes acceptance of the updated policy.
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p>If you have any questions or concerns about this privacy policy, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:jjungmin@gmail.com">jjungmin@gmail.com</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Ketone. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+</div><!--!--></article></div><!--!--><div class="card"><div class="card-content"><h3 class="title is-5">댓글</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://jeongmin.github.io/ketone/privacy/index.html';
+            this.page.identifier = 'ketone/privacy/index.html';
         };
         (function() {
             var d = document, s = d.createElement('script');  
