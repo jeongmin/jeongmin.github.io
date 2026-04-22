@@ -92,7 +92,7 @@
 
 <header>
   <h1>Ketone – Privacy Policy</h1>
-  <p>Last updated: March 8, 2026</p>
+  <p>Last updated: April 22, 2026</p>
 </header>
 
 <main>
@@ -105,9 +105,10 @@
       the app collects, how it is used, and your rights.
     </p>
     <p>
-      <strong>TL;DR:</strong> Your health data (fasting records, weight, mood)
-      is stored <em>only on your device</em>. We do not sell your data.
-      We use limited, anonymized analytics to improve the app.
+      <strong>TL;DR:</strong> Most of your health data (weight, mood) stays
+      <em>only on your device</em>. If you use the Community tab, your fasting
+      records are shared with other Ketone users via the cloud. We do not sell
+      your data. We use limited, anonymized analytics to improve the app.
     </p>
   </section>
 
@@ -116,12 +117,18 @@
 
     <p><span class="badge">Stored on device only</span></p>
     <ul>
-      <li><strong>Fasting records</strong> – start time, duration, fasting stage reached</li>
       <li><strong>Weight data</strong> – weight entries and goal weight you input</li>
       <li><strong>Mood logs</strong> – mood ratings you record after a fast</li>
       <li><strong>App preferences</strong> – timer style, color theme, notification settings</li>
     </ul>
-    <p>This data is stored locally using Room database and DataStore. It never leaves your device unless you explicitly export or back it up.</p>
+    <p>This data is stored locally using Room database and DataStore and never leaves your device.</p>
+
+    <p><span class="badge">Shared with other users (Community tab)</span></p>
+    <ul>
+      <li><strong>Fasting records</strong> – start time, duration, and fasting stage reached are
+        uploaded to Google Firebase Firestore and displayed to other Ketone users in the
+        Community tab. You can disable community sharing at any time in the app settings.</li>
+    </ul>
 
     <p><span class="badge">Collected by third-party services</span></p>
     <ul>
@@ -156,7 +163,7 @@
     <h2>Third-Party Services</h2>
     <p>The app integrates the following third-party SDKs, each with their own privacy policies:</p>
     <ul>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google Firebase (Analytics &amp; Crashlytics)</a></li>
+      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google Firebase (Analytics, Crashlytics &amp; Firestore)</a></li>
       <li><a href="https://policies.google.com/privacy" target="_blank">Google Play Services</a></li>
     </ul>
   </section>
@@ -164,8 +171,13 @@
   <section>
     <h2>Data Retention &amp; Deletion</h2>
     <p>
-      All health data (fasting, weight, mood) is stored locally on your device.
+      Weight and mood data is stored locally on your device.
       You can delete it at any time by clearing the app's data or uninstalling the app.
+    </p>
+    <p>
+      Fasting records shared via the Community tab are stored in Firebase Firestore.
+      You can delete your community data by disabling community sharing in the app settings
+      or by contacting us at <a href="mailto:jjungmin@gmail.com">jjungmin@gmail.com</a>.
     </p>
     <p>
       Anonymized analytics and crash data retained by Firebase are subject to
